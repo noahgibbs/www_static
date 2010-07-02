@@ -1,0 +1,79 @@
+body {
+  background-color: #FFFFEE;
+}
+
+.pictures img {
+  border: solid 2px black;
+}
+
+p.disclaimer {
+  text-align: center;
+  font-size: 80%;
+  color: #888888;
+}
+
+div.buttonbox {
+  padding: 10px;
+  margin-left: 20%;
+}
+
+div.professional {
+  background-color: #AA9988;
+  padding: 10px;
+  margin: 30px;
+}
+
+div.personal {
+  background-color: #BBBBFF;
+  padding: 10px;
+  margin: 30px;
+}
+
+div.student {
+  background-color: #BBFFBB;
+  padding: 10px;
+  margin: 30px;
+}
+
+div.radio_div {
+  display: inline;
+  background-color: #CCCCFF;
+  border: solid 2px black;
+  padding: 10px;
+}
+
+div.radio_div:hover {
+  background-color: #8F8FFF;
+}
+
+div.radio_div.selected {
+  border: solid 4px black;
+}
+
+span.label_type {
+  color: #202020;
+  font-weight: bold;
+}
+
+.professional .picture_frame {
+  background-color: #785544;
+}
+
+.personal .picture_frame {
+  background-color: #7070C0;
+}
+
+div.curved {
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+}
+
+.shadow {
+  -moz-box-shadow: 3px 3px 4px #000;
+  -webkit-box-shadow: 3px 3px 4px #000;
+  box-shadow: 3px 3px 4px #000;
+  /* For IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+  /* For IE 5.5 - 7 */
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
