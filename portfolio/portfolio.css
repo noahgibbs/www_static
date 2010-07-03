@@ -17,6 +17,16 @@ div.buttonbox {
   margin-left: 20%;
 }
 
+div#tagbox {
+  margin-left: 10%;
+  margin-top: 20px;
+}
+
+div#tagbox .radio_tag_div {
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+}
+
 div.professional {
   background-color: #AA9988;
   padding: 10px;
@@ -50,6 +60,22 @@ div.radio_div.selected {
   border: solid 4px black;
 }
 
+div.radio_tag_div {
+  display: inline;
+  background-color: #FFCCFF;
+  border: solid 2px #808080;
+  padding: 8px;
+  font-size: 80%;
+}
+
+div.radio_tag_div:hover {
+  background-color: #986898;
+}
+
+div.radio_tag_div.selected {
+  border: solid 3px blue;
+}
+
 span.label_type {
   color: #202020;
   font-weight: bold;
@@ -66,6 +92,11 @@ span.label_type {
 div.curved {
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
+}
+
+div.small_curved {
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
 }
 
 .shadow {
