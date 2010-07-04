@@ -1,3 +1,4 @@
+<pre>
 # Seas of Night
 
 require "maslow"
@@ -53,3 +54,4 @@ print "Population loaded...\n"
     person.tick
   end
 end
+</pre>
