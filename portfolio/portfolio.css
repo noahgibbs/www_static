@@ -2,6 +2,14 @@ body {
   background-color: #FFFFEE;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #808080;
+}
+
 .pictures img {
   border: solid 2px black;
 }
@@ -53,10 +61,15 @@ div.radio_div {
 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8F8FFF', endColorstr='#5A5AC0');
   background: -webkit-gradient(linear, left top, left bottom, from(#8F8FFF), to(#5A5AC0));
-  background: -moz-linear-gradient(top,  #8F8FFF,  #5A5AC0);}
+  background: -moz-linear-gradient(top,  #8F8FFF,  #5A5AC0);
+}
 
 div.radio_div:hover {
   background-color: #CCCCFF;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CCCCFF', endColorstr='#5A5AC0');
+  background: -webkit-gradient(linear, left top, left bottom, from(#CCCCFF), to(#5A5AC0));
+  background: -moz-linear-gradient(top,  #CCCCFF,  #5A5AC0);
 }
 
 div.radio_div.selected {
@@ -95,8 +108,28 @@ div.radio_tag_div {
   background: -moz-linear-gradient(top,  #BBFFBB,  #5D8F5D);
 }
 
-div.radio_tag_div:hover {
-  background-color: #986898;
+div.radio_tag_div.professional_gradient:hover {
+  background-color: #CAB9A8;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CAB9A8', endColorstr='#606060');
+  background: -webkit-gradient(linear, left top, left bottom, from(#CAB9A8), to(#606060));
+  background: -moz-linear-gradient(top,  #CAB9A8,  #606060);
+}
+
+div.radio_tag_div.personal_gradient:hover {
+  background-color: #DDDDFF;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDDDFF', endColorstr='#606060');
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDDDFF), to(#606060));
+  background: -moz-linear-gradient(top,  #DDDDFF,  #606060);
+}
+
+div.radio_tag_div.student_gradient:hover {
+  background-color: #DDFFDD;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDFFDD', endColorstr='#606060');
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDFFDD), to(#606060));
+  background: -moz-linear-gradient(top,  #DDFFDD,  #606060);
 }
 
 div.radio_tag_div.selected {
@@ -132,6 +165,18 @@ div.small_curved {
 
 .hidden {
   display: none;
+}
+
+.float_right {
+  float: right;
+}
+
+.float_left {
+  float: left;
+}
+
+.clear {
+  clear: both;
 }
 
 .shadow {
