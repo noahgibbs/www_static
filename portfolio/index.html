@@ -4,7 +4,7 @@
   <meta name="description" content="A portfolio of programming projects, professional and not, by Noah Gibbs" />
   <meta name="keywords" content="noah,gibbs,noah gibbs,portfolio,programming,projects,ruby,rails,juggernaut,comet" />
   <title>Noah Gibbs's Portfolio</title>
-  <link href="/portfolio/portfolio.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="portfolio.css" media="screen" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="/javascripts/curvycorners.js"></script>
   <script type="text/javascript"
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
@@ -16,6 +16,14 @@
 <script type="text/javascript">
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function show_elts(elts) {
+  elts.animate({height: 'show'});
+}
+
+function hide_elts(elts) {
+  elts.animate({height: 'hide'});
 }
 
 jQuery.fn.getAllClasses = function() {
@@ -63,11 +71,11 @@ $(function() {
     $("#student").removeClass("selected");
     $(this).addClass("selected");
 
-    $("." + last_selected).animate({height: 'hide'});
+    hide_elts($("." + last_selected));
 
     last_selected = new_selected;
     var projects_to_show = $('.' + last_selected);
-    projects_to_show.animate({height: 'show'});
+    show_elts(projects_to_show);
 
     $("#tagbox div").remove();
     tags_shown = projects_to_show.getAllClasses();
@@ -78,19 +86,25 @@ $(function() {
     delete tags_shown.shadow;
     delete tags_shown.selected;
 
+    $('<div class="radio_tag_div shadow selected">all</div>').appendTo("#tagbox");
     for(var tag in tags_shown) {
       $('<div class="radio_tag_div shadow">' + tag + "</div>").appendTo("#tagbox");
     }
   });
 
   $(".radio_tag_div").live("click", function() {
-    var elts = $("." + last_selected + "." + $(this).html());
-    if($(this).hasClass("selected")) {
-      elts.hide();
-    } else {
-      elts.show();
-    }
-    $(this).toggleClass("selected");
+    var text = $(this).html();
+    var elts = $("." + last_selected);
+    var sub_elts;
+
+    if(text == "all") { sub_elts = elts; }
+    else { sub_elts = elts.filter("." + text); }
+
+    $(".radio_tag_div").removeClass("selected");
+    $(this).addClass("selected");
+
+    hide_elts(elts);
+    show_elts(sub_elts);
   });
 
   $("#professional").click();
