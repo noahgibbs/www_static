@@ -9,13 +9,13 @@
   <title>Noah Gibbs's Portfolio</title>
   <link href="portfolio.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/fancybox/jquery.fancybox-1.3.1.css" media="screen" rel="stylesheet" type="text/css" />
+  <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+  </script>
   <script type="text/javascript" src="/javascripts/curvycorners.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.easing-1.3.pack.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
-  <script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
-  </script>
   <title> Noah Gibbs's Programming Portfolio </title>
 </head>
 <body>
@@ -126,6 +126,8 @@ $(function() {
     show_elts(sub_elts);
   });
 
+  $(".fancybox").fancybox({ hideOnContentClick: true });
+
   $("#professional").click();
 });
 </script>
@@ -178,8 +180,10 @@ $(function() {
     now cancelled </div>
   <div class="tools"> GObject, Clutter, OpenGL, C, Linux, Perforce </div>
   <div class="role"> Co-architect, graphics and UI framework </div>
-  <div class="pictures"> <a href="emblazeedelweiss.jpg">
-      <img width="150" src="emblazeedelweiss.jpg" alt="an iPhone-like device" /></a>,
+  <div class="pictures">
+      <a class="fancybox" href="emblazeedelweiss.jpg">
+      <img src="emblazeedelweiss.jpg" alt="Emblaze First Else, nee Edelweiss"
+        /></a>,
     <a href="http://www.emblazemobile.com/project.html">(project description)
     </a> </div>
 </div>
@@ -193,9 +197,11 @@ $(function() {
   <div class="tools"> GTK, C, Linux, Coverity, Perforce </div>
   <div class="role"> Maintainer of Tasks and Memos, miscellaneous other
     work </div>
-  <div class="pictures"> <img alt="Screenshot" src="ALP1.png" />,
-    <a href="ALP2.png">Screenshot 2</a>,
-    <a href="ALP3.png">Screenshot 3</a> </div>
+  <div class="pictures">
+    <img alt="ALP Screenshot" src="ALP1.png" />
+    <img alt="ALP Screenshot 2" src="ALP2.png" />
+    <img alt="ALP Screenshot 3" src="ALP3.png" />
+  </div>
 </div>
 
 <div class="professional c scripting multimedia">
@@ -220,11 +226,14 @@ $(function() {
     Windows CE, JPEG2000 </div>
   <div class="role"> Co-author (2-man team), focused on graphics </div>
   <div class="pictures">
-       Win32: <a href="sharpcast1.jpg">
-           <img width="150" src="sharpcast1.jpg" /></a>
-        <a href="sharpcast2.jpg">(screenshot)</a> <br/>
-      Windows Mobile: <a href="scmobile1.png">(screenshot)</a>
-        <a href="scmobile2.png">(screenshot)</a>
+       Win32: <a href="sharpcast1.jpg" class="fancybox">
+           <img src="sharpcast1.jpg" /></a>
+        <a href="sharpcast2.jpg" class="fancybox">
+           <img src="sharpcast2.jpg" /></a> <br/>
+      Windows Mobile: <a href="scmobile1.png" class="fancybox">
+           <img src="scmobile1.png" /></a>
+        <a href="scmobile2.png" class="fancybox">
+           <img src="scmobile2.png" /></a>
   </div>
 </div>
 
@@ -238,8 +247,10 @@ $(function() {
   <div class="tools"> C, PalmOS, Linux </div>
   <div class="role"> Sole programmer, PalmOS hardware acceleration
     project </div>
-  <div class="pictures"> <a href="http://upload.wikimedia.org/wikipedia/commons/4/43/TapwaveZodiac.png">
-      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TapwaveZodiac.png/160px-TapwaveZodiac.png" /> </a> </div>
+  <div class="pictures">
+    <a href="http://upload.wikimedia.org/wikipedia/commons/4/43/TapwaveZodiac.png"
+      class="fancybox" >
+      <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TapwaveZodiac.png/160px-TapwaveZodiac.png" alt="Tapwave Zodiac" /> </a> </div>
 </div>
 
 <div class="professional c mobile">
@@ -271,9 +282,9 @@ $(function() {
   <div class="tools"> C, PalmOS, MacOS 9, MPW, Perforce </div>
   <div class="role"> Original author, primary maintainer </div>
   <div class="pictures">
-      <a href="pose_1.png"><img width="150" src="pose_1.png" /> </a>
-      This is a screencap of a newer emulator.
-      The old one had chunkier graphics.
+      <a href="pose_1.png" class="fancybox">
+        <img alt="A newer emulator.  The old one was blockier."
+          src="pose_1.png" /> </a>
   </div>
 </div>
 
@@ -289,10 +300,11 @@ $(function() {
   <div class="tools"> C, Perl, WinCE 2.1 </div>
   <div class="role"> Original author, sole maintainer </div>
   <div class="pictures"> 
-      <a href="nowsol_3.png"><img width="150" src="nowsol_3.png" /></a>,
-      <a href="nowsol_1.png">(screenshot)</a>,
-      <a href="nowsol_2.png">(screenshot)</a> <br />
-      These are from the container-tracking system RIPC was used for
+      <a href="nowsol_3.png" class="fancybox"><img src="nowsol_3.png" /></a>
+      <a href="nowsol_1.png" class="fancybox"><img src="nowsol_1.png" /></a>
+      <a href="nowsol_2.png" class="fancybox"><img src="nowsol_2.png" /></a>
+      <br/> These are from the container-tracking system for which I
+      wrote RIPC
   </div>
 </div>
 
@@ -318,8 +330,8 @@ $(function() {
     class.  Code by request </div>
   <div class="tools"> C, Linux, PNM </div>
   <div class="role"> Author;  server author for distributed version </div>
-  <div class="pictures"> <a href="reflroom.png">
-    <img width="100" src="reflroom.png" /></a> </div>
+  <div class="pictures"> <a href="reflroom.png" class="fancybox">
+    <img src="reflroom.png" /></a> </div>
 </div>
 
 <div class="personal c">
@@ -331,10 +343,15 @@ $(function() {
   <div class="tools"> C, Linux, Win32, SDL, VirtualBox, git, MinGW,
     NullSoft Installer </div>
   <div class="role"> Sole author and maintainer </div>
-  <div class="pictures"> <a href="pizzawindow.png">
-           <img width="150" src="pizzawindow.png" /> Early screen 1 </a>,
-         <a href="pizzawindow2.png">
-           <img width="150" src="pizzawindow2.png" /> Early screen 2 </a>
+  <div class="pictures">
+         <a href="pizzawindow.png" class="fancybox">
+           <img src="pizzawindow.png" alt="Early screen 1" /> </a>
+         <a href="pizzawindow2.png" class="fancybox">
+           <img src="pizzawindow2.png" alt="Early screen 2" /> </a>
+         <a href="pizzawindow3.png" class="fancybox">
+           <img src="pizzawindow3.png" alt="Later screen 2" /> </a>
+         <a href="pizzawindow4.png" class="fancybox">
+           <img src="pizzawindow4.png" alt="Later screen 2" /> </a>
   </div>
 </div>
 
@@ -352,11 +369,12 @@ $(function() {
     git </div>
   <div class="role"> Sole author and maintainer </div>
   <div class="pictures">
-      <a href="astrino_early_2.png">
-      <img src="astrino_early_2.png" height=150 /></a>,
-      <a href="railsmud_e1.png">very early screenshot 2</a>,
-      <a href="http://noahgibbs.github.com/RailsGame/railsgame_diagram.png">
-        design diagram</a>
+      <a href="astrino_early_2.png" class="fancybox">
+        <img src="astrino_early_2.png" alt="very early screenshot" /></a>
+      <a href="http://noahgibbs.github.com/RailsGame/railsgame_diagram.png"
+        class="fancybox">
+        <img src="http://noahgibbs.github.com/RailsGame/railsgame_diagram.png"
+          alt="design diagram" /> </a>
   </div>
 </div>
 
@@ -389,10 +407,14 @@ $(function() {
     harsh &amp; ultraviolet </div>
   <div class="role"> Sole author and maintainer, sole content author </div>
   <div class="pictures">
-      <a href="blog_2009_1.png"><img width="150" src="blog_2009_1.png" /></a>,
-      <a href="blog_top.png">older top screenshot</a>,
-      <a href="blog_bottom.png">older bottom screenshot</a>,
-      <a href="blog_show.png">old post with Disqus form</a>
+      <a href="blog_2009_1.png" class="fancybox">
+        <img src="blog_2009_1.png" alt="2009 screenshot" /></a>
+      <a href="blog_top.png" class="fancybox">
+        <img src="blog_top.png" alt="older top screenshot" /></a>
+      <a href="blog_bottom.png" class="fancybox">
+        <img src="blog_bottom.png" alt="older bottom screenshot" /></a>
+      <a href="blog_show.png" class="fancybox">
+        <img src="blog_show.png" alt="old post with Disqus form" /></a>
   </div>
 </div>
 
@@ -405,8 +427,10 @@ $(function() {
   <div class="tools"> Ruby on Rails, Linux, git </div>
   <div class="role"> Sole author and maintainer </div>
   <div class="pictures">
-      <a href="wmj_screenshot_1.jpg"><img width="150" src="wmj_screenshot_1.jpg" /></a>,
-      <a href="iHjH.png">Very early screenshot</a>
+      <a href="wmj_screenshot_1.jpg" class="fancybox">
+        <img src="wmj_screenshot_1.jpg" alt="Early screenshot" /></a>
+      <a href="iHjH.png" class="fancybox">
+        <img src="iHjH.png" alt="Very early screenshot" /></a>
   </div>
 </div>
 
@@ -422,12 +446,16 @@ $(function() {
   <div class="tools"> ruby, Linux, git </div>
   <div class="role"> Sole author and maintainer </div>
   <div class="pictures">
-      <a href="bigvolt.png"><img width="150" src="bigvolt.png" /></a>,
-      <a href="diffeq_code.png">(simple code excerpt)</a>,
-      <a href="graph_of_exp.png">(simple graph output)</a>,
-      <a href="bigvolt.png">(large Lotka-Volterra pred/prey graph)</a>,
-      <a href="smallvolt.png">(small Lotka-Volterra pred/prey graph)</a>,
-      <a href="volterra.rb">(simple ruby code for same)</a>
+      <a href="diffeq_code.png" class="fancybox">
+        <img src="diffeq_code.png" alt="simple code excerpt" /></a>
+      <a href="graph_of_exp.png" class="fancybox">
+        <img src="graph_of_exp.png" alt="simple graph output" /></a>
+      <a href="bigvolt.png" class="fancybox">
+        <img src="bigvolt.png" alt="large Lotka-Volterra pred/prey graph" /></a>
+      <a href="smallvolt.png" class="fancybox">
+        <img src="smallvolt.png" alt="small Lotka-Volterra pred/prey graph" /></a>
+      <a href="volterra.rb" class="fancybox">
+        simple ruby code for Lotka-Volterra predator/prey graph </a>
   </div>
 </div>
 

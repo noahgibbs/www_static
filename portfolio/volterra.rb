@@ -1,3 +1,4 @@
+<pre>
 require "diffeq"
 require "ftools"      # for File.exist?
 
@@ -45,3 +46,4 @@ values, yvec = advancer.advance(values, yvec, 0.0, 100.0)
 
 advancer.write_plotter_file(PLOTTERFILE)
 advancer.stop_plotter
+</pre>

@@ -12,6 +12,12 @@ td {
 
 .pictures img {
   border: solid 2px black;
+  margin: 0 10px;
+}
+
+a.fancybox img {
+  max-width: 150px;
+  max-height: 150px;
 }
 
 p.disclaimer {
