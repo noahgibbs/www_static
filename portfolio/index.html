@@ -40,22 +40,32 @@ jQuery.fn.getAllClasses = function() {
 
 var last_selected = "nobody_at_all";
 var tags_shown = {};
+var project_fields = {organization:1, description:1, tools:1, role:1,
+                      dates:1, pictures:1};
 $(function() {
-  $(".professional,.personal,.student").hide();
-
-  $(".professional").addClass("curved shadow");
-  $(".personal").addClass("curved shadow");
-  $(".student").addClass("curved shadow");
+  all_projects = $(".professional,.personal,.student");
+  all_projects.hide().addClass("curved shadow");
   $(".radio_div").addClass("curved shadow");
 
+  // Replace every project div with a templatized version
+  all_projects.each(function() {
+    field_objs = {};
+    for(var field in project_fields) {
+      field_objs[field] = $(this).find("." + field).remove();
+    }
+    $(this).html($("#template").html());
+    for(var field in project_fields) {
+      var spot = $(this).find("." + field + "_here");
+      field_objs[field].appendTo(spot);
+    }
+  });
   $(".pictures").each(function() {
     $(this).html("<div class='picture_frame'>" + $(this).html() + "</div>");
   });
 
-  for(tag in {organization:1, description:1, tools:1, role:1,
-              dates:1, pictures:1}) {
+  for(var tag in project_fields) {
     $("." + tag).each(function() {
-      $(this).prepend($('<span class="label_type label_' + tag + '">' +
+      $(this).prepend($('<span class="label_type">' +
                          capitalize(tag) + ':' + '</span>'));
     });
   }
@@ -86,9 +96,11 @@ $(function() {
     delete tags_shown.shadow;
     delete tags_shown.selected;
 
-    $('<div class="radio_tag_div shadow selected">all</div>').appendTo("#tagbox");
+    $('<div class="radio_tag_div shadow selected ' + last_selected
+      + '_gradient">all</div>').appendTo("#tagbox");
     for(var tag in tags_shown) {
-      $('<div class="radio_tag_div shadow">' + tag + "</div>").appendTo("#tagbox");
+      $('<div class="radio_tag_div shadow ' + last_selected + '_gradient">' +
+        tag + "</div>").appendTo("#tagbox");
     }
   });
 
@@ -113,10 +125,8 @@ $(function() {
 
 <p class="disclaimer">
   This list is representative, not complete.  Also, feel free to
-  check <a href="http://static.angelbob.com/resume">my resume</a>.
+  check <a href="http://static.angelbob.com/resume">my resume</a> -- Noah
 </p>
-
-<h1 align="center"> Noah Gibbs' Programming Portfolio </h1>
 
 <div class="buttonbox">
 <div id="professional" class="radio_div">Professional</div>
@@ -125,7 +135,22 @@ $(function() {
 </div>
 <div id="tagbox"> </div> <!-- For sub-buttons -->
 
-<div class="professional rails ruby www">
+<div id="template" class="hidden">
+  <div class="dates_here"></div> <br />
+  <table>
+    <tr>
+      <td> <div class="role_here"> </div> </td>
+      <td> <div class="organization_here"> </div> </td>
+    </tr>
+    <tr>
+      <td> <div class="tools_here"> </div> </td>
+      <td> <div class="description_here"> </div> </td>
+    </tr>
+  </table>
+  <div class="pictures_here"> </div>
+</div>
+
+<div class="professional rails">
   <div class="dates"> 2009 - present </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
     </div>
@@ -135,7 +160,7 @@ $(function() {
   <div class="role"> Engineer, site team </div>
 </div>
 
-<div class="professional c mobile opengl">
+<div class="professional c mobile multimedia">
   <div class="dates"> 2008 - 2009 </div>
   <div class="organization"> <a href="http://access-company.com">ACCESS
     Systems Americas, purchaser of PalmSource</a> </div>
@@ -152,7 +177,7 @@ $(function() {
     </a> </div>
 </div>
 
-<div class="professional c mobile gtk">
+<div class="professional c mobile multimedia">
   <div class="dates"> 2007 - 2008 </div>
   <div class="organization"> <a href="http://access-company.com">ACCESS
     Systems Americas, purchaser of PalmSource</a> </div>
@@ -166,12 +191,12 @@ $(function() {
     <a href="ALP3.png">Screenshot 3</a> </div>
 </div>
 
-<div class="professional c python">
+<div class="professional c scripting multimedia">
   <div class="dates"> 2006 - 2007 </div>
   <div class="organization"> <a href="http://arstechnica.com/business/news/2007/06/google-buys-peakstream-inc.ars">PeakStream</a>,
        now <a href="http://www.theregister.co.uk/2007/06/05/google_buys_peakstream">part of Google</a></div>
   <div class="description"> CodeBaby, a Python template system for C and C++ source-code generation </div>
-  <div class="tools"> C, C++, Python, SVN </div>
+  <div class="tools"> C, C++, Python, Linux, SVN </div>
   <div class="role"> Primary author and maintainer </div>
 </div>
 
@@ -184,7 +209,8 @@ $(function() {
       which was excellent) and JPEG loading and dynamic reloading.
       I also handled scaling, zooming and cropping, for
       which I wrote custom fixed-point image libraries. </div>
-  <div class="tools"> C++, libjpeg, Visual Studio, Windows Mobile, WinCE </div>
+  <div class="tools"> C++, libjpeg, Visual Studio, Win32, Windows Mobile,
+    Windows CE, JPEG2000 </div>
   <div class="role"> Co-author (2-man team), focused on graphics </div>
   <div class="pictures">
        Win32: <a href="sharpcast1.jpg">
@@ -195,7 +221,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile palmos">
+<div class="professional c mobile palmos multimedia">
   <div class="dates"> 2004 - 2005 </div>
   <div class="organization">
     <a href="http://www.giantbomb.com/tapwave-inc/65-763/">TapWave</a> </div>
@@ -244,7 +270,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c perl mobile windows">
+<div class="professional c scripting mobile windows">
   <div class="dates"> 1999 - 2000 </div>
   <div class="organization"> <a href="http://nowsol.com/">NOW Solutions</a> </div>
   <div class="description"> 
