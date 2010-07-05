@@ -13,6 +13,7 @@
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
   </script>
   <script type="text/javascript" src="/javascripts/curvycorners.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.ba-hashchange.min.js"> </script>
   <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.easing-1.3.pack.js"></script>
   <script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
@@ -26,11 +27,11 @@ function capitalize(string) {
 }
 
 function show_elts(elts) {
-  elts.animate({height: 'show'});
+  elts.filter(":hidden").animate({height: 'show'});
 }
 
 function hide_elts(elts) {
-  elts.animate({height: 'hide'});
+  elts.filter(":visible").animate({height: 'hide'});
 }
 
 jQuery.fn.getAllClasses = function() {
@@ -46,9 +47,76 @@ jQuery.fn.getAllClasses = function() {
 }
 
 var last_selected = "nobody_at_all";
+var last_tag_selected = "nobody_at_all";
 var tags_shown = {};
 var project_fields = {organization:1, description:1, tools:1, role:1,
                       dates:1, pictures:1};
+
+function radio_div_click(radio_div) {
+  var new_selected = radio_div.attr("id");
+  if(new_selected == last_selected) return;
+
+  $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
+
+  $("#professional").removeClass("selected");
+  $("#personal").removeClass("selected");
+  $("#student").removeClass("selected");
+  radio_div.addClass("selected");
+
+  hide_elts($("." + last_selected));
+
+  last_tag_selected = "nobody_at_all";
+  last_selected = new_selected;
+  var projects_to_show = $('.' + last_selected);
+  show_elts(projects_to_show);
+
+  $("#tagbox div").remove();
+  tags_shown = projects_to_show.getAllClasses();
+  delete tags_shown.professional;
+  delete tags_shown.personal;
+  delete tags_shown.student;
+  delete tags_shown.curved;
+  delete tags_shown.shadow;
+  delete tags_shown.selected;
+
+  $('<a href="#' + last_selected +
+    '/all"><div class="radio_tag_div shadow selected ' + last_selected +
+    '_gradient" id="' + last_selected +
+    '_all">all</div></a>').appendTo("#tagbox");
+  for(var tag in tags_shown) {
+    $('<a href="#' + last_selected + '/' + tag +
+      '"><div id="' + last_selected + '_' + tag +
+      '" class="radio_tag_div shadow ' + last_selected + '_gradient">' +
+      tag + "</div></a>").appendTo("#tagbox");
+  }
+}
+
+function radio_tag_div_click(radio_tag_div) {
+  var new_selected = radio_tag_div.attr("id");
+  if(new_selected == last_tag_selected) return;
+
+  $("#tagbox").animate({top: "+=10"}, 'fast').animate({top: "-=10"}, 'fast');
+
+  var text = radio_tag_div.html();
+  var elts = $("." + last_selected);
+  var sub_elts;
+  var not_sub_elts;
+
+  if(text == "all") {
+    sub_elts = elts;
+    not_sub_elts = elts.filter(".no_such_class");  // empty
+  } else {
+    sub_elts = elts.filter("." + text);
+    not_sub_elts = elts.filter(":not(." + text + ")");
+  }
+
+  $(".radio_tag_div").removeClass("selected");
+  radio_tag_div.addClass("selected");
+
+  hide_elts(not_sub_elts);
+  show_elts(sub_elts);
+}
+
 $(function() {
   all_projects = $(".professional,.personal,.student");
   all_projects.hide().addClass("curved shadow");
@@ -79,68 +147,30 @@ $(function() {
 
   $("img").addClass("shadow");
 
-  $(".radio_div").click(function() {
-    var new_selected = $(this).attr("id");
-    if(new_selected == last_selected) return;
+  $(window).bind( 'hashchange', function() {
+    spot = location.hash;
+    if(spot == "") { spot = "#professional/all"; }
 
-    $("#professional").removeClass("selected");
-    $("#personal").removeClass("selected");
-    $("#student").removeClass("selected");
-    $(this).addClass("selected");
-
-    hide_elts($("." + last_selected));
-
-    last_selected = new_selected;
-    var projects_to_show = $('.' + last_selected);
-    show_elts(projects_to_show);
-
-    $("#tagbox div").remove();
-    tags_shown = projects_to_show.getAllClasses();
-    delete tags_shown.professional;
-    delete tags_shown.personal;
-    delete tags_shown.student;
-    delete tags_shown.curved;
-    delete tags_shown.shadow;
-    delete tags_shown.selected;
-
-    $('<div class="radio_tag_div shadow selected ' + last_selected
-      + '_gradient">all</div>').appendTo("#tagbox");
-    for(var tag in tags_shown) {
-      $('<div class="radio_tag_div shadow ' + last_selected + '_gradient">' +
-        tag + "</div>").appendTo("#tagbox");
-    }
-  });
-
-  $(".radio_tag_div").live("click", function() {
-    var text = $(this).html();
-    var elts = $("." + last_selected);
-    var sub_elts;
-
-    if(text == "all") { sub_elts = elts; }
-    else { sub_elts = elts.filter("." + text); }
-
-    $(".radio_tag_div").removeClass("selected");
-    $(this).addClass("selected");
-
-    hide_elts(elts);
-    show_elts(sub_elts);
+    tags = spot.split("/", 2);
+    radio_div_click($(tags[0]));  // Tags[0] automatically gets leading "#"
+    radio_tag_div_click($(tags[0] + "_" + tags[1]));
   });
 
   $(".fancybox").fancybox({ hideOnContentClick: true });
 
-  $("#professional").click();
+  $(window).trigger('hashchange');
 });
 </script>
 
 <p class="disclaimer">
   This list is representative, not complete.  Also, feel free to
-  check <a href="http://static.angelbob.com/resume">my resume</a> -- Noah
+  check <a href="http://static.angelbob.com/resume">my resume</a> &ndash; Noah
 </p>
 
 <div class="buttonbox">
-<div id="professional" class="radio_div">Professional</div>
-<div id="personal" class="radio_div">Personal</div>
-<div id="student" class="radio_div">Student</div>
+  <a href="#professional/all"><div id="professional" class="radio_div">Professional</div></a>
+  <a href="#personal/all"><div id="personal" class="radio_div">Personal</div></a>
+  <a href="#student/all"><div id="student" class="radio_div">Student</div></a>
 </div>
 <div id="tagbox"> </div> <!-- For sub-buttons -->
 
