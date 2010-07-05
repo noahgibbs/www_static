@@ -31,9 +31,19 @@ div.buttonbox {
   text-align: center;
 }
 
+div.buttonbox a {
+  color: #000000;
+  text-decoration: none;
+}
+
 div#tagbox {
   margin-top: 20px;
   text-align: center;
+}
+
+div#tagbox a {
+  color: #000000;
+  text-decoration: none;
 }
 
 div#tagbox .radio_tag_div {
