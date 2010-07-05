@@ -47,6 +47,7 @@ jQuery.fn.getAllClasses = function() {
 }
 
 var last_selected = "nobody_at_all";
+var last_tag_selected = "nobody_at_all";
 var tags_shown = {};
 var project_fields = {organization:1, description:1, tools:1, role:1,
                       dates:1, pictures:1};
@@ -55,6 +56,8 @@ function radio_div_click(radio_div) {
   var new_selected = radio_div.attr("id");
   if(new_selected == last_selected) return;
 
+  $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
+
   $("#professional").removeClass("selected");
   $("#personal").removeClass("selected");
   $("#student").removeClass("selected");
@@ -62,6 +65,7 @@ function radio_div_click(radio_div) {
 
   hide_elts($("." + last_selected));
 
+  last_tag_selected = "nobody_at_all";
   last_selected = new_selected;
   var projects_to_show = $('.' + last_selected);
   show_elts(projects_to_show);
@@ -88,6 +92,11 @@ function radio_div_click(radio_div) {
 }
 
 function radio_tag_div_click(radio_tag_div) {
+  var new_selected = radio_tag_div.attr("id");
+  if(new_selected == last_tag_selected) return;
+
+  $("#tagbox").animate({top: "+=10"}, 'fast').animate({top: "-=10"}, 'fast');
+
   var text = radio_tag_div.html();
   var elts = $("." + last_selected);
   var sub_elts;
@@ -155,7 +164,7 @@ $(function() {
 
 <p class="disclaimer">
   This list is representative, not complete.  Also, feel free to
-  check <a href="http://static.angelbob.com/resume">my resume</a> -- Noah
+  check <a href="http://static.angelbob.com/resume">my resume</a> &ndash; Noah
 </p>
 
 <div class="buttonbox">
