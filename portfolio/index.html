@@ -157,6 +157,10 @@ $(function() {
   });
 
   $(".fancybox").fancybox({ hideOnContentClick: true });
+  $(".fancybox_iframe").fancybox({
+    hideOnContentClick: true,
+    type: 'iframe'
+  });
 
   $(window).trigger('hashchange');
 });
@@ -211,11 +215,18 @@ $(function() {
   <div class="tools"> GObject, Clutter, OpenGL, C, Linux, Perforce </div>
   <div class="role"> Co-architect, graphics and UI framework </div>
   <div class="pictures">
-      <a class="fancybox" href="emblazeedelweiss.jpg">
+    <a class="fancybox" href="emblazeedelweiss.jpg">
       <img src="emblazeedelweiss.jpg" alt="Emblaze First Else, nee Edelweiss"
-        /></a>,
-    <a href="http://www.emblazemobile.com/project.html">(project description)
-    </a> </div>
+        /></a>
+    <a class="fancybox" href="emblaze-else-1.jpg">
+      <img src="emblaze-else-1.jpg" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="emblaze-else-2.jpg">
+      <img src="emblaze-else-2.jpg" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="emblaze-else-3.jpg">
+      <img src="emblaze-else-3.jpg" alt="Emblaze Else" /> </a>
+    <a href="http://www.emblazemobile.com/project.html"
+       class="fancybox_iframe">Project Description</a>
+  </div>
 </div>
 
 <div class="professional c mobile multimedia">
