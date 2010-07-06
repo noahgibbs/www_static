@@ -1,5 +1,13 @@
-body {
-  background-color: #FFFFEE;
+body.b_professional {
+  background-color: #FFFE8D;
+}
+
+body.b_personal {
+  background-color: #E0E4CC;
+}
+
+body.b_student {
+  background-color: #FFEEFF;
 }
 
 table {
@@ -54,19 +62,19 @@ div#tagbox .radio_tag_div {
 }
 
 div.professional {
-  background-color: #AA9988;
+  background-color: #D6CEC6; //D1C9BE;
   padding: 10px;
   margin: 30px;
 }
 
 div.personal {
-  background-color: #BBBBFF;
+  background-color: #5ADCF6;
   padding: 10px;
   margin: 30px;
 }
 
 div.student {
-  background-color: #BBFFBB;
+  background-color: #DDFFDD;
   padding: 10px;
   margin: 30px;
 }
@@ -111,19 +119,19 @@ div.radio_tag_div {
 }
 
 .personal_gradient {
-  background-color: #BBBBFF;
+  background-color: #E0E4CC;
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBBBFF', endColorstr='#5D5D8F');
-  background: -webkit-gradient(linear, left top, left bottom, from(#BBBBFF), to(#5D5D8F));
-  background: -moz-linear-gradient(top,  #BBBBFF,  #5D5D8F);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E0E4CC', endColorstr='#69D2E7');
+  background: -webkit-gradient(linear, left top, left bottom, from(#E0E4CC), to(#69D2E7));
+  background: -moz-linear-gradient(top,  #E0E4CC,  #69D2E7);
 }
 
 .student_gradient {
-  background-color: #BBFFBB;
+  background-color: #DDFFDD;
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBFFBB', endColorstr='#5D8F5D');
-  background: -webkit-gradient(linear, left top, left bottom, from(#BBFFBB), to(#5D8F5D));
-  background: -moz-linear-gradient(top,  #BBFFBB,  #5D8F5D);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDFFDD', endColorstr='#BBFFBB');
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDFFDD), to(#BBFFBB));
+  background: -moz-linear-gradient(top,  #DDFFDD,  #BBFFBB);
 }
 
 div.radio_tag_div.professional_gradient:hover {
@@ -168,7 +176,19 @@ span.label_type {
 }
 
 .personal .picture_frame {
-  background-color: #7070C0;
+  background-color: #0940F8;
+}
+
+.personal .picture_frame a {
+  color: #00D000;
+}
+
+.personal .picture_frame a:visited {
+  color: #C00080;
+}
+
+.student .picture_frame {
+  background-color: #70FF30;
 }
 
 div.curved {
