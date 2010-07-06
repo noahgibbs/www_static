@@ -58,9 +58,9 @@ function radio_div_click(radio_div) {
 
   $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
 
-  $("#professional").removeClass("selected");
-  $("#personal").removeClass("selected");
-  $("#student").removeClass("selected");
+  $("body").removeClass("b_professional b_personal b_student").
+    addClass("b_" + new_selected);
+  $("#professional, #personal, #student").removeClass("selected");
   radio_div.addClass("selected");
 
   hide_elts($("." + last_selected));
@@ -182,12 +182,12 @@ $(function() {
   <table>
     <tr>
       <td> <div class="dates_here"></div> </td>
-      <td> <div class="role_here"> </div> </td>
-      <td> <div class="organization_here"> </div> </td>
+      <td colspan="2"> <div class="description_here"> </div> </td>
     </tr>
     <tr>
       <td> <div class="tools_here"> </div> </td>
-      <td colspan="2"> <div class="description_here"> </div> </td>
+      <td> <div class="role_here"> </div> </td>
+      <td> <div class="organization_here"> </div> </td>
     </tr>
   </table>
   <div class="pictures_here"> </div>
@@ -211,19 +211,21 @@ $(function() {
     <a href="http://www.popgadget.net/2008/10/emblaze_mobile.php">
     Mobile phone project,</a> later called the
     <a href="http://www.engadget.com/2009/11/24/emblazes-first-else-unveiled-in-london-promises-to-be-a-game-c/">Emblaze First Else</a>,
-    now cancelled </div>
+    now repackaged software-only as the
+    <a href="http://alp.access-company.com/ELSE/index.html">Else
+      Intuition</a> platform </div>
   <div class="tools"> GObject, Clutter, OpenGL, C, Linux, Perforce </div>
   <div class="role"> Co-architect, graphics and UI framework </div>
   <div class="pictures">
-    <a class="fancybox" href="emblazeedelweiss.jpg">
-      <img src="emblazeedelweiss.jpg" alt="Emblaze First Else, nee Edelweiss"
-        /></a>
     <a class="fancybox" href="emblaze-else-1.jpg">
       <img src="emblaze-else-1.jpg" alt="Emblaze Else" /> </a>
     <a class="fancybox" href="emblaze-else-2.jpg">
       <img src="emblaze-else-2.jpg" alt="Emblaze Else" /> </a>
     <a class="fancybox" href="emblaze-else-3.jpg">
       <img src="emblaze-else-3.jpg" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="emblazeedelweiss.jpg">
+      <img src="emblazeedelweiss.jpg" alt="Early prototype running ALP"
+        /></a>
     <a href="http://www.emblazemobile.com/project.html"
        class="fancybox_iframe">Project Description</a>
   </div>
@@ -377,7 +379,8 @@ $(function() {
 
 <div class="personal c">
   <div class="dates"> 2010 </div>
-  <div class="description"> Shanna's Pizza, a simple game to teach young
+  <div class="description"> <a href="http://shanna.angelbob.com">Shanna's
+    Pizza</a>, a simple game to teach young
     children to use logic gates for
     simple programming.  Minimal text, for ease of use by pre-readers.
     Written in C with SDL.  Linux and Windows. </div>
@@ -476,7 +479,7 @@ $(function() {
 </div>
 
 <div class="personal ruby">
-  <div class="dates"> 2006-2007 </div>
+  <div class="dates"> 2006-2007, 2010 </div>
   <div class="description">
       <a href="http://diffeq.rubyforge.org">DiffEQ</a>
       <a href="http://rubyforge.org/projects/diffeq">RubyGem</a>.  Symbolic
@@ -570,8 +573,8 @@ $(function() {
   </div>
 </div>
 
-<div class="personal silly ruby">
-  <div class="dates"> 2007 </div>
+<div class="personal silly javascript">
+  <div class="dates"> 2007, 2010 </div>
   <div class="description">
       <a href="http://www.angelbob.com/toy/facelets.html">Facelets</a>,
       a simple JavaScript Canvas webtoy for FireFox and Safari
@@ -588,7 +591,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal silly ruby">
+<div class="personal silly">
   <div class="dates"> 2007 </div>
   <div class="description">
       <a href="SillyBand.sb">SillyBand</a>, a very quick demo project for
