@@ -46,6 +46,31 @@ jQuery.fn.getAllClasses = function() {
   return classes_hash;
 }
 
+function find_latest_date(a) {
+  var dates = a.find("div.dates");
+  var date_regexp = /\d{4}/;
+  var last_date = -1;
+  var date_string = dates.html();
+  var m;
+  while(m = date_regexp.exec(date_string)) {
+    var new_date = parseInt(m[0]);
+    if(new_date > last_date) last_date = new_date;
+  }
+  return last_date;
+}
+
+jQuery.fn.sortChildren = function(selector) {
+  var children = $(this).find(selector);
+  var child_array = [];
+  children.remove().each(function() {
+    array += [ this ];
+  });
+
+  array.sort(function(a, b) {
+    a_dates = $(a).find("div.dates");
+  });
+}
+
 var last_selected = "nobody_at_all";
 var last_tag_selected = "nobody_at_all";
 var tags_shown = {};
