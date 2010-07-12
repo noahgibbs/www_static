@@ -47,14 +47,15 @@ jQuery.fn.getAllClasses = function() {
 }
 
 function find_latest_date(a) {
-  var dates = a.find("div.dates");
-  var date_regexp = /\d{4}/;
+  var dates = $(a).find("div.dates");
+  var date_regexp = /\d{4}(.*)$/
   var last_date = -1;
   var date_string = dates.html();
   var m;
   while(m = date_regexp.exec(date_string)) {
     var new_date = parseInt(m[0]);
     if(new_date > last_date) last_date = new_date;
+    date_string = m[1];
   }
   return last_date;
 }
@@ -63,12 +64,16 @@ jQuery.fn.sortChildren = function(selector) {
   var children = $(this).find(selector);
   var child_array = [];
   children.remove().each(function() {
-    array += [ this ];
+    child_array.push(this);
   });
 
-  array.sort(function(a, b) {
-    a_dates = $(a).find("div.dates");
+  child_array.sort(function(a, b) {
+    return find_latest_date(b) - find_latest_date(a)
   });
+
+  for(var i = 0; i < child_array.length; i++) {
+    $(this).append(child_array[i]);
+  }
 }
 
 var last_selected = "nobody_at_all";
@@ -146,6 +151,8 @@ $(function() {
   all_projects = $(".professional,.personal,.student");
   all_projects.hide().addClass("curved shadow");
   $(".radio_div").addClass("curved shadow");
+
+  $("body").sortChildren(".professional,.personal,.student");
 
   // Replace every project div with a templatized version
   all_projects.each(function() {
