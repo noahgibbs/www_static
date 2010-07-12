@@ -6,10 +6,6 @@ body.b_personal {
   background-color: #E0E4CC;
 }
 
-body.b_student {
-  background-color: #FFEEF8;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -73,12 +69,6 @@ div.personal {
   margin: 30px;
 }
 
-div.student {
-  background-color: #DDFFDD;
-  padding: 10px;
-  margin: 30px;
-}
-
 div.radio_div {
   display: inline;
   background-color: #8F8FFF;
@@ -126,14 +116,6 @@ div.radio_tag_div {
   background: -moz-linear-gradient(top,  #E0E4CC,  #69D2E7);
 }
 
-.student_gradient {
-  background-color: #DDFFDD;
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDFFDD', endColorstr='#BBFFBB');
-  background: -webkit-gradient(linear, left top, left bottom, from(#DDFFDD), to(#BBFFBB));
-  background: -moz-linear-gradient(top,  #DDFFDD,  #BBFFBB);
-}
-
 div.radio_tag_div.professional_gradient:hover {
   background-color: #CAB9A8;
 
@@ -148,14 +130,6 @@ div.radio_tag_div.personal_gradient:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDDDFF', endColorstr='#606060');
   background: -webkit-gradient(linear, left top, left bottom, from(#DDDDFF), to(#606060));
   background: -moz-linear-gradient(top,  #DDDDFF,  #606060);
-}
-
-div.radio_tag_div.student_gradient:hover {
-  background-color: #DDFFDD;
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDFFDD', endColorstr='#606060');
-  background: -webkit-gradient(linear, left top, left bottom, from(#DDFFDD), to(#606060));
-  background: -moz-linear-gradient(top,  #DDFFDD,  #606060);
 }
 
 div.radio_tag_div.selected {
@@ -185,10 +159,6 @@ span.label_type {
 
 .personal .picture_frame a:visited {
   color: #C00080;
-}
-
-.student .picture_frame {
-  background-color: #70FF30;
 }
 
 div.curved {

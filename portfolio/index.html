@@ -88,9 +88,9 @@ function radio_div_click(radio_div) {
 
   $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
 
-  $("body").removeClass("b_professional b_personal b_student").
+  $("body").removeClass("b_professional b_personal").
     addClass("b_" + new_selected);
-  $("#professional, #personal, #student").removeClass("selected");
+  $("#professional, #personal").removeClass("selected");
   radio_div.addClass("selected");
 
   hide_elts($("." + last_selected));
@@ -104,7 +104,6 @@ function radio_div_click(radio_div) {
   tags_shown = projects_to_show.getAllClasses();
   delete tags_shown.professional;
   delete tags_shown.personal;
-  delete tags_shown.student;
   delete tags_shown.curved;
   delete tags_shown.shadow;
   delete tags_shown.selected;
@@ -148,11 +147,11 @@ function radio_tag_div_click(radio_tag_div) {
 }
 
 $(function() {
-  all_projects = $(".professional,.personal,.student");
+  all_projects = $(".professional,.personal");
   all_projects.hide().addClass("curved shadow");
   $(".radio_div").addClass("curved shadow");
 
-  $("body").sortChildren(".professional,.personal,.student");
+  $("body").sortChildren(".professional,.personal");
 
   // Replace every project div with a templatized version
   all_projects.each(function() {
@@ -208,7 +207,6 @@ $(function() {
 <div class="buttonbox">
   <a href="#professional/all"><div id="professional" class="radio_div">Professional</div></a>
   <a href="#personal/all"><div id="personal" class="radio_div">Personal</div></a>
-  <a href="#student/all"><div id="student" class="radio_div">Student</div></a>
 </div>
 <div id="tagbox"> </div> <!-- For sub-buttons -->
 
@@ -403,7 +401,7 @@ $(function() {
   </div>
 </div>
 
-<div class="student dylan c">
+<div class="personal student c">
   <div class="dates"> 1995 - 1997 </div>
   <div class="organization"> The <a href="http://www.cs.cmu.edu/~gwydion/">
     Gwydion Project</a><br/>
@@ -416,7 +414,7 @@ $(function() {
   <div class="role"> Student part-time programmer </div>
 </div>
 
-<div class="student c">
+<div class="personal student c">
   <div class="dates"> 1998? </div>
   <div class="organization"> A class at
     <a href="http://www.cmu.edu">Carnegie Mellon University</a>
