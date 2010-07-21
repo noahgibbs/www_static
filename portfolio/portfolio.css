@@ -1,5 +1,5 @@
 body.b_professional {
-  background-color: #FFFE8D;
+  background-color: #FFFEB0;
 }
 
 body.b_personal {
@@ -150,15 +150,7 @@ span.label_type {
 }
 
 .personal .picture_frame {
-  background-color: #0940F8;
-}
-
-.personal .picture_frame a {
-  color: #00D000;
-}
-
-.personal .picture_frame a:visited {
-  color: #C00080;
+  background-color: #89C0F8;
 }
 
 div.curved {
