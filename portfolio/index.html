@@ -46,18 +46,20 @@ jQuery.fn.getAllClasses = function() {
   return classes_hash;
 }
 
-function find_latest_date(a) {
+function find_dates(a) {
   var dates = $(a).find("div.dates");
   var date_regexp = /\d{4}(.*)$/
   var last_date = -1;
+  var first_date = 50000;
   var date_string = dates.html();
   var m;
   while(m = date_regexp.exec(date_string)) {
     var new_date = parseInt(m[0]);
     if(new_date > last_date) last_date = new_date;
+    if(new_date < first_date) first_date = new_date;
     date_string = m[1];
   }
-  return last_date;
+  return [first_date, last_date];
 }
 
 jQuery.fn.sortChildren = function(selector) {
@@ -68,7 +70,17 @@ jQuery.fn.sortChildren = function(selector) {
   });
 
   child_array.sort(function(a, b) {
-    return find_latest_date(b) - find_latest_date(a)
+    var a_dates = find_dates(a);
+    var first_a = a_dates[0];
+    var last_a = a_dates[1];
+    var b_dates = find_dates(b);
+    var first_b = b_dates[0];
+    var last_b = b_dates[1];
+
+    if(last_a == last_b)
+      return first_b - first_a;
+
+    return last_b - last_a;
   });
 
   for(var i = 0; i < child_array.length; i++) {
@@ -493,7 +505,7 @@ $(function() {
 </div>
 
 <div class="personal rails">
-  <div class="dates"> 2009 </div>
+  <div class="dates"> 2009-2010 </div>
   <div class="description"> 
       <a href="http://github.com/noahgibbs/cheaptoad">CheapToad</a>, a
       very simple plugin to turn any Rails project into a HopToad
