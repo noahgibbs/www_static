@@ -244,6 +244,12 @@ $(function() {
     unit rental industry </div>
   <div class="tools"> Ruby on Rails, JRuby, Java, JSP, Linux, SVN </div>
   <div class="role"> Engineer, site team </div>
+  <div class="pictures">
+    <a class="fancybox" href="OnSite-scr1.png">
+      <img src="OnSite-scr1.png" alt="On-Site front page" /> </a>
+    <a class="fancybox" href="OnSite-scr2.png">
+      <img src="OnSite-scr2.png" alt="On-Site user search (dev)" /> </a>
+  </div>
 </div>
 
 <div class="professional c mobile multimedia">
@@ -442,9 +448,11 @@ $(function() {
 <div class="personal javascript">
   <div class="dates"> 2010 </div>
   <div class="description"> This JavaScript portfolio.  Uses hashchange,
-    jQuery, animation, fancybox and no server support whatever -- it's all
+    jQuery, animation, fancybox, hand-rolled templating and no dynamic
+    server
+    stuff whatsoever -- it's all
     javascript and CSS so a Rails failure won't cause problems.  To see
-    how it's done, just view the source of this page!
+    how it's done, just view the source of this page.
   </div>
   <div class="tools"> jQuery, fancybox, curvycorners.js, git </div>
   <div class="role"> Sole author </div>
@@ -491,7 +499,7 @@ $(function() {
       without constant AJAX polling.  A dynamic, persistent browsergame engine.
   </div>
   <div class="tools"> Ruby on Rails, Linux, git, Juggernaut (server push),
-    git </div>
+    git, MySQL </div>
   <div class="role"> Sole author and maintainer </div>
   <div class="pictures">
       <a href="astrino_early_2.png" class="fancybox">
@@ -512,7 +520,7 @@ $(function() {
       Engines and a gemplugin to make this happen.  Haven't you always
       wanted an RSS feed of your app exceptions?
   </div>
-  <div class="tools"> Ruby on Rails, Linux, HopToad, git </div>
+  <div class="tools"> Ruby on Rails, Linux, HopToad, git, MySQL </div>
   <div class="role"> Sole author and maintainer </div>
 </div>
 
@@ -532,18 +540,40 @@ $(function() {
 </div>
 
 <div class="personal rails">
+  <div class="dates"> 2007 - 2008, 2010 </div>
+  <div class="description">
+      <a href="http://wantmyjob.com">WantMyJob</a>, a web app for
+      trading suggestions about finding good employers. Ruby on Rails.
+      My first significant Rails app, rewritten multiple times.
+  </div>
+  <div class="tools"> Ruby on Rails, rspec, Linux, git,
+    CloudKick, Linode, Google Analytics and Webmaster Tools,
+    MySQL
+  </div>
+  <div class="role"> Sole author and maintainer </div>
+  <div class="pictures">
+      <a href="WMJ_2010.png" class="fancybox">
+        <img src="WMJ_2010.png" alt="Early 2010 screenshot" /></a>
+      <a href="wmj_screenshot_1.jpg" class="fancybox">
+        <img src="wmj_screenshot_1.jpg" alt="2008 screenshot" /></a>
+      <a href="iHjH.png" class="fancybox">
+        <img src="iHjH.png" alt="2007 screenshot" /></a>
+  </div>
+</div>
+
+<div class="personal rails">
   <div class="dates"> 2010 </div>
   <div class="description"> 
       <a href="http://github.com/noahgibbs/refactor_it">Refactor It</a>, a
       very simple web app to let users upload snippets of code, and
-      suggested refactorings of other people's snippets.  In addition to
-      the polished code link above, there's a
+      suggest refactorings of other people's snippets.  In addition to
+      the Rails 2 code link above, there's a
       <a href="http://blog.angelbob.com/pages/refactor1">tutorial
       on building it in Rails 3 and Devise</a> from scratch
       (<a href="http://github.com/noahgibbs/refactor_it_tutorial">GitHub
       repo for tutorial</a>).
   </div>
-  <div class="tools"> Ruby on Rails, Linux, git </div>
+  <div class="tools"> Ruby on Rails, Linux, git, Harsh, Ultraviolet, MySQL </div>
   <div class="role"> Sole author and maintainer </div>
 </div>
 
@@ -552,15 +582,14 @@ $(function() {
   <div class="description"> 
       <a href="http://blog.angelbob.com">blog.angelbob.com</a>
       (<a href="http://github.com/noahgibbs/blog/tree/master">implementation</a>),
-      a simple Rails-based blog, written entirely from scratch.
-      Interesting projects included adding route mappings to translate
-      from previous entries in WordPress to the new RESTful routes,
+      a simple Rails-based blog, from scratch.
+      Includes route mappings to translate
+      from old WordPress entries,
       Disqus comments, tags, and other
-      normal blog features.  Mostly listed for content, not technical
-      impressiveness of the codebase itself.
+      normal blog features.  Mostly listed for content, not codebase.
   </div>
-  <div class="tools"> Ruby on Rails, Linux, git, Google Analytics,
-    harsh &amp; ultraviolet </div>
+  <div class="tools"> Ruby on Rails, Linux, git, Linode, Google Analytics,
+    Harsh, Ultraviolet, SQLite, HopToad </div>
   <div class="role"> Sole author and maintainer, sole content author </div>
   <div class="pictures">
       <a href="blog_2009_1.png" class="fancybox">
@@ -571,25 +600,6 @@ $(function() {
         <img src="blog_bottom.png" alt="older bottom screenshot" /></a>
       <a href="blog_show.png" class="fancybox">
         <img src="blog_show.png" alt="old post with Disqus form" /></a>
-  </div>
-</div>
-
-<div class="personal rails">
-  <div class="dates"> 2007 - 2008, 2010 </div>
-  <div class="description">
-      <a href="http://www.wantmyjob.com">WantMyJob?</a>, a web app for
-      trading suggestions about finding good employers. Based on Ruby on Rails.
-      My first significant Rails app, rewritten multiple times.
-  </div>
-  <div class="tools"> Ruby on Rails, Linux, git </div>
-  <div class="role"> Sole author and maintainer </div>
-  <div class="pictures">
-      <a href="WMJ_2010.png" class="fancybox">
-        <img src="WMJ_2010.png" alt="2010 screenshot" /></a>
-      <a href="wmj_screenshot_1.jpg" class="fancybox">
-        <img src="wmj_screenshot_1.jpg" alt="2008 screenshot" /></a>
-      <a href="iHjH.png" class="fancybox">
-        <img src="iHjH.png" alt="2007 screenshot" /></a>
   </div>
 </div>
 
