@@ -99,9 +99,9 @@ function radio_div_click(radio_div) {
 
   $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
 
-  $("body").removeClass("b_professional b_personal").
+  $("body").removeClass("b_professional b_speaking b_personal").
     addClass("b_" + new_selected);
-  $("#professional, #personal").removeClass("selected");
+  $("#professional, #speaking, #personal").removeClass("selected");
   radio_div.addClass("selected");
 
   hide_elts($("." + last_selected));
@@ -114,6 +114,7 @@ function radio_div_click(radio_div) {
   $("#tagbox div").remove();
   tags_shown = projects_to_show.getAllClasses();
   delete tags_shown.professional;
+  delete tags_shown.speaking;
   delete tags_shown.personal;
   delete tags_shown.curved;
   delete tags_shown.shadow;
@@ -158,11 +159,11 @@ function radio_tag_div_click(radio_tag_div) {
 }
 
 $(function() {
-  all_projects = $(".professional,.personal");
+  all_projects = $(".professional,.personal,.speaking");
   all_projects.hide().addClass("curved shadow");
   $(".radio_div").addClass("curved shadow");
 
-  $("body").sortChildren(".professional,.personal");
+  $("body").sortChildren(".professional,.speaking,.personal");
 
   // Replace every project div with a templatized version
   all_projects.each(function() {
@@ -217,6 +218,7 @@ $(function() {
 
 <div class="buttonbox">
   <a href="#professional/all"><div id="professional" class="radio_div">Professional</div></a>
+  <a href="#speaking/all"><div id="speaking" class="radio_div">Speaking</div></a>
   <a href="#personal/all"><div id="personal" class="radio_div">Personal</div></a>
 </div>
 <div id="tagbox"> </div> <!-- For sub-buttons -->
@@ -236,12 +238,24 @@ $(function() {
   <div class="pictures_here"> </div>
 </div>
 
-<div class="professional rails">
+<div class="professional ruby cassandra">
+  <div class="dates"> 2011 </div>
+  <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
+  <div class="description"> Tools Group projects.  The most prominent
+    were dark deploys and a scalable metrics and monitoring system.
+  </div>
+  <div class="tools"> Ruby, Rails, git, Cassandra, various </div>
+  <div class="role"> Engineer/Architect </div>
+  <div class="pictures">
+  </div>
+</div>
+
+<div class="professional rubys cassandra">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> Ooyala's Backlot </div>
-  <div class="tools"> Ruby on Rails, SCSS, git </div>
-  <div class="role"> Analytics Engineer </div>
+  <div class="tools"> Ruby, Rails, git, Cassandra, MySQL, others </div>
+  <div class="role"> Analytics and Big Data Engineer </div>
   <div class="pictures">
     <a class="fancybox" href="ooyala-backlot-analytics-1.png">
       <img src="ooyala-backlot-analytics-1.png" alt="Ooyala Backlot 1" /> </a>
@@ -250,7 +264,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional ruby">
+<div class="speaking ruby cassandra">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> Ruby Big Data Tools at Ooyala, given as a talk
@@ -261,19 +275,22 @@ $(function() {
   <div class="role"> Speaker </div>
 </div>
 
-<div class="professional ruby">
+<div class="speaking cassandra">
+</div>
+
+<div class="speaking ruby">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
   <div class="description"> Ruby Self and Instance Variables.
     Given as a lecture with
     <a href="http://portal.sliderocket.com/AIMWD/Ruby-Self-Variable">slides</a>
-    . </div>
+    .  Also various other talks at Ooyala - ask for details! </div>
   <div class="tools"> Ruby, RVM, Bundler </div>
   <div class="role"> Author/Speaker </div>
 </div>
 
-<div class="professional ruby">
+<div class="speaking ruby">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -290,18 +307,17 @@ $(function() {
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
   <div class="description"> Various open-source projects and
-    to-be-open-sourced projects including Barkeep, Nimrod, Tortoise,
+    to-be-open-sourced projects including Hastur, Glowworm, Nimrod, Tortoise,
     Sequel_Rails_Migrations,
     MapReduce Framework, Scope,
-    Ecology, Termite, Glowworm.  See
+    Ecology, Termite.  See
     <a href="http://github.com/ooyala">Ooyala's GitHub repo</a>
-    for the released projects, as well as the ooyala user on
-    GitHub. </div>
+    for the released projects </div>
   <div class="tools"> Ruby, RVM, Bundler, various </div>
   <div class="role"> Contributor, co-author or author, depending </div>
 </div>
 
-<div class="professional rails">
+<div class="speaking rails">
   <div class="dates"> 2010 </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
     </div>

@@ -2,6 +2,10 @@ body.b_professional {
   background-color: #FFFEB0;
 }
 
+body.b_speaking {
+  background-color: #FFFEB0;
+}
+
 body.b_personal {
   background-color: #E0E4CC;
 }
@@ -63,6 +67,12 @@ div.professional {
   margin: 30px;
 }
 
+div.speaking {
+  background-color: #D6CEC6; //D1C9BE;
+  padding: 10px;
+  margin: 30px;
+}
+
 div.personal {
   background-color: #5ADCF6;
   padding: 10px;
@@ -108,6 +118,14 @@ div.radio_tag_div {
   background: -moz-linear-gradient(top,  #AA9988,  #554C44);
 }
 
+.speaking_gradient {
+  background-color: #AA9988;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AA9988', endColorstr='#554C44');
+  background: -webkit-gradient(linear, left top, left bottom, from(#AA9988), to(#554C44));
+  background: -moz-linear-gradient(top,  #AA9988,  #554C44);
+}
+
 .personal_gradient {
   background-color: #E0E4CC;
 
@@ -117,6 +135,14 @@ div.radio_tag_div {
 }
 
 div.radio_tag_div.professional_gradient:hover {
+  background-color: #CAB9A8;
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CAB9A8', endColorstr='#606060');
+  background: -webkit-gradient(linear, left top, left bottom, from(#CAB9A8), to(#606060));
+  background: -moz-linear-gradient(top,  #CAB9A8,  #606060);
+}
+
+div.radio_tag_div.speaking_gradient:hover {
   background-color: #CAB9A8;
 
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CAB9A8', endColorstr='#606060');
@@ -146,6 +172,10 @@ span.label_type {
 }
 
 .professional .picture_frame {
+  background-color: #6F2B09;
+}
+
+.speaking .picture_frame {
   background-color: #6F2B09;
 }
 
