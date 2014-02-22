@@ -16,23 +16,6 @@ a.fancybox img {
   max-height: 150px;
 }
 
-p.disclaimer {
-  text-align: center;
-  font-size: 80%;
-  color: #888888;
-}
-
-div.buttonbox {
-  position: relative;
-  padding: 10px;
-  text-align: center;
-}
-
-div.buttonbox a {
-  color: #000000;
-  text-decoration: none;
-}
-
 div#tagbox {
   position: relative;
   margin-top: 20px;
@@ -46,21 +29,6 @@ div#tagbox a {
 
 div#tagbox .radio_tag_div {
   border-radius:4px;
-}
-
-div.professional {
-  padding: 10px;
-  margin: 30px;
-}
-
-div.speaking {
-  padding: 10px;
-  margin: 30px;
-}
-
-div.personal {
-  padding: 10px;
-  margin: 30px;
 }
 
 div.radio_div {
