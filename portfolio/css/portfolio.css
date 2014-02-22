@@ -9,11 +9,9 @@ td {
 .pictures img {
   border: solid 2px black;
   margin: 0 10px;
-}
-
-a.fancybox img {
-  max-width: 150px;
-  max-height: 150px;
+  padding: 20px;
+  max-height: 200px;
+  max-width: 200px;
 }
 
 div#tagbox {
@@ -55,10 +53,6 @@ div.radio_tag_div.selected {
 span.label_type {
   color: #202020;
   font-weight: bold;
-}
-
-.picture_frame {
-  padding: 20px;
 }
 
 div.curved {

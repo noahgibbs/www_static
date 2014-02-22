@@ -85,6 +85,7 @@ var tags_shown = {};
 function select_major_category(category) {
   if(category == last_selected) return;
 
+  // Set active tab
   $("#navbar-main li").removeClass("active");
   $("#navbar-main li a[href='" + category + "/all']").parent().addClass("active");
 
@@ -101,41 +102,45 @@ function select_major_category(category) {
   tags_shown = get_all_tags(last_selected);
 
   $('<a href="#' + last_selected +
-    '/all"><div class="radio_tag_div shadow selected ' + last_selected +
-    '_gradient" id="' + last_selected +
-    '_all">all</div></a>').appendTo("#tagbox");
+    '/all"><div class="btn btn-primary">all</div></a>'
+    ).appendTo("#tagbox");
   for(var tag in tags_shown) {
     $('<a href="#' + last_selected + '/' + tag +
-      '"><div id="' + last_selected + '_' + tag +
-      '" class="radio_tag_div shadow ' + last_selected + '_gradient">' +
+      '"><div class="btn btn-primary">' +
       tag + "</div></a>").appendTo("#tagbox");
   }
 }
 
-function radio_tag_div_click(radio_tag_div) {
-  var new_selected = radio_tag_div.attr("id");
-  if(new_selected == last_tag_selected) return;
+function select_tag(tag) {
+  if(tag == last_tag_selected) return;
 
   $("#tagbox").animate({top: "+=10"}, 'fast').animate({top: "-=10"}, 'fast');
 
-  var text = radio_tag_div.html();
-  var elts = $("." + last_selected);
-  var sub_elts;
-  var not_sub_elts;
+  // Get all elts in top-level category
+  var elts = $("div[data-category='" + last_selected + "']");
 
-  if(text == "all") {
+  var sub_elts = $([]);
+  var not_sub_elts = $([]);
+
+  if(tag == "all") {
     sub_elts = elts;
-    not_sub_elts = elts.filter(".no_such_class");  // empty
   } else {
-    sub_elts = elts.filter("." + text);
-    not_sub_elts = elts.filter(":not(." + text + ")");
+    elts.each(function() {
+      var tag_list = $(this).attr("data-tags").split(" ");
+      for(var i = 0; i < tag_list.length; i++) {
+        if(tag_list[i] === tag) {
+          sub_elts.push(this);
+          return;
+        }
+      }
+      not_sub_elts.push(this);
+    });
   }
 
-  $(".radio_tag_div").removeClass("selected");
-  radio_tag_div.addClass("selected");
+  not_sub_elts.animate({height: 'hide'});
+  sub_elts.animate({height: 'show'});
 
-  not_sub_elts.filter(":visible").animate({height: 'hide'});
-  sub_elts.filter(":hidden").animate({height: 'show'});
+  last_tag_selected = tag;
 }
 
 var project_fields = {organization:1, description:1, tools:1, role:1,
@@ -153,21 +158,20 @@ $(function() {
       field_objs[field] = $(this).find("." + field).remove();
     }
     $(this).attr("class", $("#template").attr("class"));
-    $(this).removeClass("hidden");
+    $(this).removeClass("hidden");  // Remove perma-hide
+    $(this).hide();  // But add jQuery-reversible hide
     $(this).html($("#template").html());
     for(var field in project_fields) {
       var spot = $(this).find("." + field + "_here");
       field_objs[field].appendTo(spot);
     }
   });
-  $(".pictures").each(function() {
-    $(this).html("<div class='picture_frame'>" + $(this).html() + "</div>");
-  });
 
   for(var tag in project_fields) {
     $("." + tag).each(function() {
+      var pic_extra = (tag == "pictures" ? "<br/>" : "");
       $(this).prepend($('<span class="label_type">' +
-                         capitalize(tag) + ':' + '</span>'));
+                         capitalize(tag) + ':' + '</span>' + pic_extra));
     });
   }
 
@@ -175,11 +179,11 @@ $(function() {
 
   $(window).bind( 'hashchange', function() {
     spot = location.hash;
-    if(spot == "") { spot = "#professional/all" }
+    if(spot == "") { spot = "#professional/all"; location.hash = spot; }
 
     tags = spot.split("/", 2);
     select_major_category(tags[0]);
-    radio_tag_div_click($(tags[0] + "_" + tags[1]));
+    select_tag(tags[1]);
   });
 
   $(".fancybox").fancybox({ hideOnContentClick: true });
@@ -250,18 +254,20 @@ $(function() {
 <div id="tagbox" style="height:80px;"> </div> <!-- For sub-buttons -->
 
 <div id="template" class="well hidden">
-  <table>
-    <tr>
-      <td> <div class="dates_here"></div> </td>
-      <td colspan="2"> <div class="description_here"> </div> </td>
-    </tr>
-    <tr>
-      <td> <div class="tools_here"> </div> </td>
-      <td> <div class="role_here"> </div> </td>
-      <td> <div class="organization_here"> </div> </td>
-    </tr>
-  </table>
-  <div class="pictures_here"> </div>
+  <div class="row">
+    <div class="col-lg-4"> <div class="dates_here lead"></div></div>
+    <div class="col-lg-8"> <div class="description_here lead"></div></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4"> <div class="tools_here lead"></div></div>
+    <div class="col-lg-4"> <div class="role_here lead"></div></div>
+    <div class="col-lg-4"> <div class="organization_here lead"></div></div>
+  </div>
+
+  <div class="row"><div class="col-lg-12">
+    <div class="pictures_here lead"> </div>
+  </div></div>
 </div>
 
 <div data-category="professional" data-tags="ruby cassandra">
