@@ -1,13 +1,6 @@
-table {
-  border-collapse: collapse;
-}
-
-td {
-  border: 1px solid #808080;
-}
-
-.pictures img {
+.pictures_here img {
   border: solid 2px black;
+  background-color: white;
   margin: 0 10px;
   padding: 20px;
   max-height: 200px;
@@ -23,36 +16,6 @@ div#tagbox {
 div#tagbox a {
   color: #000000;
   text-decoration: none;
-}
-
-div#tagbox .radio_tag_div {
-  border-radius:4px;
-}
-
-div.radio_div {
-  display: inline;
-  border: solid 2px black;
-  padding: 10px;
-}
-
-div.radio_div.selected {
-  border: solid 4px black;
-}
-
-div.radio_tag_div {
-  display: inline;
-  border: solid 2px #808080;
-  padding: 8px;
-  font-size: 80%;
-}
-
-div.radio_tag_div.selected {
-  border: solid 3px black;
-}
-
-span.label_type {
-  color: #202020;
-  font-weight: bold;
 }
 
 div.curved {
