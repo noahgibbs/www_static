@@ -37,28 +37,27 @@ function get_all_tags(category) {
 }
 
 function find_dates(a) {
-  var dates = $(a).find("div.dates");
-  var date_regexp = /\d{4}(.*)$/
-  var last_date = -1;
-  var first_date = 50000;
-  var date_string = dates.html();
-  var m;
-  while(m = date_regexp.exec(date_string)) {
-    var new_date = parseInt(m[0]);
-    if(new_date > last_date) last_date = new_date;
-    if(new_date < first_date) first_date = new_date;
-    date_string = m[1];
-  }
+  var date_string = $(a).find("div.dates").html();
+  var all_matches = date_string.match(/\d{4}/g);
+
+  var first_date = parseInt(Math.min.apply(null, all_matches));
+  var last_date = parseInt(Math.max.apply(null, all_matches));
+
   return [first_date, last_date];
 }
 
-jQuery.fn.sortChildren = function(selector) {
-  var children = $(this).find(selector);
+function sort_child_nodes(selector) {
+  var children = $(selector);
+  var parent = children.parent();
+
   var child_array = [];
-  children.remove().each(function() {
+  children.each(function() {
     child_array.push(this);
+    $(this).remove();
   });
 
+  // Sort on the most recent year found.
+  // With equal most recent years, sort on the least recent.
   child_array.sort(function(a, b) {
     var a_dates = find_dates(a);
     var first_a = a_dates[0];
@@ -67,14 +66,14 @@ jQuery.fn.sortChildren = function(selector) {
     var first_b = b_dates[0];
     var last_b = b_dates[1];
 
-    if(last_a == last_b)
+    if(last_a === last_b)
       return first_b - first_a;
 
     return last_b - last_a;
   });
 
   for(var i = 0; i < child_array.length; i++) {
-    $(this).append(child_array[i]);
+    $(parent).append(child_array[i]);
   }
 }
 
@@ -147,20 +146,19 @@ var project_fields = {organization:1, description:1, tools:1, role:1,
                       dates:1, pictures:1};
 
 $(function() {
-  all_projects = $("div[data-category=professional],div[data-category=speaking],div[data-category=personal]");
+  var data_selector = "div[data-category=professional],div[data-category=speaking],div[data-category=personal]";
+  var all_projects = $(data_selector);
 
-  $("body").sortChildren(".professional,.speaking,.personal");
+  sort_child_nodes(data_selector);
 
   // Replace every project div with a templatized version
   all_projects.each(function() {
-    field_objs = {};
+    var field_objs = {};
     for(var field in project_fields) {
       field_objs[field] = $(this).find("." + field).remove();
     }
     $(this).attr("class", $("#template").attr("class"));
-    $(this).removeClass("hidden");  // Remove perma-hide
-    $(this).hide();  // But add jQuery-reversible hide
-    $(this).html($("#template").html());
+    $(this).html($("#template").html()).hide();
     for(var field in project_fields) {
       var spot = $(this).find("." + field + "_here");
       field_objs[field].appendTo(spot);
@@ -253,7 +251,7 @@ $(function() {
 
 <div id="tagbox" style="height:80px;"> </div> <!-- For sub-buttons -->
 
-<div id="template" class="well hidden">
+<div id="template" class="well" style="display:none">
   <div class="row">
     <div class="col-lg-4"> <div class="dates_here lead"></div></div>
     <div class="col-lg-8"> <div class="description_here lead"></div></div>
