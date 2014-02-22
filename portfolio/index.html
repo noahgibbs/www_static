@@ -82,7 +82,7 @@ var last_tag_selected = "nobody_at_all";
 var tags_shown = {};
 
 function select_major_category(category) {
-  if(category == last_selected) return;
+  if(category.substring(1) == last_selected) return;
 
   // Set active tab
   $("#navbar-main li").removeClass("active");
