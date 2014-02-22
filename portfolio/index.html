@@ -7,7 +7,7 @@
   <meta name="description" content="A portfolio of programming and technical projects, professional and not, by Noah Gibbs" />
   <meta name="keywords" content="noah,gibbs,noah gibbs,portfolio,programming,projects,ruby,rails,big data" />
   <link href="css/bootstrap.cerulean.min.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="portfolio.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/portfolio.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="fancybox/jquery.fancybox.css" media="screen" rel="stylesheet" type="text/css" />
   <script type="text/javascript"
     src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js">
@@ -24,24 +24,16 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function show_elts(elts) {
-  elts.filter(":hidden").animate({height: 'show'});
-}
+function get_all_tags(category) {
+  var tags_hash = {};
 
-function hide_elts(elts) {
-  elts.filter(":visible").animate({height: 'hide'});
-}
-
-jQuery.fn.getAllClasses = function() {
-  var classes_hash = {};
-  this.each(function() {
-    var classes_str = $(this).attr("class");
-    var classes = classes_str.split(" ");
-    for(var i = 0; i < classes.length; i++) {
-      classes_hash[classes[i]] = 1;
-    }
+  $("div[data-category='" + category + "']").each(function(index,elt) {
+    $(elt).attr("data-tags").split(" ").forEach(function(tag) {
+      tags_hash[tag] = true;
+    });
   });
-  return classes_hash;
+
+  return tags_hash;
 }
 
 function find_dates(a) {
@@ -89,35 +81,24 @@ jQuery.fn.sortChildren = function(selector) {
 var last_selected = "nobody_at_all";
 var last_tag_selected = "nobody_at_all";
 var tags_shown = {};
-var project_fields = {organization:1, description:1, tools:1, role:1,
-                      dates:1, pictures:1};
 
-function radio_div_click(radio_div) {
-  var new_selected = radio_div.attr("id");
-  if(new_selected == last_selected) return;
+function select_major_category(category) {
+  if(category == last_selected) return;
 
-  $(".buttonbox").animate({top: "+=10"}, 100).animate({top: "-=10"}, 100);
+  $("#navbar-main li").removeClass("active");
+  $("#navbar-main li[href='" + category + "/all']").addClass("active");
 
-  $("body").removeClass("b_professional b_speaking b_personal").
-    addClass("b_" + new_selected);
-  $("#professional, #speaking, #personal").removeClass("selected");
-  radio_div.addClass("selected");
-
-  hide_elts($("." + last_selected));
+  // Hide all divs in previous selected category
+  $("div[data-category='" + last_selected + "']:visible").animate({height: 'hide'});
 
   last_tag_selected = "nobody_at_all";
-  last_selected = new_selected;
-  var projects_to_show = $('.' + last_selected);
-  show_elts(projects_to_show);
+  last_selected = category.substring(1);
+
+  // Show all divs in new category
+  $("div[data-category='" + last_selected + "']:hidden").animate({height: 'show'});
 
   $("#tagbox div").remove();
-  tags_shown = projects_to_show.getAllClasses();
-  delete tags_shown.professional;
-  delete tags_shown.speaking;
-  delete tags_shown.personal;
-  delete tags_shown.curved;
-  delete tags_shown.shadow;
-  delete tags_shown.selected;
+  tags_shown = get_all_tags(last_selected);
 
   $('<a href="#' + last_selected +
     '/all"><div class="radio_tag_div shadow selected ' + last_selected +
@@ -153,14 +134,15 @@ function radio_tag_div_click(radio_tag_div) {
   $(".radio_tag_div").removeClass("selected");
   radio_tag_div.addClass("selected");
 
-  hide_elts(not_sub_elts);
-  show_elts(sub_elts);
+  not_sub_elts.filter(":visible").animate({height: 'hide'});
+  sub_elts.filter(":hidden").animate({height: 'show'});
 }
 
+var project_fields = {organization:1, description:1, tools:1, role:1,
+                      dates:1, pictures:1};
+
 $(function() {
-  all_projects = $(".professional,.personal,.speaking");
-  all_projects.hide().addClass("curved shadow");
-  $(".radio_div").addClass("curved shadow");
+  all_projects = $("div[data-category=professional],div[data-category=speaking],div[data-category=personal]");
 
   $("body").sortChildren(".professional,.speaking,.personal");
 
@@ -170,6 +152,8 @@ $(function() {
     for(var field in project_fields) {
       field_objs[field] = $(this).find("." + field).remove();
     }
+    $(this).attr("class", $("#template").attr("class"));
+    $(this).removeClass("hidden");
     $(this).html($("#template").html());
     for(var field in project_fields) {
       var spot = $(this).find("." + field + "_here");
@@ -191,10 +175,10 @@ $(function() {
 
   $(window).bind( 'hashchange', function() {
     spot = location.hash;
-    if(spot == "") { spot = "#professional/all"; }
+    if(spot == "") { spot = "#professional/all" }
 
     tags = spot.split("/", 2);
-    radio_div_click($(tags[0]));  // Tags[0] automatically gets leading "#"
+    select_major_category(tags[0]);
     radio_tag_div_click($(tags[0] + "_" + tags[1]));
   });
 
@@ -208,21 +192,64 @@ $(function() {
 });
 </script>
 
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="http://static.angelbob.com/portfolio" class="navbar-brand">Noah's Portfolio</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#professional/all">Professional</a>
+            </li>
+            <li>
+              <a href="#speaking/all">Speaking</a>
+            </li>
+            <li>
+              <a href="#personal/all">Personal</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Other Links <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li>
+                  <a href="http://static.angelbob.com/resume">Resume</a>
+                </li>
+                <li>
+                  <a href="http://codefol.io">Blog</a>
+                </li>
+                <li>
+                  <a href="http://rebuilding-rails.com">Rebuilding Rails</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container"><div class="row">
+
+<div style="height:80px;"> </div>
+
 <p class="disclaimer">
   This list is representative, not complete.  Also, feel free to
   check <a href="http://static.angelbob.com/resume">my resume</a>,
   <a href="http://codefol.io">my blog</a>, or
   <a href="http://github.com/noahgibbs">my code on GitHub</a> &ndash; Noah
 </p>
-
-<div class="buttonbox">
-  <a href="#professional/all"><div id="professional" class="radio_div">Professional</div></a>
-  <a href="#speaking/all"><div id="speaking" class="radio_div">Speaking</div></a>
-  <a href="#personal/all"><div id="personal" class="radio_div">Personal</div></a>
-</div>
 <div id="tagbox"> </div> <!-- For sub-buttons -->
 
-<div id="template" class="hidden">
+<div id="template" class="well hidden">
   <table>
     <tr>
       <td> <div class="dates_here"></div> </td>
@@ -237,7 +264,7 @@ $(function() {
   <div class="pictures_here"> </div>
 </div>
 
-<div class="professional ruby cassandra">
+<div data-category="professional" data-tags="ruby cassandra">
   <div class="dates"> 2011-2013 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> The <a href="http://github.com/ooyala/hastur-server">
@@ -265,7 +292,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional ruby cassandra">
+<div data-category="professional" data-tags="ruby cassandra">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> Ooyala's Backlot </div>
@@ -279,7 +306,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2013 </div>
   <div class="description"> "The Littlest ORM",
     a talk on building a simple ORM in Ruby, with full
@@ -290,7 +317,7 @@ $(function() {
   <div class="role"> Author/Speaker </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://onlive.com">OnLive</a>
     </div>
@@ -312,7 +339,7 @@ $(function() {
   <div class="role"> Author/Speaker </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2013 </div>
   <div class="organization"> Given at <a href="http://elance.com">eLance</a>
     </div>
@@ -329,7 +356,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby cassandra">
+<div data-category="speaking" data-tags="ruby cassandra">
   <div class="dates"> 2012 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> &quot;Hastur: Open-Source Scalable Metrics with
@@ -349,7 +376,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby cassandra">
+<div data-category="speaking" data-tags="ruby cassandra">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
   <div class="description"> Ruby Big Data Tools at Ooyala, given as a talk
@@ -364,7 +391,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2012 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -381,7 +408,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby rails">
+<div data-category="speaking" data-tags="ruby rails">
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://www.therubyhangout.com">The Ruby Hangout</a>
     </div>
@@ -400,7 +427,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://sebastianmarshall.com">Sebastian Marshall</a>'s <a href="http://givegetwin.com">GiveGetWin</a>
     </div>
@@ -414,7 +441,7 @@ $(function() {
   <div class="role"> Interviewee </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -430,7 +457,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2012 </div>
   <div class="organization"> <a href="http://hackerdojo.com">Hacker Dojo</a>
     Lightning Talks</div>
@@ -442,7 +469,7 @@ $(function() {
   <div class="role"> Author/Speaker </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2011-2012 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -463,7 +490,7 @@ $(function() {
   <div class="role"> Author/Speaker </div>
 </div>
 
-<div class="speaking ruby">
+<div data-category="speaking" data-tags="ruby">
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -479,7 +506,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional rails ruby">
+<div data-category="professional" data-tags="rails ruby">
   <div class="dates"> 2012 </div>
   <div class="organization"> ScamArmour, now Serpikko</div>
   <div class="description"> Part-time freelance work on ScamArmour's
@@ -497,7 +524,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional rails ruby">
+<div data-category="professional" data-tags="rails ruby">
   <div class="dates"> 2011-2012 </div>
   <div class="organization"> <a
   href="http://sv.cmu.edu">Carnegie-Mellon Univ West</a>
@@ -509,7 +536,7 @@ $(function() {
   <div class="role"> Tutor and debugger </div>
 </div>
 
-<div class="professional ruby">
+<div data-category="professional" data-tags="ruby">
   <div class="dates"> 2011-2013 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -535,7 +562,7 @@ $(function() {
   </div>
 </div>
 
-<div class="speaking rails">
+<div data-category="speaking" data-tags="rails">
   <div class="dates"> 2010 </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
     </div>
@@ -552,7 +579,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional rails">
+<div data-category="professional" data-tags="rails">
   <div class="dates"> 2009 - 2011 </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
     </div>
@@ -569,7 +596,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile">
+<div data-category="professional" data-tags="c mobile">
   <div class="dates"> 2008 - 2009 </div>
   <div class="organization"> <a href="http://access-company.com">ACCESS
     Systems Americas, purchaser of PalmSource</a> </div>
@@ -599,7 +626,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile">
+<div data-category="professional" data-tags="c mobile">
   <div class="dates"> 2007 - 2008 </div>
   <div class="organization"> <a href="http://access-company.com">ACCESS
     Systems Americas, purchaser of PalmSource</a> </div>
@@ -618,7 +645,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c">
+<div data-category="professional" data-tags="c">
   <div class="dates"> 2006 - 2007 </div>
   <div class="organization"> <a href="http://arstechnica.com/business/news/2007/06/google-buys-peakstream-inc.ars">PeakStream</a>,
        now <a href="http://www.theregister.co.uk/2007/06/05/google_buys_peakstream">part of Google</a></div>
@@ -627,7 +654,7 @@ $(function() {
   <div class="role"> Primary author and maintainer </div>
 </div>
 
-<div class="professional c mobile windows">
+<div data-category="professional" data-tags="c mobile windows">
   <div class="dates"> 2005 - 2006 </div>
   <div class="organization"> SharpCast, now <a href="http://www.sugarsync.com">SugarSync</a> </div>
   <div class="description"> Photos product, now called SugarSync.  I handled
@@ -651,7 +678,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile palmos">
+<div data-category="professional" data-tags="c mobile palmos">
   <div class="dates"> 2004 - 2005 </div>
   <div class="organization">
     <a href="http://www.giantbomb.com/tapwave-inc/65-763/">TapWave</a> </div>
@@ -667,7 +694,7 @@ $(function() {
       <img src="Tapwave_Zodiac2_640.jpeg" alt="Tapwave Zodiac" /> </a> </div>
 </div>
 
-<div class="professional c mobile">
+<div data-category="professional" data-tags="c mobile">
   <div class="dates"> 2002 - 2003 </div>
   <div class="organization"> <a href="http://www.broadcom.com">BroadCom</a> </div>
   <div class="description"> Captioning APIs (CC, CGMS, WSS, TeleText) for
@@ -678,7 +705,7 @@ $(function() {
   <div class="role"> Software engineer, individual contributor </div>
 </div>
 
-<div class="professional c">
+<div data-category="professional" data-tags="c">
   <div class="dates"> 2003 - 2004 </div>
   <div class="organization"> <a href="http://nvidia.com">NVidia</a> </div>
   <div class="description"> Linux graphics drivers for iTanium and Intel
@@ -691,7 +718,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile palmos">
+<div data-category="professional" data-tags="c mobile palmos">
   <div class="dates"> 2000 - 2002 </div>
   <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
   <div class="description"> File system and launcher integration of apps
@@ -703,7 +730,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile palmos">
+<div data-category="professional" data-tags="c mobile palmos">
   <div class="dates"> 2000 - 2001 </div>
   <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
   <div class="description"> HostFS, a file-system emulator for the PalmOS
@@ -717,7 +744,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional c mobile windows">
+<div data-category="professional" data-tags="c mobile windows">
   <div class="dates"> 1999 - 2000 </div>
   <div class="organization"> <a href="http://nowsol.com/">NOW Solutions</a> </div>
   <div class="description"> 
@@ -737,7 +764,7 @@ $(function() {
   </div>
 </div>
 
-<div class="professional student c">
+<div data-category="professional" data-tags="student c">
   <div class="dates"> 1995 - 1997 </div>
   <div class="organization"> The <a href="http://www.cs.cmu.edu/~gwydion/">
     Gwydion Project</a><br/>
@@ -750,7 +777,7 @@ $(function() {
   <div class="role"> Student part-time programmer </div>
 </div>
 
-<div class="personal ruby rails">
+<div data-category="personal" data-tags="ruby rails">
   <div class="dates"> 2012 - 2013 </div>
   <div class="description"> <a
   href="http://rebuilding-rails.com">Rebuilding Rails</a>, an ebook on
@@ -774,7 +801,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal student c">
+<div data-category="personal" data-tags="student c">
   <div class="dates"> 1998? </div>
   <div class="organization"> A class at
     <a href="http://www.cmu.edu">Carnegie Mellon University</a>
@@ -787,7 +814,7 @@ $(function() {
     <img src="reflroom.png" /></a> </div>
 </div>
 
-<div class="personal javascript">
+<div data-category="personal" data-tags="javascript">
   <div class="dates"> 2011 </div>
   <div class="description"> <a href="http://github.com/noahgibbs/navier">
     Navier-Stokes fluid flow simulation</a>
@@ -805,7 +832,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal javascript">
+<div data-category="personal" data-tags="javascript">
   <div class="dates"> 2010 </div>
   <div class="description"> This JavaScript portfolio.  Uses hashchange,
     jQuery, animation, fancybox, hand-rolled templating and no dynamic
@@ -826,7 +853,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal c games">
+<div data-category="personal" data-tags="c games">
   <div class="dates"> 2010 </div>
   <div class="description"> <a href="https://github.com/noahgibbs/shannas_pizza">Shanna's
     Pizza</a>, a simple game to teach young
@@ -848,7 +875,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal rails games">
+<div data-category="personal" data-tags="rails games">
   <div class="dates"> 2009 - 2010 </div>
   <div class="description"> 
       <a href="http://noahgibbs.github.com/RailsGame">RailsGame</a>
@@ -871,7 +898,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2009-2010 </div>
   <div class="description"> 
       <a href="http://github.com/noahgibbs/cheaptoad">CheapToad</a>, a
@@ -884,7 +911,7 @@ $(function() {
   <div class="role"> Sole author and maintainer </div>
 </div>
 
-<div class="personal games">
+<div data-category="personal" data-tags="games">
   <div class="dates"> 2004, 2009 </div>
   <div class="description"> 
       <a href="http://www.skotos.net/articles/neo.shtml">NeoArchaeology</a>
@@ -897,7 +924,7 @@ $(function() {
   <div class="role"> Author.  Edited by Shannon Appelcline </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2011 </div>
   <div class="description">
       <a href="http://github.com/noahgibbs/RailsFrame">RailsFrame</a>,
@@ -912,7 +939,7 @@ $(function() {
   <div class="role"> Sole author and maintainer </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2011 </div>
   <div class="description">
     CodeFol.io, a web app to help programmers build simple
@@ -925,7 +952,7 @@ $(function() {
   <div class="role"> Sole author and maintainer </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2007 - 2008, 2010 - 2011 </div>
   <div class="description">
       <a href="https://github.com/noahgibbs/wantmyjob.com">WantMyJob</a>, a web app for
@@ -951,7 +978,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2010 </div>
   <div class="description"> 
       <a href="http://github.com/noahgibbs/refactor_it">Refactor It</a>, a
@@ -965,7 +992,7 @@ $(function() {
   <div class="role"> Sole author and maintainer </div>
 </div>
 
-<div class="personal rails">
+<div data-category="personal" data-tags="rails">
   <div class="dates"> 2009 - 2010 </div>
   <div class="description"> 
       <a href="http://codefol.io">blog.angelbob.com, now Codefol.io</a>
@@ -991,7 +1018,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal ruby">
+<div data-category="personal" data-tags="ruby">
   <div class="dates"> 2006-2007, 2010 </div>
   <div class="description">
       <a href="http://diffeq.rubyforge.org">DiffEQ</a>
@@ -1016,7 +1043,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal dgd games">
+<div data-category="personal" data-tags="dgd games">
   <div class="dates"> 1999 - 2008 </div>
   <div class="description"> 
        <a href="http://phantasmal.sf.net">Phantasmal MUDLib</a> for
@@ -1036,7 +1063,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal dgd">
+<div data-category="personal" data-tags="dgd">
   <div class="dates"> 1999 - 2008 </div>
   <div class="description"> 
       <a href="http://phantasmal.sf.net/DGD">documentation site for DGD
@@ -1055,7 +1082,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal c">
+<div data-category="personal" data-tags="c">
   <div class="dates"> 1998 </div>
   <div class="description"> 
       Early work on Physics code for
@@ -1071,7 +1098,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal silly ruby">
+<div data-category="personal" data-tags="silly ruby">
   <div class="dates"> 2008-2009 </div>
   <div class="description">
       Maslow, a simple needs-based AI for evaluating actions and predicting
@@ -1086,7 +1113,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal silly javascript">
+<div data-category="personal" data-tags="silly javascript">
   <div class="dates"> 2007, 2010 </div>
   <div class="description">
       <a href="http://www.angelbob.com/toy/facelets.html">Facelets</a>,
@@ -1104,7 +1131,7 @@ $(function() {
   </div>
 </div>
 
-<div class="personal silly">
+<div data-category="personal" data-tags="silly">
   <div class="dates"> 2007 </div>
   <div class="description">
       <a href="SillyBand.sb">SillyBand</a>, a very quick demo project for
@@ -1117,5 +1144,7 @@ $(function() {
       <a href="SillyBand.png" class="fancybox"><img src="SillyBand.png" /></a>
   </div>
 </div>
+
+</div>  <!-- Bootstrap Container -->
 
 </body>
