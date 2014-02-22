@@ -86,7 +86,7 @@ function select_major_category(category) {
   if(category == last_selected) return;
 
   $("#navbar-main li").removeClass("active");
-  $("#navbar-main li[href='" + category + "/all']").addClass("active");
+  $("#navbar-main li a[href='" + category + "/all']").parent().addClass("active");
 
   // Hide all divs in previous selected category
   $("div[data-category='" + last_selected + "']:visible").animate({height: 'hide'});
