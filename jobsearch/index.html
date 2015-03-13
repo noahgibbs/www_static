@@ -2,18 +2,393 @@
 <html> <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta name="description" content="Noah Gibbs: A Modern Resume and Portfolio" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="noah,gibbs,noah gibbs,portfolio,resume,job search,employment" />
+  <meta name="author" content="Noah Gibbs" />
   <link href="css/jobsearch.css" media="screen" rel="stylesheet" type="text/css" />
-  <script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-  </script>
-  <script type="text/javascript" src="js/bootstrap.min.js"> </script>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!-- github activity css
+  <link rel="stylesheet" href="assets/plugins/github-activity/dist/github-activity-0.1.0.min.css">
+  <link rel="stylesheet" href="assets/plugins/github-activity/dist/octicons/octions.min.css">
+   -->
+
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="css/styles.css">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
   <title> Noah Gibbs's Resume and Portfolio </title>
 </head>
 
+<!-- TODO:
+  * Better contact link
+  * Hashchange handler and JS callback to allow linking/bookmarking for tabs
+  * Sets of logos in different sections as convincers
+ -->
+
 <body>
+ <header class="header">
+    <div class="container">
+      <img class="profile-image img-responsive pull-left" src="img/me_speaking_small.png" alt="Noah Gibbs" />
+      <div class="profile-content pull-left">
+       <h1 class="name">Noah Gibbs</h1>
+       <h2 class="desc"><a href="#developer">Software Developer</a>, <a href="#leader">Ruby Community Leader</a>,<br/> <a href="#builder">Product Builder</a> &mdash; <b><i>Available May 2015</i></b></h2>
+       <ul class="social list-inline">
+         <li><a href="http://twitter.com/codefolio"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="http://github.com/noahgibbs"><i class="fa fa-github-alt"></i></a></li>
+         <li><a href="http://linkedin.com/in/noahgibbs"><i class="fa fa-linkedin"></i></a></li>
+       </ul>
+      </div><!--//profile-->
+      <!-- TODO: ADD REAL CONTACT LINK -->
+      <a class="btn btn-cta-primary pull-right" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+    </div><!--//container-->
+  </header><!--//header-->
+
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-md-10 col-md-offset-1">
+
+        <section class="section">
+          <div class="section-inner">
+            <h2 class="heading"><i>Very</i> Quick Summary</h2>
+
+            <ul>
+              <li>Experienced engineer and team lead</li>
+              <li>Successful tech speaker, author, presenter</li>
+              <li>Looking for a job, around May 2015, in Silicon Valley</li>
+              <li>Not looking in San Francisco - sorry!</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <a name="developer"></a>
+            <h2 class="heading">Looking For a Hands-On Software Team Leader?</h2>
+
+            <div class="right-sidebar">
+              Rails<br/> C/C++<br/> Cassandra<br/> SQL<br/> Embedded<br/> More
+            </div>
+
+            <p>
+              Looking for a <b><i>seriously full-stack engineer</i></b>? I've done it all, from UI and application code,
+              to Big Data and Analytics, to embedded and multimedia, to deep-dive SQL and NoSQL optimization, to distributed systems design.
+              I've worked in 20+ languages over nearly 30 years, from C and assembly building operating systems and device
+              drivers to scaling high-traffic Ruby on Rails sites.
+            </p>
+
+            <p>
+              Or a <b>team leader</b>? I've been <b>technical lead, manager and lead engineer</b> on small teams at several companies and
+              on several projects. I can turn a simple list of priorities into team goals and then make them happen.
+              I can operate independently &mdash; for instance, when <b>repairing and rebuilding</b> OnLive's
+              unmaintained <b>analytics system</b> with the simple mandate
+              <b>"find out how it works, fix it, extend it, don't break production."</b>
+            </p>
+
+            <div class="left-sidebar">
+              <img src="img/CMU_wordmark.gif" width="150" height="104" alt="Carnegie Mellon"></img><br/><hr/>
+              <img src="img/cmu_west.jpeg" width="150" height="100" alt="Carnegie Mellon West"></img><br/><hr/>
+              <img src="img/cass_logo.jpeg" width="150" height="101" alt="Apache Cassandra Logo"></img><br/><hr/>
+              <img src="img/gogaruco-2013.png" width="150" height="109" alt="GoGaRuCo Logo"></img><br/><hr/>
+              <img src="img/ooyala_logo.jpeg" width="150" height="24" alt="Ooyala Logo"></img>
+            </div>
+
+            <p>
+              Want an engineering lead with a great history and pedigree?
+              I <b>taught Ruby on Rails for a Masters Degree program at Carnegie Mellon West</b>.
+              I graduated from Carnegie Mellon (East) for my undergrad
+              degrees (Math and Comp Sci). I've <b>spoken at Ruby and Cassandra conferences</b>. I'm an <b>internationally recognized author</b> on
+              Ruby web frameworks, as well as server deployment and provisioning.
+              I've worked for successful startups (Ooyala, PeakStream).
+            </p>
+
+            <p class="clearfix">
+              Perhaps I can help you out. You can hit "contact me" up above, or scroll down for more details. But I'm a lot more than "just" an amazing engineer.
+            </p>
+
+            <p>
+              (If you're a software engineer, you started with this section <i><b>and</b></i> you read to the end.
+               Hello! Please skip down to <a href="#details">this section</a> for substantiation of my claims and all the low-level details.
+               You'll enjoy that more than my sales pitch, I expect.)
+            </p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <a name="leader"></a>
+            <h2 class="heading">Roots in the Community</h2>
+
+            <p>
+              Hiring well-known members of an open-source community can help you recruit in that community.
+            </p>
+
+            <p>
+              At OnLive, I organized four local meetups for recruiting, drawing crowds of 50+ programmers before we
+              limited attendance for space reasons.
+              I mentioned OnLive at my <a href="http://gogaruco.com">Golden
+              Gate Ruby Conference</a> presentation on
+              <a href="https://www.youtube.com/watch?v=Uh5MYvNXt0A" target="_blank">building your own ORM</a>. Ruby people are often
+              <b>very hard to recruit</b>, and I was able to <b>find a few "extra"</b> for OnLive.
+            </p>
+
+            <p>
+              I can give recruiting talks about Ruby, Rails, DevOps, NoSQL tools, analytics, Big Data and many
+              other topics. Engineers with those specialties normally cost <b>tens of
+              thousands of dollars to recruit</b>. Meetups cost <b>under a hundred dollars</b>, mostly for snacks.
+            </p>
+
+            <p> Shall I give a few recruiting meetups for you? </p>
+
+            <p>
+              I also present internally about Ruby, Rails, Cassandra, ZooKeeper and other topics &mdash;
+              over <b>fifteen talks at OnLive</b> and many at Ooyala before that. I can <b>record my talks</b>
+              and you probably want me to.
+            </p>
+
+            <p>
+              New employee <a
+              href="https://blog.asana.com/2013/02/onboarding-new-engineers/" target="_blank">on-boarding</a>
+              is a <a
+              href="http://www.theeffectiveengineer.com/blog/how-to-build-a-good-onboarding-process-for-new-hires-at-a-startup"
+              target="_blank">huge strategic asset</a> and few companies invest in it. Want a great presenter who can
+              write, give and record a set of talks to <b>jump-start your on-boarding process</b>?
+            </p>
+
+            <p>
+              I can do that for you.
+            </p>
+
+            <img src="img/meetup-cropped.jpeg" width="640" height="240" alt="Photo from an OnLive meetup"></img>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <a name="builder"></a>
+            <h2 class="heading">I Build Products Independently &mdash; Here's Why <b><i>You Really Want That</i></b></h2>
+
+            <div class="right-sidebar">
+              <img src="img/rr-cover.png" width="200" height="240" alt="Cover of Rebuilding Rails"></img><br/><hr/>
+              <img src="img/rdiah.png" width="200" height="80" alt="Rails-Deploy-In-An-Hour Logo"></img>
+            </div>
+
+            <p>
+              I'm the author of <a href="http://rebuilding-rails.com">Rebuilding Rails</a> and
+              <a href="http://rails-deploy-in-an-hour.com">Rails Deploy In An Hour</a>,
+              both real costs-money projects that teach programming skills. I sell them independently and do all my own promotion.
+            </p>
+
+            <p>
+              There are advantages to an employee with those skills. Those advantages <i><b>could</b></i> be yours.
+            </p>
+
+            <p>
+              I mentioned some: team leadership, self-management, recruiting, on-boarding.
+              But <b>money depends on me communicating clearly</b> when I'm selling. So I'm good at it. This makes me
+              excellent at instruction, documentation, mentoring and several other processes that
+              <b>make your other engineers better</b>, saving salary and reducing time-to-market.
+            </p>
+
+            <p>
+              My marketing experience also means I can communicate with your Product, Sales and
+              Marketing groups in their own language. I know
+              conversion rates and A/B tests, statistical significance, email marketing and how to present data
+              to a less-technical audience. That means <b>more effective engineering provided to
+              Product and Marketing</b> which means <b>better measures of product/market fit</b> which means <b>more money</b>.
+              This is roughly the same activity as <b>"growth hacking"</b> &mdash; engineering support makes your
+              marketing more effective.
+            </p>
+
+            <img src="img/globe-view.png" class="left-sidebar" width="200" height="123" alt="Globe with session count spots"></img>
+
+            <p>
+              If you're still pre-profit, don't worry. I can <b>process and present data for funding decks</b>, and I've done that for OnLive:
+              analytics data to <b>convince people of the product's potential</b>, in a way that <b>looks good</b>.
+            </p>
+
+            <p>
+              I can do that for your Marketing group, your product managers and your potential customers and investors as well.
+            </p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <a name="builder"></a>
+            <h2 class="heading">What Can We Do For Each Other?</h2>
+
+            <img src="img/hastur-graph.png" class="right-sidebar" width="200" height="209" alt="Graph of messages forwarded"></img>
+
+            <p>
+              We've talked a lot about what I can do for you. Better yet, you can <b>pick any
+              of those benefits</b> and tell me to skip the others. Let's go over
+              that list once more:
+            </p>
+
+            <ul>
+              <li>Technical leadership</li>
+              <li>Real business experience</li>
+              <li>Deep experience in: Ruby and Rails</li>
+              <li>Deep experience in: Analytics and Data Science</li>
+              <li>Deep experience in: Deployment and DevOps</li>
+              <li>Skilled communicator, teacher, mentor</li>
+              <li>Well-known author, speaker and Ruby/open-source personality</li>
+              <li>Ready to improve your recruiting and on-boarding</li>
+              <li>Skilled at working with Marketing and Product</li>
+              <li>Able to process and present data effectively for decision-making</li>
+            </ul>
+
+            <p>
+              There's no such thing as "all", of course... If I can <b>do all of these for you</b>, you have other uses in mind too.
+              I'm looking forward to it!
+            </p>
+
+            <p>
+              But there's no <b>such thing as a free lunch</b>, right? Let's talk about what I need from you.
+            </p>
+
+            <img src="img/conn_hero.jpg" class="right-sidebar" width="150" height="157" alt="Super hero"></img>
+
+            <p>
+              <i class="fa fa-star"></i> I'm looking for a position where I can make a difference. Many of the benefits I suggest
+              <b>only work if I have some leverage</b>. That means I need at least a team lead position.
+              I need a reasonably free hand to help your company. That also means being paid
+              appropriately &mdash;
+              <a href="http://www.kalzumeus.com/2012/01/23/salary-negotiation/" target="_blank">that's
+              necessary to make changes stick, too.</a> I can add a lot of value to your company,
+              but I need to capture some of it as well.
+            </p>
+
+            <p>
+              <i class="fa fa-star"></i>I also <b>care a lot about work-life balance</b>. I have two adorable daughters and a wonderful wife.
+              If we can <b>negotiate 80% time</b> then you can get a lot of those big advantages above at a lower
+              cost. This may make my rate <b>more acceptable to your budget</b>. I don't mind occasional crunch-time
+              or odd hours. But <b>I need actual 40-hour weeks most weeks</b> (or 32-hour weeks with 80% time.) Think value,
+              not price: the benefits above are worth my salary, and I <i>will</i> achieve them during normal work hours.
+            </p>
+
+            <img src="img/no-san-fran.png" class="right-sidebar" width="150" height="151" alt="no San Francisco!"></img>
+
+            <p>
+              <i class="fa fa-star"></i> I'm in Fremont, CA. South Bay locations are great, remote is great, but <b>San Francisco doesn't work</b>.
+              I'm not looking to relocate, inside California or outside it.
+            </p>
+
+            <div class="clearfix"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <h2 class="heading">Let's Do This!</h2>
+
+            <p>
+              If this all sounds good, I'd love to get together and talk. Specifically,
+              <b>if you're a hiring manager</b>, I'd love to <b>talk to you about what positions might be appropriate</b>
+              in your organization. Hit "contact me" up at the very top there!
+            </p>
+
+            <p>
+              If you're a <b>recruiter</b>, I probably won't find much to say to you. Unfortunately, standard engineer
+              positions don't pay what I'm looking for, or have the leverage to make the difference I'm looking to make.
+              But <b>RECRUITERS DON'T READ ANYWAY, EVEN ALL-CAPS BOLD</b>, so I'm pretty resigned to copy-and-pasting this into email.
+            </p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-inner">
+            <a name="details"></a>
+            <h2 class="heading">Too Many Boring Details for Engineers</h2>
+
+            <p>
+              I've made some pretty big claims above. You might want to know what's behind them.
+              But I don't start with these because that makes for a really boring page.
+            </p>
+
+            <p>
+              <a href="http://static.angelbob.com/portfolio">Here's my portfolio</a>, including
+              professional and personal projects, speaking gigs and interviews. That should
+              substantiate things like "used a lot of technologies and languages." My
+              <a href="http://github.com/noahgibbs">GitHub profile</a> is kinda the same
+              thing with no screenshots ;-)
+            </p>
+
+            <p>
+              As for "led projects": I was an architect on a UI framework for ACCESS. I've led
+              a Ruby web framework project and an analytics rescue project at OnLive. I
+              was a tech lead for a deployment project and lead architect for a Cassandra-backed
+              metrics system at Ooyala. There have been other things, but those are the big
+              recent ones.
+            </p>
+
+            <p>
+              I've spoken at two major conferences: GoGaRuCo and the Cassandra Summit. I've also
+              spoken at maybe 15 local meetups, including the OnLive ones. I've had a few
+              online interviews like The Ruby Hangout and a remote meetup with a dev bootcamp
+              in Toronto.
+              I've also been on The Ruby Rogues (scheduled for a second time!), created a guest episode of RubyTapas
+              and generally "hung out with the cool kids" a little in the Ruby community. They know
+              who I am, but I'm not Avdi Grimm or anything.
+            </p>
+
+            <p>
+              My ebook, Rebuilding Rails, has sold hundreds of copies, around 600 as I write this, but under a thousand. I'm selling
+              to a specialist audience (intermediate Rails programmers) at forty bucks a pop and
+              I'm doing all the sales myself, so that's still quite good.
+            </p>
+
+            <p>
+              My deployment class, Rails Deploy In An Hour, is quite new as I write this. So it hasn't sold much,
+              around $1200 worth, but I've barely started marketing it. That's one reason you didn't see more
+              claims about it &mdash; it hasn't existed long. The open-source software attached to it
+              is called <a href="http://github.com/noahgibbs/madscience">Ruby Mad Science</a>. Read through it
+              if you like. Deployment and provisioning code is painful to write and kind of messy, but I'm
+              proud of it!
+            </p>
+
+            <p>
+              There are also a lot of cool things that I <i>didn't</i> mention above because managers and business guys
+              tend not to care about them. I started an <a href="http://engineering.onlive.com">OnLive engineering
+              blog</a> and did most of the writing for it. I created the <a href="http://github.com/onlive">GitHub
+              organization</a>, too, and wrote a lot of the code there. And hey, look through the
+              <a href="http://static.angelbob.com/portfolio/#personal/all">personal section of my portfolio</a>,
+              especially the later bits. There's some really fun stuff there.
+            </p>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
 
 
+  <footer class="footer"> <div class="container text-center">
+    <small>
+      Assets Used: Bootstrap, jQuery,
+      Developer Theme for Bootstrap by <a href="http://themes.3rdwavemedia.com/">3rd-Wave
+      Media</a>
+    </small>
+  </div></footer>
 
-
+  <!-- JavaScript -->
+  <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"> </script>
 </body> </html>
