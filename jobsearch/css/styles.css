@@ -381,6 +381,9 @@ iframe {
 .testimonials .item .source .title {
   color: #999999;
 }
+.testimonials .more-link {
+    font-size: 14px;
+}
 /* Education section */
 .education .item {
   margin-bottom: 30px;
