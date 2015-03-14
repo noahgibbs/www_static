@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora', sans-serif;
   font-weight: 700;
   font-size: 120%;
   color: #778492;
@@ -48,7 +48,7 @@ a.btn {
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
-  font-family: 'Montserrat', arial, sans-serif;
+  font-family: 'Lora', arial, sans-serif;
   padding: 8px 16px;
   font-weight: bold;
 }
@@ -263,7 +263,7 @@ iframe {
   overflow: hidden;
 }
 .latest .featured-image .ribbon .text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lora', sans-serif;
   position: relative;
   left: -8px;
   top: 18px;
