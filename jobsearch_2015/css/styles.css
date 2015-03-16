@@ -67,6 +67,7 @@ a.btn-cta-primary,
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
+  margin: 20px;
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
@@ -354,7 +355,8 @@ iframe {
 }
 /* Testimonials section */
 .testimonials .item {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
+    line-height: 1.25em;
 }
 .testimonials .item:last-child {
   margin-bottom: 0;
