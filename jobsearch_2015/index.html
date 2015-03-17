@@ -26,9 +26,32 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"> </script>
 
   <title> Noah Gibbs - Available May 2015 </title>
 </head>
+
+<script type="text/javascript">
+// Snarfed from http://stackoverflow.com/questions/1694295/jquery-background-color-animate-not-working/5718151#5718151
+$(document).ready(function () {
+    $.fn.animateHighlight = function (highlightColor, duration) {
+        var highlightBg = highlightColor || "#A0FFC0";
+        var animateMs = duration || "slow";
+        var originalBg = this.css("background-color");
+
+        if (!originalBg || originalBg == highlightBg)
+            originalBg = "#FFFFFF"; // default to white
+
+        jQuery(this)
+            .css("backgroundColor", highlightBg)
+            .animate({ backgroundColor: originalBg }, animateMs, null, function () {
+                jQuery(this).css("backgroundColor", originalBg);
+            });
+    };
+});
+</script>
 
 <!-- TODO:
   * Better contact link
@@ -108,7 +131,8 @@
             <blockquote class="right-pull-quote">
               <p>His breadth of knowledge around big data / Cassandra and RoR is unlike any I have ever seen.</p>
               <span class="portrait"><img src="img/austin_trombley.png" width="55" height="55"></span>
-              <span class="name">Austin, then Marketing Mgr, OnLive</span> <a href="#rec-austin"><i class="fa fa-link"></i></a>
+              <span class="name">Austin, then Marketing Mgr, OnLive</span>
+                <a href="#rec-austin" onclick="$('#rec-austin').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
             <p>
@@ -125,16 +149,10 @@
             <blockquote class="left-pull-quote">
               <p>He's the go-to guy (read: force multiplier) on so many topics that I've lost track of how many there are. </p>
               <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
-              <span class="name">Al Tobey, then Tech Lead, Ooyala</span> <a href="#rec-al"><i class="fa fa-link"></i></a>
+              <span class="name">Al Tobey, then Tech Lead, Ooyala</span>
+                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
-<!--
-            <blockquote class="left-pull-quote">
-              <p>His breadth of knowledge around big data / Cassandra and RoR is unlike any I have ever seen.</p>
-              <span class="portrait"><img src="img/austin_trombley.png" width="55" height="55"></span>
-              <span class="name">Austin, then Mktng Mgr, OnLive</span> <a href="#rec-austin"><i class="fa fa-link"></i></a>
-            </blockquote>
--->
             <p>
               As a <b><i>full-stack generalist software engineer</i></b>, I've written everything from UI and application code,
               to Big Data and Analytics, to JavaScript real-time graphs, to embedded and multimedia,
@@ -166,7 +184,7 @@
             </div>
 
             <p>
-              There are advantages to a technical leader who makes and sells real, commercial products that teach programming skills.
+              There are advantages to a technical leader who makes and <b>sells real, commercial products</b> that teach programming skills.
               Those advantages could be yours by May.
             </p>
 
@@ -180,7 +198,8 @@
             <blockquote class="left-pull-quote">
               <p>Noah is full-stack: he can go from discussing sales objectives to the algorithmic complexity of message routing in the same breath and tie it all together.</p>
               <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
-              <span class="name">Al Tobey, then Tech Lead, Ooyala</span> <a href="#rec-al"><i class="fa fa-link"></i></a>
+              <span class="name">Al Tobey, then Tech Lead, Ooyala</span>
+                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
             <p>
@@ -241,7 +260,8 @@
             <blockquote class="left-pull-quote">
               <p>A fantastic mentor, and takes the time to explain advanced concepts to a more junior engineer.</p>
               <span class="portrait"><img src="img/john_pavan.png" width="55" height="55"></span>
-              <span class="name">John Pavan, then SWE, ACCESS</span> <a href="#rec-john"><i class="fa fa-link"></i></a>
+              <span class="name">John Pavan, then SWE, ACCESS</span> <a href="#rec-john">
+                <a href="#rec-john" onclick="$('#rec-john').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
             <p>
@@ -286,10 +306,11 @@
               <li>Deep experience in: Ruby, Ruby on Rails</li>
               <li>Deep experience in: Analytics and Data Science</li>
               <li>Deep experience in: Deployment and DevOps</li>
+              <li>Deep experience in: OS and Systems</li>
               <li>Skilled communicator, teacher, mentor</li>
               <li>Known author, speaker and Ruby/open-source figure</li>
               <li>Ready to improve your recruiting and on-boarding</li>
-              <li>Actual business skills like copywriting and email marketing</li>
+              <li>Business skills like copywriting and email marketing</li>
             </ul>
 
             <p>
@@ -299,7 +320,8 @@
             <blockquote class="right-pull-quote">
               <p>I particularly admire Noah's integrity, intelligence, and the way he is candid without being negative.</p>
               <span class="portrait"><img src="img/peter_van_der_linden.png" width="55" height="55"></span>
-              <span class="name">Peter, then Eng Director, ACCESS</span> <a href="#rec-peter"><i class="fa fa-link"></i></a>
+              <span class="name">Peter, then Eng Director, ACCESS</span>
+                <a href="#rec-peter" onclick="$('#rec-peter').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
             <p>
@@ -397,7 +419,8 @@
             <blockquote class="left-pull-quote">
               <p>Noah is always willing to brainstorm, mentor and otherwise help anyone who asks.</p>
               <span class="portrait"><img src="img/ruth_helfinstein.png" width="55" height="55"></span>
-              <span class="name">Ruth, then SWE, OnLive</span> <a href="#rec-ruth"><i class="fa fa-link"></i></a>
+              <span class="name">Ruth, then SWE, OnLive</span>
+                <a href="#rec-ruth" onclick="$('#rec-ruth').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
             <p>
@@ -433,7 +456,8 @@
             <blockquote class="right-pull-quote">
               <p>I learned Ruby while standing next to Noah and I have to say that it's the best possible way to do so. </p>
               <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
-              <span class="name">Al Tobey, then Tech Lead, Ooyala</span> <a href="#rec-al"><i class="fa fa-link"></i></a>
+              <span class="name">Al Tobey, then Tech Lead, Ooyala</span>
+                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
 
@@ -485,7 +509,7 @@
           <div class="section-inner">
             <h2 class="heading">Why Work With Noah?</h2>
             <div class="content">
-              <div class="item">
+              <div class="item" id="rec-al">
                 <a name="rec-al"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -504,7 +528,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-austin">
                 <a name="rec-austin"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -523,7 +547,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-ruth">
                 <a name="rec-ruth"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -545,7 +569,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-ryan">
                 <a name="rec-ryan"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -570,7 +594,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-peter">
                 <a name="rec-peter"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -591,7 +615,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-john">
                 <a name="rec-john"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -613,7 +637,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-niaz">
                 <a name="rec-niaz"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -629,7 +653,7 @@
 
               </div><!--//item-->
 
-              <div class="item">
+              <div class="item" id="rec-kenneth">
                 <a name="rec-kenneth"></a>
                 <blockquote class="quote">
                 <p><i class="fa fa-quote-left"></i>
@@ -661,9 +685,4 @@
       Media</a>
     </small>
   </div></footer>
-
-  <!-- JavaScript -->
-  <script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"> </script>
 </body> </html>
