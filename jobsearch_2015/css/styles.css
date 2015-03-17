@@ -376,11 +376,21 @@ iframe {
   padding-left: 30px;
   font-weight: 500;
 }
+.testimonials .item .source .portrait {
+    display: inline-block;
+    margin: 5px;
+}
+.testimonials .item .source .source_block {
+    display: inline-block;
+    vertical-align: middle;
+}
 .testimonials .item .source .name {
+    padding-top: 20px;
   color: #939ea9;
   font-weight: 600;
 }
 .testimonials .item .source .title {
+    font-size: 12px;
   color: #999999;
 }
 .testimonials .more-link {
