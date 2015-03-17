@@ -364,11 +364,11 @@ iframe {
 .testimonials .item .quote {
   color: #666666;
   font-size: 16px;
-  border-left-color: #9fdeb7;
+  //border-left-color: #9fdeb7;
   margin-bottom: 15px;
 }
 .testimonials .item .quote .fa {
-  color: #79d19a;
+  //color: #79d19a;
   margin-right: 15px;
 }
 .testimonials .item .source {
