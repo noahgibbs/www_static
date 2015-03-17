@@ -123,6 +123,7 @@ iframe {
     border: 2px solid #999999;
     font-size: 75%;
     margin: 1.5em;
+    padding: 1em;
 }
 
 .section .left-sidebar {
@@ -130,7 +131,57 @@ iframe {
     border: 2px solid #999999;
     font-size: 75%;
     margin: 1.5em;
+    padding: 1em;
 }
+
+/** pull-quote styles **/
+.left-pull-quote {
+    display: block;
+    //padding: 7px 11px;
+    //margin-left: 5px;
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+    //background: #555;
+    //color: #bcbcbc;
+    font-weight: bold;
+    //line-height: 17px;
+    //font-size: 15px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 2px solid #999;
+}
+
+.left-pull-quote p {
+    font-style: italic;
+    //color: #d5d5d5;
+    color: #505050;
+}
+.left-pull-quote .name {
+    font-size: 12px;
+}
+
+.right-pull-quote {
+    display: block;
+    width: 45%;
+    float: right;
+    margin-left: 5%;
+    font-weight: bold;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 2px solid #999;
+}
+
+.right-pull-quote p {
+    font-style: italic;
+    color: #505050;
+}
+.right-pull-quote .name {
+    font-size: 12px;
+}
+
 
 /* ======= Header ======= */
 .header {
@@ -365,6 +416,7 @@ iframe {
   color: #666666;
   font-size: 16px;
   //border-left-color: #9fdeb7;
+  border-left: 0px;
   margin-bottom: 15px;
 }
 .testimonials .item .quote .fa {
