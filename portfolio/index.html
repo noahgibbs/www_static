@@ -141,7 +141,7 @@ function select_tag(tag) {
 $(function() {
   var project_fields = {organization:true, description:true, tools:true, role:true,
                         dates:true, pictures:true, title:true};
-  var data_selector = "div[data-category=professional],div[data-category=speaking],div[data-category=personal]";
+  var data_selector = "div[data-category]";
   var all_projects = $(data_selector);
 
   sort_child_nodes(data_selector);
@@ -204,6 +204,9 @@ $(function() {
             </li>
             <li>
               <a href="#personal/all">Personal</a>
+            </li>
+            <li>
+              <a href="#products/all">Products</a>
             </li>
           </ul>
 
@@ -405,6 +408,45 @@ $(function() {
       <img src="ooyala-backlot-analytics-1.png" alt="Ooyala Backlot 1" /> </a>
     <a class="fancybox" href="ooyala-backlot-2.jpg">
       <img src="ooyala-backlot-2.jpg" alt="Ooyala Backlot 2" /> </a>
+  </div>
+</div>
+
+<div data-category="speaking" data-tags="ruby">
+  <div class="title"><a href="http://devchat.tv/ruby-rogues/199-rr-deployments-with-noah-gibbs">Ruby Rogues Episode</a> on Deployment Tools</div>
+  <div class="dates"> 2015 </div>
+  <div class="description"> I had the good fortune to <a href="http://devchat.tv/ruby-rogues/199-rr-deployments-with-noah-gibbs">be
+    a guest on the Ruby Rogues podcast</a>, by far the most popular Ruby podcast, in March
+    of 2015. They liked me enough to invite me back for another episode
+    in May.
+  </div>
+  <div class="tools"> N/A </div>
+  <div class="role"> Interviewee </div>
+  <div class="organization"> <a href="http://devchat.tv/ruby-rogues">The Ruby Rogues</a> </div>
+  <div class="pictures">
+    <a class="fancybox" href="rubyrogues-1.png">
+      <img src="rubyrogues-1.png" /></a>
+    <a class="fancybox" href="rubyrogues-2.png">
+      <img src="rubyrogues-2.png" /></a>
+  </div>
+</div>
+
+<div data-category="speaking" data-tags="ruby">
+  <div class="title">Guest Episode of <a href="http://avdi.org">Avdi Grimm's</a> <a href="http://rubytapas.com">RubyTapas</a></div>
+  <div class="dates"> 2014 </div>
+  <div class="description"> Avdi Grimm asked if I'd be interested in recording a
+    <a href="">guest episode of RubyTapas</a> and of course I jumped at
+    the chance.
+    <br/>Sorry, this episode is <b>not</b> free, so you'll need to subscribe
+    or get used to disappointment ;-)
+  </div>
+  <div class="tools"> Camtasia, Ruby, iTerm2 </div>
+  <div class="role"> Author/Editor </div>
+  <div class="organization"> <a href="http://rubytapas.com">RubyTapas</a> </div>
+  <div class="pictures">
+    <a class="fancybox" href="rubytapas-1.png">
+      <img src="rubytapas-1.png" /></a>
+    <a class="fancybox" href="rubytapas-2.png">
+      <img src="rubytapas-2.png" /></a>
   </div>
 </div>
 
@@ -998,20 +1040,20 @@ $(function() {
   </div>
 </div>
 
-<div data-category="personal" data-tags="ruby rails">
+<div data-category="products" data-tags="ruby rails">
   <div class="title">Rails Deploy in an Hour</div>
-  <div class="dates"> 2014 </div>
+  <div class="dates"> 2014 and later </div>
   <div class="description">
     <a href="http://rails-deploy-in-an-hour.com">Rails Deploy in an Hour</a> is
-    a text-and-video technical class on deploying Ruby using Chef, Capistrano,
-    Vagrant and other tools...
-    Easily. There are many introductions to each tool, but RDIAH sets up a
-    reasonable scaffolded Rails server, including all those tools, within less
-    than an hour with all setup. (This product was formerly known as
-    <a href="http://rubymadscience.com">Ruby Mad Science</a>.)
+    a text-and-video technical class on deploying Rails apps quickly and
+    easily on highly-scalable open-source tools. Normally the integration of
+    these tools can take days or weeks to set up &mdash; the class software
+    allows this in well under an hour using the open-source
+    <a href="https://github.com/noahgibbs/madscience">Ruby Mad Science</a>
+    software, also by Noah Gibbs.
   </div>
   <div class="tools"> Ruby, Rails, Chef, Capistrano, Vagrant, Librarian,
-    Camtasia, Wistia, Bootstrap, Octopress, more
+    NGinX, Apache, RVM, WordPress, WishList Member, Camtasia, Wistia, Bootstrap, Octopress, more
     </div>
   <div class="role"> Author </div>
   <div class="pictures">
@@ -1030,11 +1072,37 @@ $(function() {
   </div>
 </div>
 
-<div data-category="personal" data-tags="ruby">
-  <div class="title">Octopress Bootstrap Sites</div>
-  <div class="dates"> 2014 </div>
+<div data-category="products" data=tags="ruby rails">
+  <div class="title">Ruby Mad Science</div>
+  <div class="dates"> 2014 and later </div>
   <div class="description">
-    I redesigned <a href="http://codefol.io">Codefol.io</a> and two product sites to use Octopress, and
+    <a href="https://github.com/noahgibbs/madscience">Ruby Mad Science</a> is
+    MIT-licensed software to deploy a custom server for your Rails apps,
+    quickly, using Chef, Capistrano,
+    Vagrant and other tools. The setup takes under an hour for most apps,
+    but uses standard best-in-class open-source tools in a way you can
+    scale out from.
+  </div>
+  <div class="tools"> Ruby, Rails, Rack, Chef, Capistrano, Vagrant, Librarian,
+    NGinX, RVM, Ruby, Bundler
+    </div>
+  <div class="role"> Author and Maintainer </div>
+  <div class="pictures">
+    <a href="madscience-github.png" class="fancybox">
+      <img src="madscience-github.png" /></a>
+    <a href="madscience-1.png" class="fancybox">
+      <img src="madscience-1.png" /></a>
+
+  </div>
+</div>
+
+<div data-category="products" data-tags="ruby">
+  <div class="title">Octopress Bootstrap Sites</div>
+  <div class="dates"> 2014 and later </div>
+  <div class="description">
+    I redesigned <a href="http://codefol.io">Codefol.io</a> and
+    <a href="http://rebuilding-rails.com">several</a> <a href="http://rails-deploy-in-an-hour.com">product</a>
+    <a href="http://rubymadscience.com">sites</a> to use Octopress, and
     wrote several large batch jobs to reprocess Disqus comments
     properly for Codefol.io.
   </div>
@@ -1046,9 +1114,9 @@ $(function() {
   </div>
 </div>
 
-<div data-category="personal" data-tags="ruby rails">
+<div data-category="products" data-tags="ruby rails">
   <div class="title">Rebuilding Rails</div>
-  <div class="dates"> 2012 - 2014 </div>
+  <div class="dates"> 2012 and later </div>
   <div class="description"> <a
   href="http://rebuilding-rails.com">Rebuilding Rails</a>, an ebook on
     starting your new Rails-like framework from scratch.  &quot;Understand
@@ -1081,7 +1149,7 @@ $(function() {
     a display server for <a href="http://www.mapeditor.org/">TMX terrain files</a>
     and graphics from
     the <a href="http://lpc.opengameart.org/">Liberated Pixel Cup</a>.
-    Most content is via <a href="http://www.sourceoftales.org/">Source of Tales</a>.
+    Graphics via <a href="http://www.sourceoftales.org/">Source of Tales</a>.
   </div>
   <div class="tools"> Ruby on Rails, CreateJS (aka Easel)</div>
   <div class="role"> Author </div>
@@ -1098,7 +1166,7 @@ $(function() {
     <a href="http://www.cmu.edu">Carnegie Mellon University</a>
     </div>
   <div class="description"> Parallel raytracer for computer science
-    class.  Code by request </div>
+    class. Group project. </div>
   <div class="tools"> C, Linux, PNM </div>
   <div class="role"> Author;  server author for distributed version </div>
   <div class="pictures"> <a href="reflroom.png" class="fancybox">
@@ -1126,7 +1194,7 @@ $(function() {
 
 <div data-category="personal" data-tags="javascript">
   <div class="title">This Portfolio</div>
-  <div class="dates"> 2010, 2014 </div>
+  <div class="dates"> 2010 and later </div>
   <div class="description"> This JavaScript portfolio.  Uses hashchange,
     jQuery, animation, fancybox, hand-rolled templating and no dynamic
     server
@@ -1445,13 +1513,11 @@ $(function() {
          <a href="face_1.png" class="fancybox"><img src="face_1.png" /></a>
          <a href="face_2.png" class="fancybox"><img src="face_2.png" /></a>
          <a href="face_3.png" class="fancybox"><img src="face_3.png" /></a>
-         <br />
-         <a href="http://www.angelbob.com/toy/facelets.html">Click
-          through</a> and play with it!
   </div>
 </div>
 
 <div data-category="personal" data-tags="silly">
+  <div class="title">SillyBand for MIT Scratch</div>
   <div class="dates"> 2007 </div>
   <div class="description">
       <a href="SillyBand.sb">SillyBand</a>, a very quick demo project for
