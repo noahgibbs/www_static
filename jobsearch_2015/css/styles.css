@@ -8,7 +8,7 @@
 */
 /* ======= Base ======= */
 body {
-  font-family: 'Lato', arial, sans-serif;
+  // font-family: 'Lato', arial, sans-serif;
   color: #434343;
   background: #dae3e7;
   font-size: 22px;
@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lora', sans-serif;
+  //font-family: 'Lora', sans-serif;
   font-weight: 700;
   font-size: 120%;
   color: #778492;
@@ -48,7 +48,7 @@ a.btn {
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
-  font-family: 'Lora', arial, sans-serif;
+  //font-family: 'Lora', arial, sans-serif;
   padding: 8px 16px;
   font-weight: bold;
 }
@@ -204,7 +204,7 @@ iframe {
 }
 .header .profile-content .desc {
   color: #778492;
-  font-family: "Lato", arial, sans-serif;
+  //font-family: "Lato", arial, sans-serif;
   font-weight: 400;
   font-size: 24px;
   margin-top: 0;
@@ -315,7 +315,7 @@ iframe {
   overflow: hidden;
 }
 .latest .featured-image .ribbon .text {
-  font-family: 'Lora', sans-serif;
+  //font-family: 'Lora', sans-serif;
   position: relative;
   left: -8px;
   top: 18px;
@@ -460,7 +460,7 @@ iframe {
   margin-top: 0;
 }
 .education .item .university {
-  font-family: "Lato", arial, sans-serif;
+  // font-family: "Lato", arial, sans-serif;
   font-size: 13px;
   color: #999999;
   font-weight: 600;
