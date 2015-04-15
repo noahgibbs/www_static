@@ -1,0 +1,21 @@
+.click-hidden {
+    display: none;
+}
+
+.hidden-quote {
+    display: none;
+}
+
+.plus-sign {
+    color: #008000;
+}
+
+.click-plus-for-more {
+    color: #008000;
+    cursor: pointer;
+}
+
+.click-for-more .click-minus-for-less {
+    cursor: pointer;
+    display: none;
+}

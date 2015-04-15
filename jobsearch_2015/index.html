@@ -51,6 +51,34 @@ $(document).ready(function () {
             });
     };
 });
+
+$(function() {
+  // TODO: refactor plus and minus sign. The current "plus sign always there, minus added and deleted" is weird
+
+  $(".click-for-more").prepend('<span class="click-plus-for-more glyphicon glyphicon-plus-sign"></span>');
+  $(".click-for-more").prepend('<span class="click-minus-for-less glyphicon glyphicon-minus-sign"></span>');
+  $(".click-plus-for-more").click(function() {
+    // Basic click-plus-for-more, add less-than sign in front
+    var hidden_elt = $(this).parent().find(".click-hidden");
+    var plus_sign = $(this);
+    var minus_sign = $(this).parent().find(".click-minus-for-less")
+
+    hidden_elt.show('slow');
+    hidden_elt.css('display', 'inline'); // Not default inline-block
+    minus_sign.show();
+    plus_sign.hide();
+  });
+  // Need live event since we add and remove these dynamically
+  $(document).on("click", ".click-minus-for-less", null, function() {
+    // Re-hide text, switch plus sign for minus sign
+    var minus_sign = $(this);
+    var plus_sign = $(this).parent().find(".click-plus-for-more");
+    var hidden_elt = $(this).parent().find(".click-hidden");
+
+    hidden_elt.hide('slow', function() { plus_sign.show(); minus_sign.hide(); });
+    hidden_elt.css('display', 'inline'); // Not default inline-block
+  });
+});
 </script>
 
 <!-- TODO:
@@ -82,27 +110,26 @@ $(document).ready(function () {
 
         <section class="section">
           <div class="section-inner">
-            <h2 class="heading">The Right Principal Engineer For You?</h2>
+            <h2 class="heading">The Right Principal Engineer or Architect?</h2>
 
             <p>
-              You want a <b>catalyst for change</b> with a deep
-              understanding of technical organization and culture.
-              One who <b>understands ROI</b> and makes the most
-              valuable changes.
+              Your architect needs a deep
+              understanding of <b>technical organization and culture</b>.
+              He should <b>pay attention to business</b> and execute on priorities.
             </p>
 
             <p>
-              It takes months or years to find a <a
+              It takes years to find a <a
               href="http://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/"
               target="_blank">mature
-              engineer</a> that raises the bar, but also <b>understands your
+              engineer</a> that also <b>understands your
               business needs</b>.
             </p>
 
             <p>
-              <b>You want to hire me as that
-              <u>principal engineer</u></b> &mdash; let's talk more
-              about why.
+              You want me as that
+              <u>principal engineer</u> or <u>architect</u> &mdash; click
+              <i class="glyphicon glyphicon-plus-sign plus-sign"></i> below for more.
             </p>
 
           </div>
@@ -111,14 +138,15 @@ $(document).ready(function () {
         <section class="section">
           <div class="section-inner">
             <a name="developer"></a>
-            <h2 class="heading">Need a Hands-On Software Team Leader?</h2>
+            <h2 class="heading">Hands-On</h2>
 
-            <p>
-              I've led small, highly productive teams at my last few companies.
+            <p class="click-for-more">
+              I lead small, highly productive teams. <span class="click-hidden">
               I turn a list of priorities into team goals and make them happen.
               I'm comfortable operating independently &mdash; for instance, when repairing and rebuilding OnLive's
               <b>unmaintained analytics system</b> with the simple mandate
-              <b>"find out how it works, fix it, extend it, don't break production."</b>
+              <b>"find out how it works, fix it, extend it, don't break production."</b></span>
+              <span class="hidden-quote" data-by="don">I wholeheartedly recommend Noah, a brilliant, dedicated, and greatly admired developer and leader.</span>
             </p>
 
             <blockquote class="right-pull-quote">
@@ -128,13 +156,12 @@ $(document).ready(function () {
                 <a href="#rec-austin" onclick="$('#rec-austin').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
-            <p>
-              Want a principal engineer with a great history and pedigree?
+            <p class="click-for-more">
+              Great qualifications. <span class="click-hidden">
               I <b>taught Ruby on Rails for a Masters Degree program at Carnegie Mellon West</b>.
-              I graduated from Carnegie Mellon for my undergrad
-              degrees (Math and Comp Sci). I've <b>spoken at Ruby and Cassandra conferences</b>. I'm an <b>internationally recognized author</b> on
+              I graduated from Carnegie Mellon in Math and Comp Sci. I've <b>spoken at Ruby and Cassandra conferences</b>. I'm an <b>internationally recognized author</b> on
               Ruby web frameworks, as well as server deployment and provisioning.
-              I've worked for successful startups (Ooyala, PeakStream).
+              I've worked for successful startups (Ooyala, PeakStream).</span>
             </p>
 
 
@@ -331,7 +358,9 @@ $(document).ready(function () {
               That gives me a free hand to help your company. Appropriate pay is important too &mdash;
               <a href="http://www.kalzumeus.com/2012/01/23/salary-negotiation/" target="_blank">it
               makes change much easier.</a> I will add a lot of value to your company,
-              but I need to capture value as well.
+              but I need to capture value as well. I
+              cost about two mid-level engineers. I will, naturally,
+              add that much value.
             </p>
 
             <p>
@@ -804,7 +833,7 @@ $(document).ready(function () {
     <small>
       Assets Used: Bootstrap, jQuery,
       Developer Theme for Bootstrap by <a href="http://themes.3rdwavemedia.com/">3rd-Wave
-      Media</a>
+      Media</a>, <a href="http://glyphicons.com/">Glyphicons</a>
     </small>
   </div></footer>
 </body> </html>
