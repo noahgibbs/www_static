@@ -52,21 +52,113 @@ $(document).ready(function () {
     };
 });
 
-$(function() {
-  // TODO: refactor plus and minus sign. The current "plus sign always there, minus added and deleted" is weird
+// Recommendations Data
+// TODO: refactor recommendations side panel to use these too?
+var recs_data = {
+  "don": {
+    "name": "Don Gordon",
+    "image": "img/don_gordon.png",
+    "desc": "COO, Head of Eng",
+    "company": "OnLive"
+  },
+  "rick": {
+    "name": "Rick Sanchez",
+    "image": "img/rick_sanchez.png",
+    "desc": "VP Product &amp; Marketing",
+    "company": "OnLive"
+  },
+  "ruth": {
+    "name": "Ruth Helfinstein",
+    "image": "img/ruth_helfinstein.png",
+    "desc": "Ruby Developer",
+    "company": "OnLive"
+  },
+  "al": {
+    "name": "Al Tobey",
+    "image": "img/al_tobey.png",
+    "desc": "Tech Lead",
+    "company": "Ooyala"
+  },
+  "austin": {
+    "name": "Austin Trombley",
+    "image": "img/austin_trombley.png",
+    "desc": "Marketing Analytics Manager",
+    "company": "OnLive"
+  },
+  "chiara": {
+    "name": "Chiara Cokieng",
+    "image": "img/chiara_cokieng.png",
+    "desc": "Chief Marketer",
+    "company": "SoHelpful"
+  },
+  "ryan": {
+    "name": "Ryan Panos",
+    "image": "img/ryan_panos.png",
+    "desc": "Front-End Developer",
+    "company": "OnLive"
+  },
+  "andy": {
+    "name": "Andy Lee",
+    "image": "img/andy_lee.png",
+    "desc": "SRE Lead",
+    "company": "OnLive"
+  },
+  "peter": {
+    "name": "Peter van der Linden",
+    "image": "img/peter_van_der_linden.png",
+    "desc": "Software Engineering Director",
+    "company": "ACCESS"
+  },
+  "john": {
+    "name": "John Pavan",
+    "image": "img/john_pavan.png",
+    "desc": "Software Engineer",
+    "company": "ACCESS"
+  },
+  "niaz": {
+    "name": "Niaz Jalal",
+    "image": "img/ghost_person.png",
+    "desc": "Principal Software Engineer",
+    "company": "ACCESS"
+  },
+  "kenneth": {
+    "name": "Kenneth Albanowski",
+    "image": "img/ghost_person.png",
+    "desc": "Senior Performance Engineer",
+    "company": "ACCESS"
+  }
+};
 
+$(function() {
   $(".click-for-more").prepend('<span class="click-plus-for-more glyphicon glyphicon-plus-sign"></span>');
   $(".click-for-more").prepend('<span class="click-minus-for-less glyphicon glyphicon-minus-sign"></span>');
+  $(".click-for-more .click-hidden").append('<blockquote class="center-pull-quote"><p class="quote-goes-here"></p>' +
+    '<span class="portrait"><img width="55" height="55"></img></span><span class="name"></span><a class="rec-link"><i class="fa fa-link"></i></a></blockquote>');
   $(".click-plus-for-more").click(function() {
     // Basic click-plus-for-more, add less-than sign in front
     var hidden_elt = $(this).parent().find(".click-hidden");
     var plus_sign = $(this);
     var minus_sign = $(this).parent().find(".click-minus-for-less")
+    var bq = $(this).parent().find("blockquote");
+    var quote_data = $(this).parent().find(".hidden-quote");
 
     hidden_elt.show('slow');
     hidden_elt.css('display', 'inline'); // Not default inline-block
     minus_sign.show();
     plus_sign.hide();
+
+    // Now get the quote all set up
+    if (quote_data.size() > 0) {
+      var quote_text = quote_data.html();
+      var quote_by = quote_data.attr("data-by");
+      var data = recs_data[quote_by];
+      bq.find(".quote-goes-here").html(quote_text);
+      bq.find("img").attr("src", data.image);
+      bq.find(".name").html(data.name + ", " + data.desc + ", " + data.company);
+      bq.find(".rec-link").attr("href", "#rec-" + quote_by).attr("onclick", "$('rec-" + quote_by + "').animateHighlight()");
+    } else {
+      bq.hide();
+    }
   });
   // Need live event since we add and remove these dynamically
   $(document).on("click", ".click-minus-for-less", null, function() {
@@ -80,10 +172,6 @@ $(function() {
   });
 });
 </script>
-
-<!-- TODO:
-  * Better contact link
- -->
 
 <body>
  <header class="header">
@@ -100,7 +188,7 @@ $(function() {
        </ul>
       </div><!--//profile-->
       <!-- TODO: UPDATE CONTACT LINK -->
-      <a class="btn btn-cta-primary pull-right" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+      <a class="btn btn-cta-primary pull-right" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
     </div><!--//container-->
   </header><!--//header-->
 
@@ -149,46 +237,35 @@ $(function() {
               <span class="hidden-quote" data-by="don">I wholeheartedly recommend Noah, a brilliant, dedicated, and greatly admired developer and leader.</span>
             </p>
 
-            <blockquote class="right-pull-quote">
-              <p>His breadth of knowledge around big data / Cassandra and RoR is unlike any I have ever seen.</p>
-              <span class="portrait"><img src="img/austin_trombley.png" width="55" height="55"></span>
-              <span class="name">Austin, Marketing Mgr, OnLive</span>
-                <a href="#rec-austin" onclick="$('#rec-austin').animateHighlight()"><i class="fa fa-link"></i></a>
-            </blockquote>
-
             <p class="click-for-more">
               Great qualifications. <span class="click-hidden">
               I <b>taught Ruby on Rails for a Masters Degree program at Carnegie Mellon West</b>.
               I graduated from Carnegie Mellon in Math and Comp Sci. I've <b>spoken at Ruby and Cassandra conferences</b>. I'm an <b>internationally recognized author</b> on
               Ruby web frameworks, as well as server deployment and provisioning.
               I've worked for successful startups (Ooyala, PeakStream).</span>
+              <span class="hidden-quote" data-by="rick">His work was critical to building up our subscriber base, understanding what our customers were doing, and figuring out where to invest our product and engineering resources.</span>
             </p>
 
-
-
-            <blockquote class="left-pull-quote">
-              <p>He's the go-to guy (read: force multiplier) on so many topics that I've lost track of how many there are. </p>
-              <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
-              <span class="name">Al Tobey, Tech Lead, Ooyala</span>
-                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
-            </blockquote>
-
-            <p>
-              As a <b><i>full-stack generalist software engineer</i></b>, I've written everything from UI and application code,
+            <p class="click-for-more">
+              Full-stack generalist. <span class="click-hidden">
+              I've written everything from UI and application code,
               to Big Data and Analytics, to JavaScript real-time graphs, to embedded and multimedia,
               to deep-dive SQL and NoSQL optimization, to distributed systems design. I even dabble in front-end
               code, such as the page you're reading.
               I've worked in 20+ languages over nearly 30 years, from C and assembly building operating systems and device
               drivers to scaling high-traffic Ruby on Rails sites. I <b>do</b> mean hands-on and I intend to continue
-              contributing as a software engineer.
+              contributing as a software engineer.</span>
+              <span class="hidden-quote" data-by="al">He's the go-to guy (read: force multiplier) on so many topics that I've lost track of how many there are.</span>
             </p>
+
+            <!-- TODO: Add big data/analytics section? Or separate in-depth bit with more technologies? -->
 
             <p>
               Perhaps I can help you. Click "contact me"
               or keeping reading for more details.
             </p>
 
-            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
 
           </div>
         </section>
@@ -236,11 +313,12 @@ $(function() {
 
             <img src="img/globe-view.png" class="left-sidebar" width="200" height="123" alt="Globe with session count spots"></img>
 
-            <p>
-              If you're still pre-profit, don't worry. I can <b>present data for funding decks</b> or
+            <p class="click-for-more">
+              Still pre-profit? don't worry. <span class="click-hidden">I can <b>present data for funding decks</b> or
               <a href="http://engineering.onlive.com/2014/07/25/cloud-gamers-want-to-play-more/" target="_blank">for popular consumption</a>,
               and I've done that for OnLive:
-              analytics data to <b>convince people of the product's potential</b>, in a way that <b>looks good</b>.
+              analytics data to <b>convince people of the product's potential</b>, in a way that <b>looks good</b>.</span>
+              <span class="hidden-quote" data-by="rick">I've found that it is difficult to find an engineer with just the right balance of technical savvy and business understanding who can tease out the data that matters and then present it in a way that helps you move a product or company forward, but Noah is one of those guys.</span>
             </p>
 
             <p>
@@ -249,10 +327,10 @@ $(function() {
               experts-only summary like I'm Jeff Bezos."</a>
             </p>
 
-            <p>
-              What products? I'm the author of <a href="http://rebuilding-rails.com" target="_blank">Rebuilding Rails</a> and
+            <p class="click-to-hide">
+              What products? <span class="click-hidden">I'm the author of <a href="http://rebuilding-rails.com" target="_blank">Rebuilding Rails</a> and
               <a href="http://rails-deploy-in-an-hour.com" target="_blank">Rails Deploy In An Hour</a>. I sell them independently
-              (no publisher) and do all my own promotion.
+              (no publisher) and do all my own promotion.</span>
             </p>
 
           </div>
@@ -265,18 +343,19 @@ $(function() {
 
             <img src="img/me_speaking_small.png" class="pull-right" width="150" height="180" alt="Me talking JRuby at LinkedIn"></img>
 
-            <p>
-              Engineers specializing in Ruby, Rails, DevOps, NoSQL tools, analytics, Big Data cost <b>tens of
+            <p class="click-for-more">
+              Recruiting Meetups
+              <span class="click-hidden">Engineers specializing in Ruby, Rails, DevOps, NoSQL tools, analytics, Big Data cost <b>tens of
               thousands of dollars to recruit</b>. I can give engineering talks to recruit them -- which cost
-              <b>around a hundred dollars</b>, mostly for snacks.
+              <b>around a hundred dollars</b>, mostly for snacks. <i>Shall I give a few recruiting meetups for you?</i></span>
+              <!-- <span class="hidden-quote" data-by="don"></span> -->
             </p>
 
-            <p> Shall I give a few recruiting meetups for you? </p>
-
-            <p>
+            <p class="click-for-more">
+              Well-Attended Talks <span class="click-hidden">
               At OnLive, I organized local meetups for recruiting, drawing crowds of 50+ programmers before we
               limited attendance for space reasons. Ruby people are often
-              <b>very hard to recruit</b>, and I was able to <b>find a few extra</b> for OnLive.
+              <b>very hard to recruit</b>, and I was able to <b>find a few extra</b> for OnLive.</span>
             </p>
 
             <blockquote class="left-pull-quote">
@@ -286,10 +365,11 @@ $(function() {
                 <a href="#rec-john" onclick="$('#rec-john').animateHighlight()"><i class="fa fa-link"></i></a>
             </blockquote>
 
-            <p>
+            <p class="click-for-more">
+              Internal Training <span class="click-hidden">
               I frequently present to coworkers about Ruby, Rails, Cassandra, ZooKeeper and other topics &mdash;
-              over <b>fifteen talks at OnLive</b> and many at Ooyala before that. I can <b>record my talks</b>
-              and <b>you want me to</b>.
+              over <b>25 talks at OnLive and Ooyala</b>. I can <b>record my talks</b>
+              and <b>you want me to</b>.</span>
             </p>
 
             <p>
@@ -408,7 +488,7 @@ $(function() {
               in your organization. We'll talk, we'll have an excellent interview and I'll hit the ground running. Click this button:
             </p>
 
-            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
 
             <p>
               If you're an <b>external recruiter</b>, you DO NOT have my permission to submit
@@ -519,7 +599,7 @@ $(function() {
 
             You wanted "Contact Me". Here it is again:
 
-            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a>
+            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
 
           </div>
         </section>
@@ -800,7 +880,10 @@ $(function() {
 
                 </p>
                 </blockquote>
-                <p class="source"><span class="name">Niaz Jalal</span><br /><span class="title">Principal Software Engineer, ACCESS</span></p>
+                <div class="source">
+                  <div class="portrait"><img src="img/ghost_person.png" width="110" height="110" alt="Nobody"></img></div>
+                  <div class="source_block"><span class="name">Niaz Jalal</span><br/><span class="title">Principal Software Engineer<br/>ACCESS</span></div>
+                </div>
 
               </div><!--//item-->
 
@@ -814,7 +897,10 @@ $(function() {
 
                 </p>
                 </blockquote>
-                <p class="source"><span class="name">Kenneth Albanowski</span><br /><span class="title">Senior Performance Engineer, ACCESS</span></p>
+                <div class="source">
+                  <div class="portrait"><img src="img/ghost_person.png" width="110" height="110" alt="Nobody"></img></div>
+                  <div class="source_block"><span class="name">Kenneth Albanowski</span><br/><span class="title">Senior Performance Engineer<br/>ACCESS</span></div>
+                </div>
 
               </div><!--//item-->
 
