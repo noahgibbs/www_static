@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+.click-dots-for-more {
+    color: #008000;
+    cursor: pointer;
+}
+
 .click-for-more .click-minus-for-less {
     cursor: pointer;
     display: none;

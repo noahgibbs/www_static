@@ -135,23 +135,29 @@ var recs_data = {
   }
 };
 
+/* TODO: hashchange for keeping track of which buttons are expanded? How does that mesh with #rec-X? */
+
 $(function() {
   $(".click-for-more").prepend('<span class="click-plus-for-more glyphicon glyphicon-plus-sign"></span>');
+  $(".click-for-more").append('<span class="click-dots-for-more">(...)</span>');
   $(".click-for-more").prepend('<span class="click-minus-for-less glyphicon glyphicon-minus-sign"></span>');
   $(".click-for-more .click-hidden").append('<blockquote class="center-pull-quote"><p class="quote-goes-here"></p>' +
     '<span class="portrait"><img width="55" height="55"></img></span><span class="name"></span><a class="rec-link"><i class="fa fa-link"></i></a></blockquote>');
-  $(".click-plus-for-more").click(function() {
+  var expand_handler = function() {
     // Basic click-plus-for-more, add less-than sign in front
-    var hidden_elt = $(this).parent().find(".click-hidden");
-    var plus_sign = $(this);
-    var minus_sign = $(this).parent().find(".click-minus-for-less")
-    var bq = $(this).parent().find("blockquote");
-    var quote_data = $(this).parent().find(".hidden-quote");
+    var parent = $(this).parent();
+    var hidden_elt = parent.find(".click-hidden");
+    var plus_sign = parent.find(".click-plus-for-more");
+    var ellipsis = parent.find(".click-dots-for-more");
+    var minus_sign = parent.find(".click-minus-for-less")
+    var bq = parent.find("blockquote");
+    var quote_data = parent.find(".hidden-quote");
 
     hidden_elt.show('slow');
     hidden_elt.css('display', 'inline'); // Not default inline-block
     minus_sign.show();
     plus_sign.hide();
+    ellipsis.hide();
 
     // Now get the quote all set up
     if (quote_data.size() > 0) {
@@ -165,15 +171,19 @@ $(function() {
     } else {
       bq.hide();
     }
-  });
+  };
+  $(".click-plus-for-more").click(expand_handler);
+  $(".click-dots-for-more").click(expand_handler);
   // Need live event since we add and remove these dynamically
   $(document).on("click", ".click-minus-for-less", null, function() {
     // Re-hide text, switch plus sign for minus sign
     var minus_sign = $(this);
-    var plus_sign = $(this).parent().find(".click-plus-for-more");
-    var hidden_elt = $(this).parent().find(".click-hidden");
+    var parent = $(this).parent();
+    var plus_sign = parent.find(".click-plus-for-more");
+    var ellipsis = parent.find(".click-dots-for-more");
+    var hidden_elt = parent.find(".click-hidden");
 
-    hidden_elt.hide('slow', function() { plus_sign.show(); minus_sign.hide(); });
+    hidden_elt.hide('slow', function() { plus_sign.show(); ellipsis.show(); minus_sign.hide(); });
     hidden_elt.css('display', 'inline'); // Not default inline-block
   });
 });
@@ -242,7 +252,7 @@ $(function() {
             <h2 class="heading">Hands-On</h2>
 
             <p class="click-for-more">
-              I lead small, highly productive teams. <span class="click-hidden">
+              Leading small, productive teams: <span class="click-hidden">
               I turn a list of priorities into team goals and make them happen.
               I'm comfortable operating independently &mdash; for instance, when repairing and rebuilding OnLive's
               <b>unmaintained analytics system</b> with the simple mandate
@@ -251,16 +261,79 @@ $(function() {
             </p>
 
             <p class="click-for-more">
-              Great qualifications. <span class="click-hidden">
+              Making data tell a story:
+              <span class="click-hidden">
+              I enjoy <a href="http://engineering.onlive.com/2014/07/25/cloud-gamers-want-to-play-more/">visualizing important information and showing how
+              the data backs it up.</a>
+              I've pulled <b>business data for investors</b>. I've built <b>several analytics dashboards</b> for engineers.
+              My <b>customer service dashboard</b> was a point of pride at OnLive. I'd love to see the story in your data
+              <a href="http://bl.ocks.org/noahgibbs/9572e3d3fb503db18dcc" target="_blank">look good</a>.
+              </span>
+              <span class="hidden-quote" data-by="rick">I've found that it is difficult to find an engineer with just the right balance of technical savvy and business understanding who can tease out the data that matters and then present it in a way that helps you move a product or company forward, but Noah is one of those guys. </span>
+            </p>
+
+            <p class="click-for-more"> Software Architecture:
+              <span class="click-hidden"> I've been architect or co-architect on a number of large systems, new and legacy:
+              a <b>sharded Esper-based multi-region analytics system</b>,
+              a <b>Cassandra-based high-volume metrics system</b>,
+              a graphical UI framework for a smartphone OS. I've also worked on a large number of smaller
+              systems and tools. I'm very comfortable <b>coordinating between teams</b>
+              and <b>building the final system</b>.
+              </span>
+              <span class="hidden-quote" data-by="don">He has been our Rubyist and the star of our analytics effort. But he has also been much more than that. He has been a terrific colleague, mentor, cheerleader, analyst and friend.</span>
+            </p>
+
+            <p class="click-for-more">
+              Ruby and Rails:
+              <span class="click-hidden">I <a href="http://rebuilding-rails.com" target="_blank">wrote a book on deep Rails internals</a>,
+              <a href="https://www.youtube.com/watch?v=Uh5MYvNXt0A" target="_blank">speak at Ruby conferences</a>,
+              taught Rails at CMU West, and was OnLive's Lead Rubyist. I've mentored many teams and several companies in Ruby and in Rails.<br/><br/>
+              I teach an <a href="http://rails-deploy-in-an-hour.com" target="_blank">online class on Ruby deployment</a>, <a href="http://codefol.io" target="_blank">blog about Ruby</a>,
+              and have a <a href="http://static.angelbob.com/portfolio#speaking/all" target="_blank">speaking portfolio</a> full of Ruby talks (among others).
+
+              <span class="hidden-quote" data-by="ruth">When I came to OnLive I was somewhat new to Ruby and he took me under his wing and we worked together on some really fun and valuable tools. He also took the initiative to begin an Engineering blog and an Open Source presence at OnLive and has encouraged me to contribute to both.</span>
+            </p>
+
+            <p class="click-for-more">
+              NoSQL storage:
+              <span class="click-hidden"> I led and <b>managed OnLive's analytics group</b>.
+              I've <a href="https://www.youtube.com/watch?v=r2nGBUuvVmc" target="_blank">spoken at the Cassandra Summit</a> about Cassandra schema design and published
+              <a href="https://github.com/onlive/cassandra_migrate" target="_blank">open-source Cassandra-based tools</a>.
+              I've used ZooKeeper, MongoDB, Redis, CouchDB and many more tools, and <b>read the foundational papers</b> on BigTable, Dynamo, Gossip, Spanner
+              and more. I can compare SQL and NoSQL tools and choose the right one for your problem. I've written and debugged systems that
+              pushed 10s of thousands of messages per second and processed terabytes of data. I'm very
+              <b>willing to use old boring storage technology or the new hotness, depending on the need</b>. I helped process terabytes of data using Cassandra,
+              Hadoop, MySQL and Thrift at Ooyala, and then helped move us off MySQL.
+              </span>
+              <span class="hidden-quote" data-by="austin">...his breadth of knowledge around big data / Cassandra and RoR is unlike any I have ever seen. Noah is well known as competent and a genius around the big data community and has spear headed the efforts to pull OnLive into next generation of NoSQL. </span>
+            </p>
+
+            <p class="click-for-more">
+              DevOps: <span class="click-hidden"> I wrote the <a href="http://github.com/noahgibbs/madscience" target="_blank">open-source Ruby Mad Science
+              deploy software</a> and a <a href="http://rails-deploy-in-an-hour.com" target="_blank">commercial class to support it</a>.
+              I did extensive Puppet configuration and refactoring for analytics and ops software at OnLive.
+              I
+              <b>led a deploy-software project</b> at Ooyala. I've worked extensively with tools like Chef, Puppet, Capistrano and Vagrant.
+              I have significant AWS and Heroku experience. My <b>commercial product supports AWS, Linode and Digital Ocean</b>.
+              </span>
+              <span class="hidden-quote" data-by="andy">I would describe him as friendly, polite, eager to teach, and always willing to distill his knowledge on anyone who wants to learn. He literally wrote a book on Rails and always tries to help people with whatever projects they are working on.</span>
+            </p>
+
+            <p class="click-for-more">
+              Solid credentials: <span class="click-hidden">
               I <b>taught Ruby on Rails for a Masters Degree program at Carnegie Mellon West</b>.
               I graduated from Carnegie Mellon in Math and Comp Sci. I've <b>spoken at Ruby and Cassandra conferences</b>. I'm an <b>internationally recognized author</b> on
-              Ruby web frameworks, as well as server deployment and provisioning.
-              I've worked for successful startups (Ooyala, PeakStream).</span>
+              Ruby web frameworks and on server deployment and provisioning.
+              I've worked for <b>successful startups</b> (Ooyala, PeakStream, SugarSync).
+              [<a href="http://static.angelbob.com/resume" target="_blank">resume</a>]
+              [<a href="http://static.angelbob.com/portfolio" target="_blank">portfolio</a>]
+              [<a href="http://github.com/noahgibbs" target="_blank">GitHub repo</a>]
+              </span>
               <span class="hidden-quote" data-by="rick">His work was critical to building up our subscriber base, understanding what our customers were doing, and figuring out where to invest our product and engineering resources.</span>
             </p>
 
             <p class="click-for-more">
-              Full-stack generalist. <span class="click-hidden">
+              Full-stack generalist: <span class="click-hidden">
               I've written everything from UI and application code,
               to Big Data and Analytics, to JavaScript real-time graphs, to embedded and multimedia,
               to deep-dive SQL and NoSQL optimization, to distributed systems design. I even dabble in front-end
@@ -286,118 +359,126 @@ $(function() {
             <a name="builder"></a>
             <h2 class="heading">I Build Products Independently &mdash; Here's Why <b><i>You Really Want That</i></b></h2>
 
-            <div class="right-sidebar">
-              <img src="img/rr-cover.png" width="200" height="240" alt="Cover of Rebuilding Rails"></img><br/><hr/>
-              <img src="img/rdiah.png" width="200" height="80" alt="Rails-Deploy-In-An-Hour Logo"></img>
-            </div>
-
             <p>
-              You get advantages by hiring an engineer who makes and
-              <b>sells real, commercial products</b> to programmers
-              like yours.
-              Those advantages could be yours by May.
+              I sell commercial products to programmers like yours.
             </p>
 
-            <p>
-              They range from team leadership and self-management to <a href="#speaker">recruiting and on-boarding</a>.
-              <b>My income depends on me communicating clearly</b> when I'm selling. So I'm good at it. This makes me
-              excellent at instruction, documentation and mentoring to
+            <p class="click-for-more">
+              Abundant communication: <span class="click-hidden">
+              <b>My income depends on me communicating clearly</b> when I'm selling. So I'm good at it. I can
+              instruct, document and mentor to
               <b>make your other engineers more skilled</b>, saving salary and reducing time-to-market.
+              I write and present at all levels from "explain like I'm five" to
+              <a href="https://plus.google.com/110981030061712822816/posts/AaygmbzVeRq" target="_blank">"give me the
+              experts-only summary like I'm Jeff Bezos."</a></span>
+              <span class="hidden-quote" data-by="sebastian">always a pleasure to engage with intellectually, socially, and professionally, going beyond just technical expertise into great communication and working fantastically with other ways.</span>
             </p>
 
-            <blockquote class="left-pull-quote">
-              <p>Noah is full-stack: he can go from discussing sales objectives to the algorithmic complexity of message routing in the same breath and tie it all together.</p>
-              <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
-              <span class="name">Al Tobey, Tech Lead, Ooyala</span>
-                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
-            </blockquote>
-
-            <p>
-              My marketing experience means I can communicate with your Product, Sales and
+            <p class="click-for-more">
+              Marketing experience: <span class="click-hidden">It means I can communicate with your Product, Sales and
               Marketing groups in their own language. I know
               conversion rates and A/B tests, statistical significance, email marketing and how to present data
               to a less-technical audience. That means <b>more engineering support for
               Product and Marketing</b> which means <b>better measures of product/market fit</b> which means <b>more money</b>.
               This is roughly the same activity as <b>"growth hacking"</b> &mdash; engineering support makes your
-              marketing more effective.
+              marketing more effective.</span>
+              <span class="hidden-quote" data-by="rick">I've found that it is difficult to find an engineer with just the right balance of technical savvy and business understanding who can tease out the data that matters and then present it in a way that helps you move a product or company forward, but Noah is one of those guys. </span>
             </p>
 
-            <img src="img/globe-view.png" class="left-sidebar" width="200" height="123" alt="Globe with session count spots"></img>
+            <p class="click-for-more"> Teaching engineers:
+              <span class="click-hidden"> I taught Ruby on Rails at CMU West. I spend my "spare" time with engineers, doing interviews with engineers, taking classes on engineers,
+              selling to engineers... Or taking <a href="http://mynameisbreanne.com/services/the-master-class/" target="_blank">Breanne Dyck's</a> class on teaching effectively.
+              This makes me both a great mentor/teacher, and a great person to help build, reinforce or improve your company culture.</span>
+              <span class="hidden-quote" data-by="don">He has been a terrific colleague, mentor, cheerleader, analyst and friend. He spearheaded our engineering blog, writing many of the articles and encouraging and helping many other engineers to publish articles as well.</span>
+            </p>
+
+            <p class="click-for-more"> Liaison between engineers and business:
+              <span class="click-hidden"> Often, you wish your engineers understood "business reality" better.
+              It takes an unusual person to speak both sides fluently. It's not just when you have one thing to explain &mdash;
+              everybody's life would be better if each side could see the other a bit more clearly. I can explain on specific
+              occasions, but I can also provide that small drip of constant perspective. Both are valuable, and let the whole
+              company run more smoothly.</span>
+              <span class="hidden-quote" data-by="rick">It is difficult to find an engineer with just the right balance of technical savvy and business understanding who can tease out the data that matters and then present it in a way that helps you move a product or company forward, but Noah is one of those guys. </span>
+            </p>
 
             <p class="click-for-more">
-              Still pre-profit? don't worry. <span class="click-hidden">I can <b>present data for funding decks</b> or
+              Still pre-profit? don't worry: <span class="click-hidden">I can <b>present data for funding decks</b> or
               <a href="http://engineering.onlive.com/2014/07/25/cloud-gamers-want-to-play-more/" target="_blank">for popular consumption</a>,
               and I've done that for OnLive:
-              analytics data to <b>convince people of the product's potential</b>, in a way that <b>looks good</b>.</span>
-              <span class="hidden-quote" data-by="rick">I've found that it is difficult to find an engineer with just the right balance of technical savvy and business understanding who can tease out the data that matters and then present it in a way that helps you move a product or company forward, but Noah is one of those guys.</span>
+              analytics data to <b>convince people of the product's potential</b>, in a way that
+              <a href="http://bl.ocks.org/noahgibbs/9572e3d3fb503db18dcc" target="_blank">looks good</a>.<br/>
+              <img src="img/globe-view.png" class="framed-image" width="200" height="123" alt="Globe with session count spots"></img></span>
+              <span class="hidden-quote" data-by="rick">If you're looking for an engineer who can really get to the heart of your data and help you work with it, Noah is your guy.</span>
             </p>
 
-            <p>
-              I can write and present at different levels of technical detail, from "explain like I'm five" to
-              <a href="https://plus.google.com/110981030061712822816/posts/AaygmbzVeRq" target="_blank">"give me the
-              experts-only summary like I'm Jeff Bezos."</a>
-            </p>
-
-            <p class="click-to-hide">
+            <p class="click-for-more">
               What products? <span class="click-hidden">I'm the author of <a href="http://rebuilding-rails.com" target="_blank">Rebuilding Rails</a> and
               <a href="http://rails-deploy-in-an-hour.com" target="_blank">Rails Deploy In An Hour</a>. I sell them independently
               (no publisher) and do all my own promotion.</span>
             </p>
 
+            <a href="http://rebuilding-rails.com" target="_blank"><img class="pull-left border-image" src="img/rr-cover.png" width="200" height="240" alt="Cover of Rebuilding Rails"></img></a>
+            <a href="http://rails-deploy-in-an-hour.com" target="_blank"><img class="pull-left border-image" src="img/rdiah.png" width="200" height="80" alt="Rails-Deploy-In-An-Hour Logo"></a></img>
+
+            <div class="clearfix"></div>
           </div>
         </section>
 
         <section class="section">
           <div class="section-inner">
             <a name="speaker"></a>
-            <h2 class="heading">Level Up Your Engineers, Get More of Them</h2>
+            <h2 class="heading">Get More Engineers, Get More from Each Of Them</h2>
 
-            <img src="img/me_speaking_small.png" class="pull-right" width="150" height="180" alt="Me talking JRuby at LinkedIn"></img>
+            <img src="img/me_speaking_small.png" class="pull-right" width="150" height="180" alt="Me talking Ruby at OnLive"></img>
 
             <p class="click-for-more">
-              Recruiting Meetups
-              <span class="click-hidden">Engineers specializing in Ruby, Rails, DevOps, NoSQL tools, analytics, Big Data cost <b>tens of
+              Recruiting Meetups:
+              <span class="click-hidden">Engineers specializing in Ruby, Rails, DevOps, NoSQL and analytics cost <b>tens of
               thousands of dollars to recruit</b>. I can give engineering talks to recruit them -- which cost
               <b>around a hundred dollars</b>, mostly for snacks. <i>Shall I give a few recruiting meetups for you?</i></span>
-              <!-- <span class="hidden-quote" data-by="don"></span> -->
+              <span class="hidden-quote" data-by="chiara">He engaged the audience while we we prepared to begin. Plus, his answers in the Q&A clearly showed his empathy and concern for the audience. </span>
             </p>
 
             <p class="click-for-more">
-              Well-Attended Talks <span class="click-hidden">
+              Well-Attended Talks: <span class="click-hidden">
               At OnLive, I organized local meetups for recruiting, drawing crowds of 50+ programmers before we
               limited attendance for space reasons. Ruby people are often
               <b>very hard to recruit</b>, and I was able to <b>find a few extra</b> for OnLive.</span>
+              <span class="hidden-quote" data-by="john">A fantastic mentor, and takes the time to explain advanced concepts to a more junior engineer.</span>
             </p>
-
-            <blockquote class="left-pull-quote">
-              <p>A fantastic mentor, and takes the time to explain advanced concepts to a more junior engineer.</p>
-              <span class="portrait"><img src="img/john_pavan.png" width="55" height="55"></span>
-              <span class="name">John Pavan, SWE, ACCESS</span> <a href="#rec-john">
-                <a href="#rec-john" onclick="$('#rec-john').animateHighlight()"><i class="fa fa-link"></i></a>
-            </blockquote>
 
             <p class="click-for-more">
-              Internal Training <span class="click-hidden">
+              Internal Training: <span class="click-hidden">
               I frequently present to coworkers about Ruby, Rails, Cassandra, ZooKeeper and other topics &mdash;
               over <b>25 talks at OnLive and Ooyala</b>. I can <b>record my talks</b>
-              and <b>you want me to</b>.</span>
+              and <b>you want me to</b>. <a href="http://static.angelbob.com/portfolio#speaking/all" target="_blank">Here's my speaking portfolio.</a></span>
+              <span class="hidden-quote" data-by="don">Noah avidly follows the latest developments, most notably in Rails, and has lead many a lunchtime session on a variety of topics.</span>
             </p>
 
-            <p>
+            <p class="click-for-more">
+              Mentoring: <span class="click-hidden">
+              I've taught at Carnegie Mellon East and West, at major programming conferences, internally at companies, for commercial products and at meetups.
+              My <a href="http://static.angelbob.com/portfolio#speaking/all" target="_blank">speaking portfolio</a> covers a number of examples.
+              I teach internally and in public, techical and nontechnical topics, hobbyist and for-profit. You can
+              <a href="https://www.youtube.com/watch?v=Uh5MYvNXt0A" target="_blank">see</a>
+              <a href="https://www.youtube.com/watch?v=l3jz8OqdBd0" target="_blank">examples</a>
+              <a href="https://www.youtube.com/watch?v=r2nGBUuvVmc" target="_blank">online</a>.
+              </span>
+              <span class="hidden-quote" data-by="ryan">He is not out to show how much more he knows than the rest of the engineering team but instead he is genuinely interested in bringing all of us to his level. And he shows this on a daily basis.</span>
+            </p>
+
+            <p class="click-for-more"> Jumpstart your on-boarding:
+              <span class="click-hidden">
               New employee <a
               href="https://blog.asana.com/2013/02/onboarding-new-engineers/" target="_blank">on-boarding</a>
               is a <a
               href="http://www.theeffectiveengineer.com/blog/how-to-build-a-good-onboarding-process-for-new-hires-at-a-startup"
-              target="_blank">huge strategic asset that saves
-              expensive engineering time</a> and <a
+              target="_blank">strategic asset that saves
+              months of engineering time</a> and <a
               href="http://www.egonzehnder.com/leadership-insights/onboarding-the-first-step-toward-inclusion-part-4-of-4.html"
               target ="_blank">increases
-              diversity</a>, yet few companies invest in it. Want a great presenter who can
-              write, give and record a set of talks to <b>jump-start your on-boarding process</b>?
-            </p>
-
-            <p>
-              I'll do that for you, too.
+              diversity</a>, yet few companies invest in it. Want to <b>jumpstart your on-boarding</b> with technical talks? I'll do that for you.</span>
+              <span class="hidden-quote" data-by="ruth">He has a rare combination of guru expertise and down to earth friendliness and helpfulness. Noah is always willing to brainstorm, mentor and otherwise help anyone who asks.</span>
             </p>
 
             <img src="img/meetup-cropped.jpeg" width="640" height="240" alt="Photo from an OnLive meetup"></img>
@@ -413,18 +494,11 @@ $(function() {
             <img src="img/hastur-graph.png" class="right-sidebar" width="200" height="209" alt="Graph of messages forwarded"></img>
 
             <p>
-              We've talked a lot about what investing in me can do for you. Better yet, you can <b>pick any
-              of those benefits</b> and skip what you don't care about. The benefits,
-              summarized:
+              The list above has a lot of benefits. Even better, you can <b>pick any
+              of those benefits</b> and skip what you don't care about.
             </p>
 
             <ul>
-              <li>Technical skill and leadership</li>
-              <li>Deep experience in: Ruby, Ruby on Rails</li>
-              <li>Deep experience in: Analytics and Data Science</li>
-              <li>Deep experience in: Deployment and DevOps</li>
-              <li>Deep experience in: SQL and NoSQL Storage</li>
-              <li>Deep experience in: OS and Systems</li>
               <li>Skilled communicator, teacher, mentor</li>
               <li>Known author, speaker and Ruby/open-source figure</li>
               <li>Ready to improve your recruiting and on-boarding</li>
@@ -450,7 +524,7 @@ $(function() {
               <a href="http://www.kalzumeus.com/2012/01/23/salary-negotiation/" target="_blank">it
               makes change much easier.</a> I will add a lot of value to your company,
               but I need to capture value as well. I
-              cost about two mid-level engineers. I will, naturally,
+              cost about two mid-level Silicon Valley engineers. I will, naturally,
               add that much value.
             </p>
 
@@ -486,6 +560,11 @@ $(function() {
             </p>
 
             <div class="clearfix"></div>
+
+            <img src="" width="" height="" class="pull-right"></img>
+
+            <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
+
           </div>
         </section>
 
@@ -501,12 +580,6 @@ $(function() {
 
             <a class="btn btn-cta-primary" href="mailto:the.codefolio.guy-REMOVE-NOSPAM@NOSPAM.gmail.com"><i class="fa fa-paper-plane"></i> Contact Me</a>
 
-            <p>
-              If you're an <b>external recruiter</b>, you DO NOT have my permission to submit
-              my information to companies. If I find out I have been submitted by a recruiter,
-              I will make it VERY CLEAR that this was unsolicited and <b>without my permission</b>.
-            </p>
-
           </div>
         </section>
 
@@ -517,7 +590,7 @@ $(function() {
 
             <p>
               As a software engineer, you may have been asked, "does this guy have
-              technical skills?" I'll make the answer easy and free up your time as fast
+              technical skills?" I'll present the data pretty raw and free up your time as fast
               as possible.
             </p>
 
@@ -579,7 +652,7 @@ $(function() {
             <p>
               I wrote the open-source <a href="http://github.com/noahgibbs/madscience" target="_blank">Ruby Mad Science</a>
               software for my deployment class, <a href="http://rails-deploy-in-an-hour.com" target="_blank">Rails Deploy In
-              An Hour</a>. You can read through the software, which is basically an integration layer over
+              An Hour</a>. You can <a href="http://github.com/noahgibbs/madscience" target="_blank">read through</a> the software, which is basically an integration layer over
               standard tools like Chef, Capistrano and Vagrant that tend to play poorly together. It also has a very
               <a href="http://github.com/noahgibbs/madscience_gem">convenient installer</a> for that whole software stack.
               If you've used Chef, Vagrant, etc. then you already know why that's
@@ -595,6 +668,13 @@ $(function() {
               <a href="http://github.com/ooyala" target="_blank">Ooyala</a>. And hey, look through the
               <a href="http://static.angelbob.com/portfolio/#personal/all" target="_blank">personal section of my portfolio</a>,
               especially the later bits. There's lots of fun stuff inside.
+            </p>
+
+            <p>
+              One minor subtlety: you'll see a combination of Ruby and JavaScript stuff with OS and systems stuff. I worked in
+              OS and driver-level code, primarily in C, for about ten years. I've been doing Ruby, JavaScript, analytics and
+              distributed systems for about the last five years. A lot of the "disconnect" is really "a long career in multiple
+              stages."
             </p>
 
             <p>
