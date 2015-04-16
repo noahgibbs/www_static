@@ -161,7 +161,7 @@ $(function() {
       bq.find(".quote-goes-here").html(quote_text);
       bq.find("img").attr("src", data.image);
       bq.find(".name").html(data.name + ", " + data.desc + ", " + data.company);
-      bq.find(".rec-link").attr("href", "#rec-" + quote_by).attr("onclick", "$('rec-" + quote_by + "').animateHighlight()");
+      bq.find(".rec-link").attr("href", "#rec-" + quote_by).attr("onclick", "$('#rec-" + quote_by + "').animateHighlight()");
     } else {
       bq.hide();
     }
@@ -226,6 +226,13 @@ $(function() {
               <i class="glyphicon glyphicon-plus-sign plus-sign"></i> below for more.
             </p>
 
+            <blockquote class="center-pull-quote">
+              <p>Noah is full-stack: he can go from discussing sales objectives to the algorithmic complexity of message routing in the same breath and tie it all together.</p>
+              <span class="portrait"><img src="img/al_tobey.png" width="55" height="55"></span>
+              <span class="name">Al Tobey, Tech Lead, Ooyala</span>
+                <a href="#rec-al" onclick="$('#rec-al').animateHighlight()"><i class="fa fa-link"></i></a>
+            </blockquote>
+
           </div>
         </section>
 
@@ -263,8 +270,6 @@ $(function() {
               contributing as a software engineer.</span>
               <span class="hidden-quote" data-by="al">He's the go-to guy (read: force multiplier) on so many topics that I've lost track of how many there are.</span>
             </p>
-
-            <!-- TODO: Add big data/analytics section? Or separate in-depth bit with more technologies? -->
 
             <p>
               Perhaps I can help you. Click "contact me"
