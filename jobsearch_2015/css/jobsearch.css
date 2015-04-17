@@ -26,3 +26,28 @@
     cursor: pointer;
     display: none;
 }
+
+/* "Hey, click me!" animation for plus sign */
+
+@-webkit-keyframes fadeLoop { 0% { opacity:0.25; } 50% { opacity:1; } 100% { opacity: 0.25; } }
+@-moz-keyframes fadeLoop { 0% { opacity:0.25; } 50% { opacity:1; } 100% { opacity: 0.25; } }
+@keyframes fadeLoop { 0% { opacity:0.25; } 50% { opacity:1; } 100% { opacity: 0.25; } }
+
+.insistent-plus-sign {
+  opacity:0.25;
+  -webkit-animation:fadeLoop ease-in-out infinite;
+  -moz-animation:fadeLoop ease-in-out infinite;
+  animation:fadeLoop ease-in-out infinite;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1.5s;
+  -moz-animation-duration:1.5s;
+  animation-duration:1.5s;
+
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}

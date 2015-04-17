@@ -139,6 +139,7 @@ var recs_data = {
 
 $(function() {
   $(".click-for-more").prepend('<span class="click-plus-for-more glyphicon glyphicon-plus-sign"></span>');
+  $($(".click-plus-for-more")[0]).addClass("insistent-plus-sign");
   $(".click-for-more").append('<span class="click-dots-for-more">(...)</span>');
   $(".click-for-more").prepend('<span class="click-minus-for-less glyphicon glyphicon-minus-sign"></span>');
   $(".click-for-more .click-hidden").append('<blockquote class="center-pull-quote"><p class="quote-goes-here"></p>' +
@@ -152,6 +153,9 @@ $(function() {
     var minus_sign = parent.find(".click-minus-for-less")
     var bq = parent.find("blockquote");
     var quote_data = parent.find(".hidden-quote");
+
+    // Stop animation after first click. They get it.
+    $(".insistent-plus-sign").removeClass("insistent-plus-sign");
 
     hidden_elt.show('slow');
     hidden_elt.css('display', 'inline'); // Not default inline-block
