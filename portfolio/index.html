@@ -15,7 +15,7 @@
   <script type="text/javascript" src="js/bootstrap.min.js"> </script>
   <script type="text/javascript" src="fancybox/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
-  <title> Noah Gibbs's Technical and Professional Portfolio </title>
+  <title> Noah Gibbs's Technical and Speaking Portfolio </title>
 </head>
 <body>
 
@@ -121,7 +121,8 @@ function select_tag(tag) {
     sub_elts = elts;
   } else {
     elts.each(function() {
-      var tag_list = $(this).attr("data-tags").split(" ");
+      var tag_val = $(this).attr("data-tags");
+      var tag_list = tag_val.split(" ");
       for(var i = 0; i < tag_list.length; i++) {
         if(tag_list[i] === tag) {
           sub_elts.push(this);
@@ -298,16 +299,16 @@ $(function() {
   </div>
   <div class="role"> Ruby Fellow </div>
   <div class="pictures">
-    <a class="fancybox" href="fellow_1.png">
-      <img src="fellow_1.png" /> </a>
-    <a class="fancybox" href="fellow_2.png">
-      <img src="fellow_2.png" /> </a>
-    <a class="fancybox" href="fellow_3.png">
-      <img src="fellow_3.png" /> </a>
-    <a class="fancybox" href="fellow_4.png">
-      <img src="fellow_4.png" /> </a>
-    <a class="fancybox" href="fellow_5.png">
-      <img src="fellow_5.png" /> </a>
+    <a class="fancybox" href="ss/fellow_1.png">
+      <img src="thumbs/fellow_1.png" /> </a>
+    <a class="fancybox" href="ss/fellow_2.png">
+      <img src="thumbs/fellow_2.png" /> </a>
+    <a class="fancybox" href="ss/fellow_3.png">
+      <img src="thumbs/fellow_3.png" /> </a>
+    <a class="fancybox" href="ss/fellow_4.png">
+      <img src="thumbs/fellow_4.png" /> </a>
+    <a class="fancybox" href="ss/fellow_5.png">
+      <img src="thumbs/fellow_5.png" /> </a>
   </div>
 </div>
 
@@ -329,20 +330,20 @@ $(function() {
   </div>
   <div class="role"> Architect, Principal Engineer, Team Lead </div>
   <div class="pictures">
-    <a class="fancybox" href="smart_helmet_1.png">
-      <img src="smart_helmet_1.png" /> </a>
-    <a class="fancybox" href="smart_helmet_2.jpg">
-      <img src="smart_helmet_2.jpg" /> </a>
-    <a class="fancybox" href="smart_helmet_3.jpg">
-      <img src="smart_helmet_3.jpg" /> </a>
-    <a class="fancybox" href="4ds_1.png">
-      <img src="4ds_1.png" /> </a>
-    <a class="fancybox" href="4ds_2.png">
-      <img src="4ds_2.png" /> </a>
-    <a class="fancybox" href="4ds_3.png">
-      <img src="4ds_3.png" /> </a>
-    <a class="fancybox" href="4ds_4.png">
-      <img src="4ds_4.png" /> </a>
+    <a class="fancybox" href="ss/smart_helmet_1.png">
+      <img src="thumbs/smart_helmet_1.png" /> </a>
+    <a class="fancybox" href="ss/smart_helmet_2.jpg">
+      <img src="thumbs/smart_helmet_2.png" /> </a>
+    <a class="fancybox" href="ss/smart_helmet_3.jpg">
+      <img src="thumbs/smart_helmet_3.png" /> </a>
+    <a class="fancybox" href="ss/4ds_1.png">
+      <img src="thumbs/4ds_1.png" /> </a>
+    <a class="fancybox" href="ss/4ds_2.png">
+      <img src="thumbs/4ds_2.png" /> </a>
+    <a class="fancybox" href="ss/4ds_3.png">
+      <img src="thumbs/4ds_3.png" /> </a>
+    <a class="fancybox" href="ss/4ds_4.png">
+      <img src="thumbs/4ds_4.png" /> </a>
   </div>
 </div>
 
@@ -366,16 +367,16 @@ $(function() {
   </div>
   <div class="role"> Lead Engineer and Team Lead </div>
   <div class="pictures">
-    <a class="fancybox" href="ol-blog-4.png">
-      <img src="ol-blog-4.png" /> </a>
-    <a class="fancybox" href="ol-blog-5.png">
-      <img src="ol-blog-5.png" /> </a>
-    <a class="fancybox" href="ol-blog-6.png">
-      <img src="ol-blog-6.png" /> </a>
-    <a class="fancybox" href="ol-blog-7.png">
-      <img src="ol-blog-7.png" /> </a>
-    <a class="fancybox" href="ol-blog-2.png">
-      <img src="ol-blog-2.png" /> </a>
+    <a class="fancybox" href="ss/ol-blog-4.png">
+      <img src="thumbs/ol-blog-4.png" /> </a>
+    <a class="fancybox" href="ss/ol-blog-5.png">
+      <img src="thumbs/ol-blog-5.png" /> </a>
+    <a class="fancybox" href="ss/ol-blog-6.png">
+      <img src="thumbs/ol-blog-6.png" /> </a>
+    <a class="fancybox" href="ss/ol-blog-7.png">
+      <img src="thumbs/ol-blog-7.png" /> </a>
+    <a class="fancybox" href="ss/ol-blog-2.png">
+      <img src="thumbs/ol-blog-2.png" /> </a>
   </div>
 </div>
 
@@ -399,20 +400,20 @@ $(function() {
   </div>
   <div class="role"> Lead Engineer and Team Lead </div>
   <div class="pictures">
-    <a class="fancybox" href="ol-ana-1.png">
-      <img src="ol-ana-1.png" /> </a>
-    <a class="fancybox" href="ol-ana-2.png">
-      <img src="ol-ana-2.png" /> </a>
-    <a class="fancybox" href="ol-ana-3.png">
-      <img src="ol-ana-3.png" /> </a>
-    <a class="fancybox" href="ol-ana-4.png">
-      <img src="ol-ana-4.png" /> </a>
-    <a class="fancybox" href="ol-ana-5.png">
-      <img src="ol-ana-5.png" /> </a>
-    <a class="fancybox" href="ol-ana-6.png">
-      <img src="ol-ana-6.png" /> </a>
-    <a class="fancybox" href="ol-perfectum-1.png">
-      <img src="ol-perfectum-1.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-1.png">
+      <img src="thumbs/ol-ana-1.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-2.png">
+      <img src="thumbs/ol-ana-2.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-3.png">
+      <img src="thumbs/ol-ana-3.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-4.png">
+      <img src="thumbs/ol-ana-4.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-5.png">
+      <img src="thumbs/ol-ana-5.png" /> </a>
+    <a class="fancybox" href="ss/ol-ana-6.png">
+      <img src="thumbs/ol-ana-6.png" /> </a>
+    <a class="fancybox" href="ss/ol-perfectum-1.png">
+      <img src="thumbs/ol-perfectum-1.png" /> </a>
   </div>
 </div>
 
@@ -430,8 +431,8 @@ $(function() {
   <div class="tools"> Ruby, Sinatra, Cassandra, DataMapper, Git </div>
   <div class="role"> Lead Rubyist; Cassandra and ORM Expert </div>
   <div class="pictures">
-    <a class="fancybox" href="olaf-code-1.png">
-      <img src="olaf-code-1.png" /> </a>
+    <a class="fancybox" href="ss/olaf-code-1.png">
+      <img src="thumbs/olaf-code-1.png" /> </a>
   </div>
 </div>
 
@@ -449,18 +450,18 @@ $(function() {
   <div class="role"> Co-architect with <a
     href="http://github.com/tobert">Al Tobey</a> </div>
   <div class="pictures">
-    <a class="fancybox" href="overwatch-1.png">
-      <img src="overwatch-1.png" alt="Overwatch Dashboard 1" /> </a>
-    <a class="fancybox" href="overwatch-2.png">
-      <img src="overwatch-2.png" alt="Overwatch Dashboard 2" /> </a>
-    <a class="fancybox" href="overwatch-3.png">
-      <img src="overwatch-3.png" alt="Overwatch Dashboard 3" /> </a>
-    <a class="fancybox" href="hastur-portal.png">
-      <img src="hastur-portal.png" alt="Hastur Front Page" /> </a>
-    <a class="fancybox" href="hastur_dash_1.png">
-      <img src="hastur_dash_1.png" alt="Hastur Dashboard 1" /> </a>
-    <a class="fancybox" href="hastur_dash_2.png">
-      <img src="hastur_dash_2.png" alt="Hastur Dashboard 2" /> </a>
+    <a class="fancybox" href="ss/overwatch-1.png">
+      <img src="thumbs/overwatch-1.png" alt="Overwatch Dashboard 1" /> </a>
+    <a class="fancybox" href="ss/overwatch-2.png">
+      <img src="thumbs/overwatch-2.png" alt="Overwatch Dashboard 2" /> </a>
+    <a class="fancybox" href="ss/overwatch-3.png">
+      <img src="thumbs/overwatch-3.png" alt="Overwatch Dashboard 3" /> </a>
+    <a class="fancybox" href="ss/hastur-portal.png">
+      <img src="thumbs/hastur-portal.png" alt="Hastur Front Page" /> </a>
+    <a class="fancybox" href="ss/hastur_dash_1.png">
+      <img src="thumbs/hastur_dash_1.png" alt="Hastur Dashboard 1" /> </a>
+    <a class="fancybox" href="ss/hastur_dash_2.png">
+      <img src="thumbs/hastur_dash_2.png" alt="Hastur Dashboard 2" /> </a>
   </div>
 </div>
 
@@ -472,10 +473,10 @@ $(function() {
   <div class="tools"> Ruby, Rails, git, Cassandra, MySQL, others </div>
   <div class="role"> Analytics and Big Data Engineer </div>
   <div class="pictures">
-    <a class="fancybox" href="ooyala-backlot-analytics-1.png">
-      <img src="ooyala-backlot-analytics-1.png" alt="Ooyala Backlot 1" /> </a>
-    <a class="fancybox" href="ooyala-backlot-2.jpg">
-      <img src="ooyala-backlot-2.jpg" alt="Ooyala Backlot 2" /> </a>
+    <a class="fancybox" href="ss/ooyala-backlot-analytics-1.png">
+      <img src="thumbs/ooyala-backlot-analytics-1.png" alt="Ooyala Backlot 1" /> </a>
+    <a class="fancybox" href="ss/ooyala-backlot-2.jpg">
+      <img src="thumbs/ooyala-backlot-2.png" alt="Ooyala Backlot 2" /> </a>
   </div>
 </div>
 
@@ -491,12 +492,12 @@ $(function() {
   <div class="role"> Organizer, Speaker </div>
   <div class="organization"> <a href="http://daqri.com">DAQRI, Inc.</a> </div>
   <div class="pictures">
-    <a class="fancybox" href="daqri_talks_1.png">
-      <img src="daqri_talks_1.png" /></a>
-    <a class="fancybox" href="daqri_talks_2.png">
-      <img src="daqri_talks_2.png" /></a>
-    <a class="fancybox" href="daqri_talks_3.png">
-      <img src="daqri_talks_3.png" /></a>
+    <a class="fancybox" href="ss/daqri_talks_1.png">
+      <img src="thumbs/daqri_talks_1.png" /></a>
+    <a class="fancybox" href="ss/daqri_talks_2.png">
+      <img src="thumbs/daqri_talks_2.png" /></a>
+    <a class="fancybox" href="ss/daqri_talks_3.png">
+      <img src="thumbs/daqri_talks_3.png" /></a>
   </div>
 </div>
 
@@ -512,12 +513,12 @@ $(function() {
   <div class="role"> Interviewee </div>
   <div class="organization"> <a href="http://devchat.tv/ruby-rogues">The Ruby Rogues</a> </div>
   <div class="pictures">
-    <a class="fancybox" href="rubyrogues-1.png">
-      <img src="rubyrogues-1.png" /></a>
-    <a class="fancybox" href="rubyrogues-2.png">
-      <img src="rubyrogues-2.png" /></a>
-    <a class="fancybox" href="rubyrogues-3.png">
-      <img src="rubyrogues-3.png" /></a>
+    <a class="fancybox" href="ss/rubyrogues-1.png">
+      <img src="thumbs/rubyrogues-1.png" /></a>
+    <a class="fancybox" href="ss/rubyrogues-2.png">
+      <img src="thumbs/rubyrogues-2.png" /></a>
+    <a class="fancybox" href="ss/rubyrogues-3.png">
+      <img src="thumbs/rubyrogues-3.png" /></a>
   </div>
 </div>
 
@@ -534,10 +535,10 @@ $(function() {
   <div class="role"> Author/Editor </div>
   <div class="organization"> <a href="http://rubytapas.com">RubyTapas</a> </div>
   <div class="pictures">
-    <a class="fancybox" href="rubytapas-1.png">
-      <img src="rubytapas-1.png" /></a>
-    <a class="fancybox" href="rubytapas-2.png">
-      <img src="rubytapas-2.png" /></a>
+    <a class="fancybox" href="ss/rubytapas-1.png">
+      <img src="thumbs/rubytapas-1.png" /></a>
+    <a class="fancybox" href="ss/rubytapas-2.png">
+      <img src="thumbs/rubytapas-2.png" /></a>
   </div>
 </div>
 
@@ -554,14 +555,14 @@ $(function() {
   <div class="role"> Speaker </div>
   <div class="organization"> <a href="http://givegetwin.com">GiveGetWin</a> </div>
   <div class="pictures">
-    <a class="fancybox" href="gottabegood-1.jpg">
-      <img src="gottabegood-1.jpg" /></a>
-    <a class="fancybox" href="gottabegood-2.jpg">
-      <img src="gottabegood-2.jpg" /></a>
-    <a class="fancybox" href="gottabegood-3.jpg">
-      <img src="gottabegood-3.jpg" /></a>
-    <a class="fancybox" href="gottabegood-4.jpg">
-      <img src="gottabegood-4.jpg" /></a>
+    <a class="fancybox" href="ss/gottabegood-1.jpg">
+      <img src="thumbs/gottabegood-1.png" /></a>
+    <a class="fancybox" href="ss/gottabegood-2.jpg">
+      <img src="thumbs/gottabegood-2.png" /></a>
+    <a class="fancybox" href="ss/gottabegood-3.jpg">
+      <img src="thumbs/gottabegood-3.png" /></a>
+    <a class="fancybox" href="ss/gottabegood-4.jpg">
+      <img src="thumbs/gottabegood-4.png" /></a>
   </div>
 </div>
 
@@ -580,20 +581,20 @@ $(function() {
   <div class="tools"> Ruby, Rack, Rails </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="meetup_photo.jpeg">
-      <img src="meetup_photo.jpeg" /></a>
-    <a class="fancybox" href="meetup_photo_2.jpeg">
-      <img src="meetup_photo_2.jpeg" /></a>
-    <a class="fancybox" href="recruiting_slide_1.png">
-      <img src="recruiting_slide_1.png" /></a>
-    <a class="fancybox" href="recruiting_slide_2.png">
-      <img src="recruiting_slide_2.png" /></a>
-    <a class="fancybox" href="recruiting_slide_3.png">
-      <img src="recruiting_slide_3.png" /></a>
-    <a class="fancybox" href="recruiting_slide_4.png">
-      <img src="recruiting_slide_4.png" /></a>
-    <a class="fancybox" href="matz-photo.jpg">
-      <img src="matz-photo.jpg" /></a>
+    <a class="fancybox" href="ss/meetup_photo.jpeg">
+      <img src="thumbs/meetup_photo.png" /></a>
+    <a class="fancybox" href="ss/meetup_photo_2.jpeg">
+      <img src="thumbs/meetup_photo_2.png" /></a>
+    <a class="fancybox" href="ss/recruiting_slide_1.png">
+      <img src="thumbs/recruiting_slide_1.png" /></a>
+    <a class="fancybox" href="ss/recruiting_slide_2.png">
+      <img src="thumbs/recruiting_slide_2.png" /></a>
+    <a class="fancybox" href="ss/recruiting_slide_3.png">
+      <img src="thumbs/recruiting_slide_3.png" /></a>
+    <a class="fancybox" href="ss/recruiting_slide_4.png">
+      <img src="thumbs/recruiting_slide_4.png" /></a>
+    <a class="fancybox" href="ss/matz-photo.jpg">
+      <img src="thumbs/matz-photo.png" /></a>
   </div>
 </div>
 
@@ -609,12 +610,12 @@ $(function() {
   <div class="tools"> Ruby, Rack, Rails </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="littlest-orm-1.png">
-      <img src="littlest-orm-1.png" /></a>
-    <a class="fancybox" href="littlest-orm-2.png">
-      <img src="littlest-orm-2.png" /></a>
-    <a class="fancybox" href="littlest-orm-3.png">
-      <img src="littlest-orm-3.png" /></a>
+    <a class="fancybox" href="ss/littlest-orm-1.png">
+      <img src="thumbs/littlest-orm-1.png" /></a>
+    <a class="fancybox" href="ss/littlest-orm-2.png">
+      <img src="thumbs/littlest-orm-2.png" /></a>
+    <a class="fancybox" href="ss/littlest-orm-3.png">
+      <img src="thumbs/littlest-orm-3.png" /></a>
   </div>
 </div>
 
@@ -640,14 +641,14 @@ $(function() {
   <div class="tools"> Ruby, Rack, Rails, Cassandra, ZooKeeper, Git </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="zk-mutex-1.png">
-      <img src="zk-mutex-1.png" /></a>
-    <a class="fancybox" href="zk-mutex-2.png">
-      <img src="zk-mutex-2.png" /></a>
-    <a class="fancybox" href="tell-it-1.png">
-      <img src="tell-it-1.png" /></a>
-    <a class="fancybox" href="tell-it-2.png">
-      <img src="tell-it-2.png" /></a>
+    <a class="fancybox" href="ss/zk-mutex-1.png">
+      <img src="thumbs/zk-mutex-1.png" /></a>
+    <a class="fancybox" href="ss/zk-mutex-2.png">
+      <img src="thumbs/zk-mutex-2.png" /></a>
+    <a class="fancybox" href="ss/tell-it-1.png">
+      <img src="thumbs/tell-it-1.png" /></a>
+    <a class="fancybox" href="ss/tell-it-2.png">
+      <img src="thumbs/tell-it-2.png" /></a>
   </div>
 </div>
 
@@ -664,8 +665,8 @@ $(function() {
   <div class="tools"> Ruby, Rack, Rails </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="middleware_any_framework_1.png">
-      <img src="middleware_any_framework_1.png" alt="Picture of a slide" /> </a>
+    <a class="fancybox" href="ss/middleware_any_framework_1.png">
+      <img src="thumbs/middleware_any_framework_1.png" alt="Picture of a slide" /> </a>
   </div>
 </div>
 
@@ -685,10 +686,10 @@ $(function() {
   <div class="tools"> Ruby, Cassandra </div>
   <div class="role"> Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="hastur_slide_1.png">
-      <img src="hastur_slide_1.png" alt="Hastur architecture slide" /> </a>
-    <a class="fancybox" href="hastur_slide_2.png">
-      <img src="hastur_slide_2.png" alt="Hastur architecture slide" /> </a>
+    <a class="fancybox" href="ss/hastur_slide_1.png">
+      <img src="thumbs/hastur_slide_1.png" alt="Hastur architecture slide" /> </a>
+    <a class="fancybox" href="ss/hastur_slide_2.png">
+      <img src="thumbs/hastur_slide_2.png" alt="Hastur architecture slide" /> </a>
   </div>
 </div>
 
@@ -702,8 +703,8 @@ $(function() {
   <div class="tools"> Ruby, Hadoop, Cassandra, LogStash </div>
   <div class="role"> Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="ruby-big-data-slide.png">
-      <img src="ruby-big-data-slide.png" alt="Ruby Big Data at Ooyala" /> </a>
+    <a class="fancybox" href="ss/ruby-big-data-slide.png">
+      <img src="thumbs/ruby-big-data-slide.png" alt="Ruby Big Data at Ooyala" /> </a>
   </div>
 </div>
 
@@ -719,8 +720,8 @@ $(function() {
   <div class="tools"> Ruby </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="gotchas-1.png">
-      <img src="gotchas-1.png" alt="Ruby Gotchas" /> </a>
+    <a class="fancybox" href="ss/gotchas-1.png">
+      <img src="thumbs/gotchas-1.png" alt="Ruby Gotchas" /> </a>
   </div>
 </div>
 
@@ -737,8 +738,8 @@ $(function() {
   <div class="tools"> Ruby, Rack </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="hangout-1.png">
-      <img src="hangout-1.png" alt="The Ruby Hangout" /> </a>
+    <a class="fancybox" href="ss/hangout-1.png">
+      <img src="thumbs/hangout-1.png" alt="The Ruby Hangout" /> </a>
   </div>
 </div>
 
@@ -755,8 +756,8 @@ $(function() {
   <div class="tools"> Ruby </div>
   <div class="role"> Interviewee </div>
   <div class="pictures">
-    <a class="fancybox" href="castle-clouds-1.png">
-      <img src="castle-clouds-1.png" /></a>
+    <a class="fancybox" href="ss/castle-clouds-1.png">
+      <img src="thumbs/castle-clouds-1.png" /></a>
   </div>
 </div>
 
@@ -771,8 +772,8 @@ $(function() {
   <div class="tools"> Ruby, RVM, Bundler </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="instance-var-slide.png">
-      <img src="instance-var-slide.png" alt="Self and Instance Vars" /> </a>
+    <a class="fancybox" href="ss/instance-var-slide.png">
+      <img src="thumbs/instance-var-slide.png" alt="Self and Instance Vars" /> </a>
   </div>
 </div>
 
@@ -787,10 +788,10 @@ $(function() {
   <div class="tools"> Ruby, Bundler </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="five-min-1.png">
-      <img src="five-min-1.png" /> </a>
-    <a class="fancybox" href="five-min-2.png">
-      <img src="five-min-2.png" /> </a>
+    <a class="fancybox" href="ss/five-min-1.png">
+      <img src="thumbs/five-min-1.png" /> </a>
+    <a class="fancybox" href="ss/five-min-2.png">
+      <img src="thumbs/five-min-2.png" /> </a>
   </div>
 </div>
 
@@ -816,10 +817,10 @@ $(function() {
   <div class="tools"> Ruby, RVM, Bundler, SlideRocket, Cassandra, ZeroMQ </div>
   <div class="role"> Author/Speaker </div>
   <div class="pictures">
-    <a class="fancybox" href="glowworm-3.png">
-      <img src="glowworm-3.png" /> </a>
-    <a class="fancybox" href="glowworm-4.png">
-      <img src="glowworm-4.png" /> </a>
+    <a class="fancybox" href="ss/glowworm-3.png">
+      <img src="thumbs/glowworm-3.png" /> </a>
+    <a class="fancybox" href="ss/glowworm-4.png">
+      <img src="thumbs/glowworm-4.png" /> </a>
   </div>
 </div>
 
@@ -833,12 +834,12 @@ $(function() {
   <div class="tools"> Rails, Mechanize </div>
   <div class="role"> Lead programmer, briefly </div>
   <div class="pictures">
-    <a class="fancybox" href="scamarmour-1.png">
-      <img src="scamarmour-1.png" alt="ScamArmour 1" /> </a>
-    <a class="fancybox" href="scamarmour-2.png">
-      <img src="scamarmour-2.png" alt="ScamArmour 2" /> </a>
-    <a class="fancybox" href="scamarmour-3.png">
-      <img src="scamarmour-3.png" alt="ScamArmour 3" /> </a>
+    <a class="fancybox" href="ss/scamarmour-1.png">
+      <img src="thumbs/scamarmour-1.png" alt="ScamArmour 1" /> </a>
+    <a class="fancybox" href="ss/scamarmour-2.png">
+      <img src="thumbs/scamarmour-2.png" alt="ScamArmour 2" /> </a>
+    <a class="fancybox" href="ss/scamarmour-3.png">
+      <img src="thumbs/scamarmour-3.png" alt="ScamArmour 3" /> </a>
   </div>
 </div>
 
@@ -854,7 +855,7 @@ $(function() {
   <div class="tools"> Rails, RSpec, RubyMine, various </div>
   <div class="role"> Tutor and debugger </div>
   <div class="pictures">
-    <a href="cmu-west.jpg" class="fancybox"><img src="cmu-west.jpg" /></a>
+    <a href="ss/cmu-west.jpg" class="fancybox"><img src="thumbs/cmu-west.png" /></a>
   </div>
 </div>
 
@@ -879,14 +880,14 @@ $(function() {
   <div class="role"> Sole author or co-author &mdash; varies
     by project </div>
   <div class="pictures">
-    <a class="fancybox" href="glowworm-1.png">
-      <img src="glowworm-1.png" alt="Glowworm control panel 1" /> </a>
-    <a class="fancybox" href="glowworm-2.png">
-      <img src="glowworm-2.png" alt="Glowworm control panel 2" /> </a>
-    <a class="fancybox" href="yarddoc-1.png">
-      <img src="yarddoc-1.png" alt="Documentation Server 1" /> </a>
-    <a class="fancybox" href="yarddoc-2.png">
-      <img src="yarddoc-2.png" alt="Documentation Server 2" /> </a>
+    <a class="fancybox" href="ss/glowworm-1.png">
+      <img src="thumbs/glowworm-1.png" alt="Glowworm control panel 1" /> </a>
+    <a class="fancybox" href="ss/glowworm-2.png">
+      <img src="thumbs/glowworm-2.png" alt="Glowworm control panel 2" /> </a>
+    <a class="fancybox" href="ss/yarddoc-1.png">
+      <img src="thumbs/yarddoc-1.png" alt="Documentation Server 1" /> </a>
+    <a class="fancybox" href="ss/yarddoc-2.png">
+      <img src="thumbs/yarddoc-2.png" alt="Documentation Server 2" /> </a>
   </div>
 </div>
 
@@ -903,7 +904,7 @@ $(function() {
   <div class="role"> Speaker </div>
   <div class="pictures">
     <a href="http://www.youtube.com/watch?v=l3jz8OqdBd0">
-      <img src="me_speaking.png"
+      <img src="thumbs/me_speaking.png"
            alt="a picture of me speaking" /> (link to YouTube) </a>
   </div>
 </div>
@@ -919,10 +920,10 @@ $(function() {
     Shoulda, jQuery, git </div>
   <div class="role"> Engineer, site team </div>
   <div class="pictures">
-    <a class="fancybox" href="OnSite-scr1.png">
-      <img src="OnSite-scr1.png" alt="On-Site front page" /> </a>
-    <a class="fancybox" href="OnSite-scr2.png">
-      <img src="OnSite-scr2.png" alt="On-Site user search (dev)" /> </a>
+    <a class="fancybox" href="ss/OnSite-scr1.png">
+      <img src="thumbs/OnSite-scr1.png" alt="On-Site front page" /> </a>
+    <a class="fancybox" href="ss/OnSite-scr2.png">
+      <img src="thumbs/OnSite-scr2.png" alt="On-Site user search (dev)" /> </a>
   </div>
 </div>
 
@@ -944,14 +945,14 @@ $(function() {
   <div class="tools"> GObject, Clutter, OpenGL, C, Linux, Perforce </div>
   <div class="role"> Co-architect with Justin Morey </div>
   <div class="pictures">
-    <a class="fancybox" href="emblaze-else-1.jpg">
-      <img src="emblaze-else-1.jpg" alt="Emblaze Else" /> </a>
-    <a class="fancybox" href="emblaze-else-2.jpg">
-      <img src="emblaze-else-2.jpg" alt="Emblaze Else" /> </a>
-    <a class="fancybox" href="emblaze-else-3.jpg">
-      <img src="emblaze-else-3.jpg" alt="Emblaze Else" /> </a>
-    <a class="fancybox" href="emblazeedelweiss.jpg">
-      <img src="emblazeedelweiss.jpg"
+    <a class="fancybox" href="ss/emblaze-else-1.jpg">
+      <img src="thumbs/emblaze-else-1.png" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="ss/emblaze-else-2.jpg">
+      <img src="thumbs/emblaze-else-2.png" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="ss/emblaze-else-3.jpg">
+      <img src="thumbs/emblaze-else-3.png" alt="Emblaze Else" /> </a>
+    <a class="fancybox" href="ss/emblazeedelweiss.jpg">
+      <img src="thumbs/emblazeedelweiss.png"
            alt="Early prototype hardware running ALP 3.0" /></a>
   </div>
 </div>
@@ -966,12 +967,12 @@ $(function() {
   <div class="tools"> GTK, C, Linux, Coverity, Perforce </div>
   <div class="role"> Senior OS Engineer </div>
   <div class="pictures">
-    <a href="ALP1.png" class="fancybox">
-      <img alt="ALP Screenshot" src="ALP1.png" /> </a>
-    <a href="ALP2.png" class="fancybox">
-      <img alt="ALP Screenshot 2" src="ALP2.png" /> </a>
-    <a href="ALP3.png" class="fancybox">
-      <img alt="ALP Screenshot 3" src="ALP3.png" /> </a>
+    <a href="ss/ALP1.png" class="fancybox">
+      <img alt="ALP Screenshot" src="thumbs/ALP1.png" /> </a>
+    <a href="ss/ALP2.png" class="fancybox">
+      <img alt="ALP Screenshot 2" src="thumbs/ALP2.png" /> </a>
+    <a href="ss/ALP3.png" class="fancybox">
+      <img alt="ALP Screenshot 3" src="thumbs/ALP3.png" /> </a>
   </div>
 </div>
 
@@ -984,7 +985,7 @@ $(function() {
   <div class="tools"> C, C++, Python, Linux, SVN </div>
   <div class="role"> Primary author and maintainer </div>
   <div class="pictures">
-    <a href="peakstream.png" class="fancybox"><img src="peakstream.png" /></a>
+    <a href="peakstream.png" class="fancybox"><img src="thumbs/peakstream.png" /></a>
   </div>
 </div>
 
@@ -1009,13 +1010,13 @@ $(function() {
   <div class="role"> Co-author (2-man team), focused on graphics </div>
   <div class="pictures">
        Win32: <a href="sharpcast1.jpg" class="fancybox">
-           <img src="sharpcast1.jpg" /></a>
+           <img src="thumbs/sharpcast1.png" /></a>
         <a href="sharpcast2.jpg" class="fancybox">
-           <img src="sharpcast2.jpg" /></a> <br/>
+           <img src="thumbs/sharpcast2.png" /></a> <br/>
       Windows Mobile: <a href="scmobile1.png" class="fancybox">
-           <img src="scmobile1.png" /></a>
+           <img src="thumbs/scmobile1.png" /></a>
         <a href="scmobile2.png" class="fancybox">
-           <img src="scmobile2.png" /></a>
+           <img src="thumbs/scmobile2.png" /></a>
   </div>
 </div>
 
@@ -1025,15 +1026,15 @@ $(function() {
   <div class="organization">
     <a href="http://www.giantbomb.com/tapwave-inc/65-763/">TapWave</a> </div>
   <div class="description"> Hardware acceleration support for the
-      <a href="Tapwave_Zodiac2_640.jpeg">TapWave
+      <a href="ss/Tapwave_Zodiac2_640.jpeg">TapWave
       Zodiac</a>. </div>
   <div class="tools"> C, PalmOS, Linux </div>
   <div class="role"> Sole programmer, PalmOS hardware acceleration
     project </div>
   <div class="pictures">
-    <a href="Tapwave_Zodiac2_640.jpeg"
+    <a href="ss/Tapwave_Zodiac2_640.jpeg"
       class="fancybox" >
-      <img src="Tapwave_Zodiac2_640.jpeg" alt="Tapwave Zodiac" /> </a> </div>
+      <img src="thumbs/Tapwave_Zodiac2_640.png" alt="Tapwave Zodiac" /> </a> </div>
 </div>
 
 <div data-category="professional" data-tags="c">
@@ -1047,7 +1048,7 @@ $(function() {
   <div class="tools"> C, custom hardware, Linux, ClearCase </div>
   <div class="role"> Software engineer, individual contributor </div>
   <div class="pictures">
-    <a href="broadcom-97115.png" class="fancybox"><img src="broadcom-97115.png" /></a>
+    <a href="broadcom-97115.png" class="fancybox"><img src="thumbs/broadcom-97115.png" /></a>
   </div>
 </div>
 
@@ -1061,7 +1062,7 @@ $(function() {
   <div class="role"> Software engineer, individual contributor </div>
   <div class="pictures">
     <a href="nvidia_driver_1.png" class="fancybox">
-      <img src="nvidia_driver_1.png" /> </a>
+      <img src="thumbs/nvidia_driver_1.png" /> </a>
   </div>
 </div>
 
@@ -1074,7 +1075,7 @@ $(function() {
   <div class="tools"> C, PalmOS, MacOS 9, MPW, Perforce </div>
   <div class="role"> Team engineer, later maintainer of launcher </div>
   <div class="pictures">
-    <a href="m505.jpg" class="fancybox"> <img src="m505.jpg" /> </a>
+    <a href="m505.jpg" class="fancybox"> <img src="thumbs/m505.png" /> </a>
   </div>
 </div>
 
@@ -1087,9 +1088,9 @@ $(function() {
   <div class="tools"> C, PalmOS, MacOS 9, MPW, Perforce </div>
   <div class="role"> Original author, primary maintainer </div>
   <div class="pictures">
-      <a href="pose_1.png" class="fancybox">
+      <a href="ss/pose_1.png" class="fancybox">
         <img alt="A newer emulator.  The old one was blockier."
-          src="pose_1.png" /> </a>
+          src="thumbs/pose_1.png" /> </a>
   </div>
 </div>
 
@@ -1105,9 +1106,9 @@ $(function() {
   <div class="tools"> C++, Perl, WinCE 2.1 </div>
   <div class="role"> Original author, sole maintainer </div>
   <div class="pictures"> 
-      <a href="nowsol_3.png" class="fancybox"><img src="nowsol_3.png" /></a>
-      <a href="nowsol_1.png" class="fancybox"><img src="nowsol_1.png" /></a>
-      <a href="nowsol_2.png" class="fancybox"><img src="nowsol_2.png" /></a>
+      <a href="nowsol_3.png" class="fancybox"><img src="thumbs/nowsol_3.png" /></a>
+      <a href="nowsol_1.png" class="fancybox"><img src="thumbs/nowsol_1.png" /></a>
+      <a href="nowsol_2.png" class="fancybox"><img src="thumbs/nowsol_2.png" /></a>
       <br/> These are from the container-tracking system for which I
       wrote RIPC
   </div>
@@ -1126,8 +1127,8 @@ $(function() {
   <div class="tools"> C, Dylan, MINDY, d2c, HPUX, AIX </div>
   <div class="role"> Student programmer </div>
   <div class="pictures"> 
-      <a href="gwydion-1.png" class="fancybox"><img src="gwydion-1.png" /></a>
-      <a href="gwydion-2.png" class="fancybox"><img src="gwydion-2.png" /></a>
+      <a href="gwydion-1.png" class="fancybox"><img src="thumbs/gwydion-1.png" /></a>
+      <a href="gwydion-2.png" class="fancybox"><img src="thumbs/gwydion-2.png" /></a>
   </div>
 </div>
 
@@ -1145,13 +1146,13 @@ $(function() {
   <div class="role"> Author </div>
   <div class="pictures">
     <a href="nmld_video_1.png" class="fancybox">
-      <img src="nmld_video_1.png" /></a>
+      <img src="thumbs/nmld_video_1.png" /></a>
     <a href="nmld_video_2.png" class="fancybox">
-      <img src="nmld_video_2.png" /></a>
+      <img src="thumbs/nmld_video_2.png" /></a>
     <a href="nmld_video_3.png" class="fancybox">
-      <img src="nmld_video_3.png" /></a>
+      <img src="thumbs/nmld_video_3.png" /></a>
     <a href="nmld_video_4.png" class="fancybox">
-      <img src="nmld_video_4.png" /></a>
+      <img src="thumbs/nmld_video_4.png" /></a>
   </div>
 </div>
 
@@ -1173,21 +1174,21 @@ $(function() {
   <div class="role"> Author </div>
   <div class="pictures">
     <a href="rails_deploy_1.png" class="fancybox">
-      <img src="rails_deploy_1.png" /></a>
+      <img src="thumbs/rails_deploy_1.png" /></a>
     <a href="rails_deploy_2.png" class="fancybox">
-      <img src="rails_deploy_2.png" /></a>
+      <img src="thumbs/rails_deploy_2.png" /></a>
     <a href="rails_deploy_3.png" class="fancybox">
-      <img src="rails_deploy_3.png" /></a>
+      <img src="thumbs/rails_deploy_3.png" /></a>
     <a href="rails_deploy_4.png" class="fancybox">
-      <img src="rails_deploy_4.png" /></a>
+      <img src="thumbs/rails_deploy_4.png" /></a>
     <a href="rails_deploy_5.png" class="fancybox">
-      <img src="rails_deploy_5.png" /></a>
+      <img src="thumbs/rails_deploy_5.png" /></a>
     <a href="rails_deploy_6.png" class="fancybox">
-      <img src="rails_deploy_6.png" /></a>
+      <img src="thumbs/rails_deploy_6.png" /></a>
   </div>
 </div>
 
-<div data-category="personal" data=tags="ruby rails">
+<div data-category="personal" data-tags="ruby rails">
   <div class="title">Ruby Mad Science</div>
   <div class="dates"> 2014-2015 </div>
   <div class="description">
@@ -1204,9 +1205,9 @@ $(function() {
   <div class="role"> Author and Maintainer </div>
   <div class="pictures">
     <a href="madscience-github.png" class="fancybox">
-      <img src="madscience-github.png" /></a>
+      <img src="thumbs/madscience-github.png" /></a>
     <a href="madscience-1.png" class="fancybox">
-      <img src="madscience-1.png" /></a>
+      <img src="thumbs/madscience-1.png" /></a>
 
   </div>
 </div>
@@ -1225,7 +1226,7 @@ $(function() {
   <div class="role"> Author </div>
   <div class="pictures">
     <a href="codefolio-1.png" class="fancybox">
-      <img src="codefolio-1.png" /></a>
+      <img src="thumbs/codefolio-1.png" /></a>
   </div>
 </div>
 
@@ -1246,13 +1247,13 @@ $(function() {
   <div class="role"> Everything </div>
   <div class="pictures">
     <a href="rr_cover.png" class="fancybox">
-      <img src="rr_cover.png" /></a>
+      <img src="thumbs/rr_cover.png" /></a>
     <a href="rr_site.png" class="fancybox">
-      <img src="rr_site.png" /></a>
+      <img src="thumbs/rr_site.png" /></a>
     <a href="rr_old_site.png" class="fancybox">
-      <img src="rr_old_site.png" /></a>
+      <img src="thumbs/rr_old_site.png" /></a>
     <a href="rr_old_buy.png" class="fancybox">
-      <img src="rr_old_buy.png" /></a>
+      <img src="thumbs/rr_old_buy.png" /></a>
   </div>
 </div>
 
@@ -1270,7 +1271,7 @@ $(function() {
   <div class="role"> Author </div>
   <div class="pictures">
     <a href="surveyor-1.png" class="fancybox">
-      <img src="surveyor-1.png" /></a>
+      <img src="thumbs/surveyor-1.png" /></a>
   </div>
 </div>
 
@@ -1285,7 +1286,7 @@ $(function() {
   <div class="tools"> C, Linux, PNM </div>
   <div class="role"> Author;  server author for distributed version </div>
   <div class="pictures"> <a href="reflroom.png" class="fancybox">
-    <img src="reflroom.png" /></a> </div>
+    <img src="thumbs/reflroom.png" /></a> </div>
 </div>
 
 <div data-category="personal" data-tags="javascript">
@@ -1300,10 +1301,10 @@ $(function() {
   <div class="tools"> JavaScript </div>
   <div class="role"> Author/Modifier </div>
   <div class="pictures">
-    <a href="navier-1.png" class="fancybox">
-      <img src="navier-1.png" alt="Screenshot" /> </a>
-    <a href="navier-2.png" class="fancybox">
-      <img src="navier-2.png" alt="Screenshot" /> </a>
+    <a href="ss/navier-1.png" class="fancybox">
+      <img src="thumbs/navier-1.png" alt="Screenshot" /> </a>
+    <a href="ss/navier-2.png" class="fancybox">
+      <img src="thumbs/navier-2.png" alt="Screenshot" /> </a>
   </div>
 </div>
 
@@ -1322,13 +1323,13 @@ $(function() {
   <div class="role"> Sole author </div>
   <div class="pictures">
     <a href="portfolio-2014.png" class="fancybox">
-      <img src="portfolio-2014.png" /> </a>
+      <img src="thumbs/portfolio-2014.png" /> </a>
     <a href="portfolio_shot_1.png" class="fancybox">
-      <img src="portfolio_shot_1.png" alt="Screenshot" /> </a>
+      <img src="thumbs/portfolio_shot_1.png" alt="Screenshot" /> </a>
     <a href="portfolio_shot_2.png" class="fancybox">
-      <img src="portfolio_shot_2.png" alt="Screenshot" /> </a>
+      <img src="thumbs/portfolio_shot_2.png" alt="Screenshot" /> </a>
     <a href="portfolio_shot_3.png" class="fancybox">
-      <img src="portfolio_shot_3.png" alt="Ooh, recursion!" /> </a>
+      <img src="thumbs/portfolio_shot_3.png" alt="Ooh, recursion!" /> </a>
   </div>
 </div>
 
@@ -1345,13 +1346,13 @@ $(function() {
   <div class="role"> Sole author </div>
   <div class="pictures">
          <a href="pizzawindow.png" class="fancybox">
-           <img src="pizzawindow.png" alt="Early screen 1" /> </a>
+           <img src="thumbs/pizzawindow.png" alt="Early screen 1" /> </a>
          <a href="pizzawindow2.png" class="fancybox">
-           <img src="pizzawindow2.png" alt="Early screen 2" /> </a>
+           <img src="thumbs/pizzawindow2.png" alt="Early screen 2" /> </a>
          <a href="pizzawindow3.png" class="fancybox">
-           <img src="pizzawindow3.png" alt="Later screen 2" /> </a>
+           <img src="thumbs/pizzawindow3.png" alt="Later screen 2" /> </a>
          <a href="pizzawindow4.png" class="fancybox">
-           <img src="pizzawindow4.png" alt="Later screen 2" /> </a>
+           <img src="thumbs/pizzawindow4.png" alt="Later screen 2" /> </a>
   </div>
 </div>
 
@@ -1371,10 +1372,10 @@ $(function() {
   <div class="role"> Sole author </div>
   <div class="pictures">
       <a href="astrino_early_2.png" class="fancybox">
-        <img src="astrino_early_2.png" alt="very early screenshot" /></a>
-      <a href="http://noahgibbs.github.com/RailsGame/railsgame_diagram.png"
+        <img src="thumbs/astrino_early_2.png" alt="very early screenshot" /></a>
+      <a href="ss/railsgame_diagram.png"
         class="fancybox">
-        <img src="http://noahgibbs.github.com/RailsGame/railsgame_diagram.png"
+        <img src="thumbs/railsgame_diagram.png"
           alt="design diagram" /> </a>
   </div>
 </div>
@@ -1407,9 +1408,9 @@ $(function() {
   <div class="role"> Author.  Edited by Shannon Appelcline </div>
   <div class="pictures">
     <a href="neoarchaeology-1.png" class="fancybox">
-      <img src="neoarchaeology-1.png" /></a>
+      <img src="thumbs/neoarchaeology-1.png" /></a>
     <a href="neoarchaeology-2.png" class="fancybox">
-      <img src="neoarchaeology-2.png" /></a>
+      <img src="thumbs/neoarchaeology-2.png" /></a>
   </div>
 </div>
 
@@ -1459,14 +1460,14 @@ $(function() {
   </div>
   <div class="role"> Sole author </div>
   <div class="pictures">
-      <a href="WMJ_2010_2.png" class="fancybox">
-        <img src="WMJ_2010_2.png" alt="Late 2010 screenshot" /></a>
-      <a href="WMJ_2010.png" class="fancybox">
-        <img src="WMJ_2010.png" alt="Early 2010 screenshot" /></a>
-      <a href="wmj_screenshot_1.jpg" class="fancybox">
-        <img src="wmj_screenshot_1.jpg" alt="2008 screenshot" /></a>
-      <a href="iHjH.png" class="fancybox">
-        <img src="iHjH.png" alt="2007 screenshot" /></a>
+      <a href="ss/WMJ_2010_2.png" class="fancybox">
+        <img src="thumbs/WMJ_2010_2.png" alt="Late 2010 screenshot" /></a>
+      <a href="ss/WMJ_2010.png" class="fancybox">
+        <img src="thumbs/WMJ_2010.png" alt="Early 2010 screenshot" /></a>
+      <a href="ss/wmj_screenshot_1.jpg" class="fancybox">
+        <img src="thumbs/wmj_screenshot_1.png" alt="2008 screenshot" /></a>
+      <a href="ss/iHjH.png" class="fancybox">
+        <img src="thumbs/iHjH.png" alt="2007 screenshot" /></a>
   </div>
 </div>
 
@@ -1502,13 +1503,13 @@ $(function() {
   <div class="role"> Sole author, sole content author </div>
   <div class="pictures">
       <a href="blog_2009_1.png" class="fancybox">
-        <img src="blog_2009_1.png" alt="2009 screenshot" /></a>
+        <img src="thumbs/blog_2009_1.png" alt="2009 screenshot" /></a>
       <a href="blog_top.png" class="fancybox">
-        <img src="blog_top.png" alt="older top screenshot" /></a>
+        <img src="thumbs/blog_top.png" alt="older top screenshot" /></a>
       <a href="blog_bottom.png" class="fancybox">
-        <img src="blog_bottom.png" alt="older bottom screenshot" /></a>
+        <img src="thumbs/blog_bottom.png" alt="older bottom screenshot" /></a>
       <a href="blog_show.png" class="fancybox">
-        <img src="blog_show.png" alt="old post with Disqus form" /></a>
+        <img src="thumbs/blog_show.png" alt="old post with Disqus form" /></a>
   </div>
 </div>
 
@@ -1526,13 +1527,13 @@ $(function() {
   <div class="role"> Sole author </div>
   <div class="pictures">
       <a href="diffeq_code.png" class="fancybox">
-        <img src="diffeq_code.png" alt="simple code excerpt" /></a>
+        <img src="thumbs/diffeq_code.png" alt="simple code excerpt" /></a>
       <a href="graph_of_exp.png" class="fancybox">
-        <img src="graph_of_exp.png" alt="simple graph output" /></a>
+        <img src="thumbs/graph_of_exp.png" alt="simple graph output" /></a>
       <a href="bigvolt.png" class="fancybox">
-        <img src="bigvolt.png" alt="large Lotka-Volterra pred/prey graph" /></a>
+        <img src="thumbs/bigvolt.png" alt="large Lotka-Volterra pred/prey graph" /></a>
       <a href="smallvolt.png" class="fancybox">
-        <img src="smallvolt.png" alt="small Lotka-Volterra pred/prey graph" /></a>
+        <img src="thumbs/smallvolt.png" alt="small Lotka-Volterra pred/prey graph" /></a>
       <a href="volterra.rb" class="fancybox">
         simple ruby code for Lotka-Volterra predator/prey graph </a>
   </div>
@@ -1549,14 +1550,14 @@ $(function() {
   <div class="role"> Initial and primary author, primary maintainer until 2008.
     Now handled by a newer maintainer.</div>
   <div class="pictures">
-      <a href="phant_1.png" class="fancybox"> <img src="phant_1.png" /></a>
-      <a href="phant_5.png" class="fancybox"> <img src="phant_5.png" /></a>
-      <a href="phant_3.png" class="fancybox"> <img src="phant_3.png" /></a>
-      <a href="phant_2.png" class="fancybox"> <img src="phant_2.png" /></a>
-      <a href="phant_4.png" class="fancybox"> <img src="phant_4.png" /></a>
-      <a href="phant_6.png" class="fancybox"> <img src="phant_6.png" /></a>
-      <a href="phant_7.png" class="fancybox"> <img src="phant_7.png" /></a>
-      <a href="phant_8.png" class="fancybox"> <img src="phant_8.png" /></a>
+      <a href="phant_1.png" class="fancybox"> <img src="thumbs/phant_1.png" /></a>
+      <a href="phant_5.png" class="fancybox"> <img src="thumbs/phant_5.png" /></a>
+      <a href="phant_3.png" class="fancybox"> <img src="thumbs/phant_3.png" /></a>
+      <a href="phant_2.png" class="fancybox"> <img src="thumbs/phant_2.png" /></a>
+      <a href="phant_4.png" class="fancybox"> <img src="thumbs/phant_4.png" /></a>
+      <a href="phant_6.png" class="fancybox"> <img src="thumbs/phant_6.png" /></a>
+      <a href="phant_7.png" class="fancybox"> <img src="thumbs/phant_7.png" /></a>
+      <a href="phant_8.png" class="fancybox"> <img src="thumbs/phant_8.png" /></a>
   </div>
 </div>
 
@@ -1574,10 +1575,10 @@ $(function() {
   <div class="tools"> HTML, custom Perl scripts </div>
   <div class="role"> Sole author </div>
   <div class="pictures">
-      <a href="dgd_1.png" class="fancybox"> <img src="dgd_1.png" /></a>
-      <a href="dgd_2.png" class="fancybox"> <img src="dgd_2.png" /></a>
-      <a href="dgd_3.png" class="fancybox"> <img src="dgd_3.png" /></a>
-      <a href="dgd_4.png" class="fancybox"> <img src="dgd_4.png" /></a>
+      <a href="dgd_1.png" class="fancybox"> <img src="thumbs/dgd_1.png" /></a>
+      <a href="dgd_2.png" class="fancybox"> <img src="thumbs/dgd_2.png" /></a>
+      <a href="dgd_3.png" class="fancybox"> <img src="thumbs/dgd_3.png" /></a>
+      <a href="dgd_4.png" class="fancybox"> <img src="thumbs/dgd_4.png" /></a>
   </div>
 </div>
 
@@ -1592,9 +1593,9 @@ $(function() {
   <div class="tools"> Linux, C, SVN </div>
   <div class="role"> Individual contributor </div>
   <div class="pictures">
-      <a href="csphysics1.png" class="fancybox"><img src="csphysics1.png" /></a>
-      <a href="csphysics2.png" class="fancybox"><img src="csphysics2.png" /></a>
-      <a href="csphysics3.png" class="fancybox"><img src="csphysics3.png" /></a>
+      <a href="csphysics1.png" class="fancybox"><img src="thumbs/csphysics1.png" /></a>
+      <a href="csphysics2.png" class="fancybox"><img src="thumbs/csphysics2.png" /></a>
+      <a href="csphysics3.png" class="fancybox"><img src="thumbs/csphysics3.png" /></a>
   </div>
 </div>
 
@@ -1609,7 +1610,7 @@ $(function() {
   <div class="role"> Sole author </div>
   <div class="pictures">
       <a href="maslow_son_output.png" class="fancybox">
-        <img src="maslow_son_output.png" /></a>
+        <img src="thumbs/maslow_son_output.png" /></a>
       <a href="son.rb" class="fancybox">Ruby source file for example</a>
   </div>
 </div>
@@ -1625,9 +1626,9 @@ $(function() {
   <div class="tools"> JavaScript, HTML5, Prototype, Canvas, CoffeeScript </div>
   <div class="role"> Sole author </div>
   <div class="pictures">
-         <a href="face_1.png" class="fancybox"><img src="face_1.png" /></a>
-         <a href="face_2.png" class="fancybox"><img src="face_2.png" /></a>
-         <a href="face_3.png" class="fancybox"><img src="face_3.png" /></a>
+         <a href="face_1.png" class="fancybox"><img src="thumbs/face_1.png" /></a>
+         <a href="face_2.png" class="fancybox"><img src="thumbs/face_2.png" /></a>
+         <a href="face_3.png" class="fancybox"><img src="thumbs/face_3.png" /></a>
   </div>
 </div>
 
@@ -1642,7 +1643,7 @@ $(function() {
   <div class="tools"> Scratch </div>
   <div class="role"> Sole author </div>
   <div class="pictures">
-      <a href="SillyBand.png" class="fancybox"><img src="SillyBand.png" /></a>
+      <a href="SillyBand.png" class="fancybox"><img src="thumbs/SillyBand.png" /></a>
   </div>
 </div>
 
