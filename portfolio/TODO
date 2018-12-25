@@ -1,3 +1,25 @@
 Add:
-  * OnLive analytics screenshots
-  * Ruby Mad Science
+  * Ruby Mad Science - check domain listing stuff, get it working
+  * All things AppFolio
+  * Talks
+  * Art? Video? Other projects?
+  * Any other interviews/talks I can locate
+
+Tentative Structure
+
+Categories:
+
+* Employed or Contract
+* Product
+* DevOps
+* Front End
+* Writing
+* Speaking
+
+Structure for Entries (drop the labels for everything)
+
+* Title - Dates
+* Role w/ Description; What I Learned, or What Was Interesting; (opt)Tools, Paradigms, Keywords
+* Screenshots
+
+* Optional sort order, sort secondarily by date
