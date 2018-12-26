@@ -12,7 +12,6 @@ div#tagbox {
   margin: 5%;
   position: relative;
   margin-top: 10px;
-  text-align: center;
 }
 
 div#tagbox a {
@@ -20,6 +19,6 @@ div#tagbox a {
 }
 
 div.card[data-tags] {
-  width: 80%;
+  width: 85%;
   margin: 5%;
 }
