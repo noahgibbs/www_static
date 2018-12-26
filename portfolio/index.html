@@ -145,6 +145,9 @@ $(function() {
 
   $("img").addClass("shadow");
 
+  // Open links in description in separate tabs
+  $("div[data-tags] .description_here a").attr("target", "_blank");
+
   $(window).bind( 'hashchange', function() {
     spot = location.hash;
     if(spot == "") { spot = "#all"; location.hash = spot; }
@@ -227,6 +230,42 @@ $(function() {
       <img src="thumbs/fellow_3.png" /> </a>
     <a class="fancybox" href="ss/fellow_4.png">
       <img src="thumbs/fellow_4.png" /> </a>
+  </div>
+</div>
+
+<div data-tags="speaking ruby">
+  <div class="title"><a href="https://devchat.tv/ruby-rogues/rr-362-measuring-ruby-performance-with-rails-and-discourse-with-noah-gibbs/">Ruby Rogues Episode</a> on Measuring Ruby Performance</div>
+  <div class="dates"> 2018 </div>
+  <div class="description"> In 2018, I was again a guest on Ruby Rogues, this time about my more recent work on Ruby performance.
+    I was also a <a href="https://devchat.tv/my-ruby-story/mrs-043-noah-gibbs/">guest on My Ruby Story</a>, also part of
+    <a href="https://devchat.tv">DevChat.tv</a>.
+  </div>
+  <div class="pictures">
+    <a class="fancybox" href="ss/rubyrogues-1.png">
+      <img src="thumbs/rubyrogues-1.png" /></a>
+    <a class="fancybox" href="ss/rubyrogues-2.png">
+      <img src="thumbs/rubyrogues-2.png" /></a>
+    <a class="fancybox" href="ss/rubyrogues-3.png">
+      <img src="thumbs/rubyrogues-3.png" /></a>
+  </div>
+</div>
+
+<div data-tags="speaking ruby">
+  <div class="title">How Close is Ruby 3x3? (RubyKaigi)</div>
+  <div class="dates"> 2017 </div>
+  <div class="description"> After a year as AppFolio's Ruby Fellow, I wrote a summary
+    of the speed history of Rails by Ruby version, to assess how fast current Ruby was
+    compared to 2.0. <a href="https://rubykaigi.org/2017/presentations/codefolio.html">(rubykaigi page)</a>
+    <a href="https://bit.ly/kaigi2017-gibbs">(slides)</a>
+  </div>
+  <div class="pictures">
+    <a href="https://www.youtube.com/watch?v=xZ5mw3x2pdo">
+      <img src="thumbs/kaigi-play.png" alt="Play link for YouTube" /></a>
+      (<- YouTube link)</a>
+    <a class="fancybox" href="ss/kaigi2017-1.png">
+      <img src="thumbs/kaigi2017-1.png" alt="RubyKaigi stage picture" /> </a>
+    <a class="fancybox" href="ss/kaigi2017-2.png">
+      <img src="thumbs/kaigi2017-2.png" alt="RubyKaigi stage picture" /> </a>
   </div>
 </div>
 
@@ -986,7 +1025,7 @@ $(function() {
 
 <div data-tags="product ruby writing">
   <div class="title">Octopress Bootstrap Sites</div>
-  <div class="dates"> 2014 to present </div>
+  <div class="dates"> 2014 to 2016 </div>
   <div class="description">
     I redesigned <a href="http://codefol.io">Codefol.io</a> and
     <a href="http://rebuilding-rails.com">several</a> <a href="https://github.com/noahgibbs/madscience_octopress">product</a>
