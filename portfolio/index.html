@@ -110,13 +110,13 @@ $(function() {
 });
 </script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Noah Gibbs</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Noah Gibbs</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="http://codefol.io">Blog</a>
         </li>
@@ -133,23 +133,19 @@ $(function() {
           <a class="nav-link" href="http://linkedin.com/in/noahgibbs">LinkedIn</a>
         </li>
     </ul>
-    <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
   </div>
 </nav>
 
-
 <div id="tagbox"> </div> <!-- For tag buttons -->
 
-<div id="template" class="card card-primary" style="display:none;">
-  <h3 class="card-title"><span class="title_here"></span> <span class="dates_here"></span></h3>
+<div id="template" class="card border-primary" style="display:none;">
+  <h3 class="card-title card-header"><span class="title_here"></span> <span class="dates_here text-muted float-right font-italic"></span></h3>
   <div class="description_here card-body lead"></div>
 
   <div class="card-body pictures_here"></div>
 </div>
 
-<div data-tags="professional ruby rails">
+<div data-tags="professional ruby">
   <div class="title">Ruby Fellow for AppFolio</div>
   <div class="dates"> 2016-present </div>
   <div class="organization"> <a href="http://appfolio.com">AppFolio</a> </div>
@@ -182,7 +178,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails">
+<div data-tags="professional ruby">
   <div class="title">DAQRI: 4DStudio and the Smart Helmet </div>
   <div class="dates"> 2015-2016 </div>
   <div class="organization"> <a href="http://daqri.com">DAQRI</a> </div>
@@ -217,7 +213,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails cassandra">
+<div data-tags="professional ruby">
   <div class="title">OnLive: Open-Source Initiative and Engineering Blog</div>
   <div class="dates"> 2013-2015 </div>
   <div class="organization"> <a href="http://onlive.com">OnLive</a> </div>
@@ -250,7 +246,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails cassandra">
+<div data-tags="professional ruby">
   <div class="title">OnLive Analytics</div>
   <div class="dates"> 2013-2014 </div>
   <div class="organization"> <a href="http://onlive.com">OnLive</a> </div>
@@ -287,7 +283,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails cassandra">
+<div data-tags="professional ruby">
   <div class="title">Valhalla, a Ruby SOA Platform</div>
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://onlive.com">OnLive</a> </div>
@@ -306,7 +302,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails cassandra">
+<div data-tags="professional ruby">
   <div class="title">Hastur, a Cassandra-Backed Monitoring System</div>
   <div class="dates"> 2011-2013 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
@@ -335,7 +331,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby rails cassandra">
+<div data-tags="professional ruby">
   <div class="title">Analytics for Ooyala</div>
   <div class="dates"> 2011-2012 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
@@ -350,7 +346,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking ruby rails">
+<div data-tags="speaking ruby">
   <div class="title">DAQRI Technical Talks</div>
   <div class="dates"> 2015-2016 </div>
   <div class="description"> At DAQRI, I established a series of weekly
@@ -412,7 +408,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking nontechnical">
+<div data-tags="speaking">
   <div class="title"><a href="http://givegetwin.com">GottaBeGood Tour</a> Talk: "Sustainable Ambition"</div>
   <div class="dates"> 2015 </div>
   <div class="description"> My wife and I delivered a talk on Sustainable
@@ -540,7 +536,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking ruby cassandra">
+<div data-tags="speaking ruby">
   <div class="title">Hastur: Open-Source Scalable Metrics with Cassandra</div>
   <div class="dates"> 2012 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
@@ -563,7 +559,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking ruby cassandra">
+<div data-tags="speaking ruby">
   <div class="title">Ruby Big Data Tools at Ooyala (<a href="http://gogaruco.com">GoGaRuCo</a> lightning talk)</div>
   <div class="dates"> 2011 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a> </div>
@@ -595,7 +591,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking ruby rails">
+<div data-tags="speaking ruby">
   <div class="title">The Ruby Hangout &mdash; Various Rack Talks</div>
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://www.therubyhangout.com">The Ruby Hangout</a>
@@ -694,7 +690,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional rails ruby">
+<div data-tags="professional ruby">
   <div class="title"> Consulting for Serpikko </div>
   <div class="dates"> 2012 </div>
   <div class="organization"> Serpikko (then called ScamArmour) </div>
@@ -713,7 +709,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional rails ruby">
+<div data-tags="professional ruby">
   <div class="title">Ruby on Rails Instructor, CMU Silicon Valley</div>
   <div class="dates"> 2011-2012 </div>
   <div class="organization"> <a
@@ -761,7 +757,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking rails">
+<div data-tags="speaking ruby">
   <div class="title">Replacing Java Incrementally with JRuby</div>
   <div class="dates"> 2010 </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
@@ -779,7 +775,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional rails">
+<div data-tags="professional ruby">
   <div class="title">On-Site.com</div>
   <div class="dates"> 2009 - 2011 </div>
   <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
@@ -859,7 +855,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile windows">
+<div data-tags="professional c mobile">
   <div class="title">Ultra-Fast Zoomable Graphics for SugarSync Mobile</div>
   <div class="dates"> 2005 - 2006 </div>
   <div class="organization"> SharpCast, now <a href="http://www.sugarsync.com">SugarSync</a> </div>
@@ -890,7 +886,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile palmos">
+<div data-tags="professional c mobile">
   <div class="title">TapWave Graphics Hardware Acceleration</div>
   <div class="dates"> 2004 - 2005 </div>
   <div class="organization">
@@ -936,7 +932,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile palmos">
+<div data-tags="professional c mobile">
   <div class="title">PalmOS SD Card Support</div>
   <div class="dates"> 2000 - 2002 </div>
   <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
@@ -949,7 +945,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile palmos">
+<div data-tags="professional c mobile">
   <div class="title">PalmOS HostFS</div>
   <div class="dates"> 2000 - 2001 </div>
   <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
@@ -964,7 +960,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile windows">
+<div data-tags="professional c mobile">
   <div class="title">Automated Source-Code Analysis and Generation</div>
   <div class="dates"> 1999 - 2000 </div>
   <div class="organization"> <a href="http://nowsol.com/">NOW Solutions</a> </div>
@@ -984,7 +980,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional student c">
+<div data-tags="professional">
   <div class="title">Callout Tools from a Highly Dynamic Language</div>
   <div class="dates"> 1995 - 1997 </div>
   <div class="organization"> The <a href="http://www.cs.cmu.edu/~gwydion/">
@@ -1002,7 +998,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="product ruby rails">
+<div data-tags="product ruby">
   <div class="title">No More Lost Data</div>
   <div class="dates"> 2016 </div>
   <div class="description">
@@ -1026,7 +1022,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="product ruby rails">
+<div data-tags="product ruby">
   <div class="title">Rails Deploy in an Hour</div>
   <div class="dates"> 2014-2015 </div>
   <div class="description">
@@ -1058,7 +1054,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal ruby rails">
+<div data-tags="personal ruby">
   <div class="title">Ruby Mad Science</div>
   <div class="dates"> 2014-2015 </div>
   <div class="description">
@@ -1100,7 +1096,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="product ruby rails">
+<div data-tags="product ruby">
   <div class="title">Rebuilding Rails</div>
   <div class="dates"> 2012 and later </div>
   <div class="description"> <a
@@ -1127,7 +1123,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal ruby rails javascript">
+<div data-tags="personal ruby javascript">
   <div class="title">Surveyor</div>
   <div class="dates"> 2013 </div>
   <div class="description">
@@ -1145,7 +1141,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal student c">
+<div data-tags="personal">
   <div class="title">Parallel Ray-Tracer (student project)</div>
   <div class="dates"> 1998? </div>
   <div class="organization"> A class at
@@ -1226,7 +1222,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal rails games">
+<div data-tags="personal ruby games">
   <div class="title">RailsGame, a Server-Push Experiment</div>
   <div class="dates"> 2009 - 2010 </div>
   <div class="description">
@@ -1250,7 +1246,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">CheapToad</div>
   <div class="dates"> 2009-2010 </div>
   <div class="description">
@@ -1284,7 +1280,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">RailsFrame &mdash; Early Work on Server Automation</div>
   <div class="dates"> 2011 </div>
   <div class="description">
@@ -1300,7 +1296,7 @@ $(function() {
   <div class="role"> Sole author </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">Codefol.io before Codefol.io</div>
   <div class="dates"> 2011 </div>
   <div class="description">
@@ -1314,7 +1310,7 @@ $(function() {
   <div class="role"> Sole author </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">WantMyJob</div>
   <div class="dates"> 2007 - 2008, 2010 - 2011 </div>
   <div class="description">
@@ -1341,7 +1337,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">RefactorIt</div>
   <div class="dates"> 2010 </div>
   <div class="description">
@@ -1356,7 +1352,7 @@ $(function() {
   <div class="role"> Sole author </div>
 </div>
 
-<div data-tags="personal rails">
+<div data-tags="personal ruby">
   <div class="title">My Blog, the Early Years</div>
   <div class="dates"> 2009 - 2010 </div>
   <div class="description">
@@ -1409,8 +1405,8 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal dgd games">
-  <div class="title">Phantasmal, an LPC-alike MUD Library</div>
+<div data-tags="personal games">
+  <div class="title">Phantasmal, an LPC MUD Library for DGD</div>
   <div class="dates"> 1999 - 2008 </div>
   <div class="description">
        <a href="http://phantasmal.sf.net">Phantasmal MUDLib</a> for
@@ -1431,8 +1427,8 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal dgd">
-  <div class="title">DGD Documentation, the Definitive Site</div>
+<div data-tags="personal writing">
+  <div class="title">The Definitive DGD Documentation Site</div>
   <div class="dates"> 1999 - 2008 </div>
   <div class="description">
       <a href="http://phantasmal.sf.net/DGD">documentation site for DGD

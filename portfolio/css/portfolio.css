@@ -8,52 +8,18 @@
 }
 
 div#tagbox {
+  width: 90%;
+  margin: 5%;
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
 div#tagbox a {
-  color: #000000;
   text-decoration: none;
 }
 
 div.card[data-tags] {
   width: 80%;
-  padding: 5%;
   margin: 5%;
-}
-
-div.curved {
-  border-radius:8px;
-}
-
-div.small_curved {
-  border-radius:4px;
-}
-
-.dates_here {
-  color: #D0D0D0;
-  float:right;
-  font-size: 80%;
-}
-
-.hidden {
-  display: none;
-}
-
-.float_right {
-  float: right;
-}
-
-.float_left {
-  float: left;
-}
-
-.clear {
-  clear: both;
-}
-
-.shadow {
-  box-shadow: 3px 3px 4px #000;
 }
