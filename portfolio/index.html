@@ -25,6 +25,9 @@
 // fix the problem.
 var PRESENT_DATE_YEAR=2018;
 
+// This will automatically pull all tags
+// and return them, along with tag counts.
+// Which is, like, not at all what I want.
 function get_all_tags() {
   var tags_hash = {};
 
@@ -144,7 +147,7 @@ $(function() {
 
   $(window).bind( 'hashchange', function() {
     spot = location.hash;
-    if(spot == "") { spot = "#professional"; location.hash = spot; }
+    if(spot == "") { spot = "#all"; location.hash = spot; }
 
     tags = spot.split("/", 2);
     select_top_tag(tags[0]);
@@ -196,7 +199,7 @@ $(function() {
   <div class="card-body pictures_here"></div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">Ruby Fellow for AppFolio</div>
   <div class="dates"> 2016-present </div>
   <div class="description">
@@ -228,7 +231,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">DAQRI: 4DStudio and the Smart Helmet </div>
   <div class="dates"> 2015-2016 </div>
   <div class="description">
@@ -258,23 +261,19 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby writing">
   <div class="title">OnLive: Engineering Blog, Open-Source Software</div>
   <div class="dates"> 2013-2015 </div>
   <div class="description">
     While at <a href="http://onlive.com">OnLive</a>, I scrubbed and open-sourced
-    older code, wrote and open-sourced new tools and started an engineering blog.  I also hosted
-    multiple public meetups at OnLive. <br/> I
-    resolved several procedural and legal obstacles.  I wrote most
-    blog content and a fair bit of the open source code. <br/>
+    older code, wrote and open-sourced new tools and started an engineering blog
+    while coordinating with legal about code and information release.
+    I wrote most
+    blog content and some of the open source code. <br/>
     See <a href="http://github.com/onlive">the OnLive GitHub
     repository</a> and <a href="http://engineering.onlive.com">the
     OnLive Engineering blog</a>.
   </div>
-  <div class="tools">
-    Ruby- and Cassandra-based open source; WordPress for blog
-  </div>
-  <div class="role"> Lead Engineer and Team Lead </div>
   <div class="pictures">
     <a class="fancybox" href="ss/ol-blog-4.png">
       <img src="thumbs/ol-blog-4.png" /> </a>
@@ -289,24 +288,20 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">OnLive Analytics</div>
   <div class="dates"> 2013-2014 </div>
   <div class="description">
     I served as <a href="http://onlive.com">OnLive</a>'s head of Analytics &mdash; the old team was
     gone before I arrived.  I analyzed, documented and debugged the system, and then
-    began making upgrades while recruiting a team.  The existing system was
+    began making upgrades while recruiting a team. The existing system was
     enormous, and much cleanup work was replacing underused technologies
     with smaller, simpler replacements.  I also supported the Business
     Intelligence team's needs for new data sources and infrastructure.
+    Technologies maintained and/or sunsetted included Pentaho Reports, Kettle, Coral8, Esper, InfoBright,
+    sharded MySQL, Grails, Java, Tomcat, Flash. Newer technologies used or
+    integrated with included Rails, ZenDesk, iPost.
   </div>
-  <div class="tools">
-    <p>
-      <b>Existing:</b> Pentaho Reports, Kettle, Coral8, Esper, InfoBright,
-        sharded MySQL, Grails, Java, Tomcat </p>
-    <p><b>New work:</b> Ruby, Rails, Cassandra, ZenDesk, iPost</p>
-  </div>
-  <div class="role"> Lead Engineer and Team Lead </div>
   <div class="pictures">
     <a class="fancybox" href="ss/ol-ana-1.png">
       <img src="thumbs/ol-ana-1.png" /> </a>
@@ -325,15 +320,15 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">Valhalla, a Ruby SOA Platform</div>
   <div class="dates"> 2013 </div>
   <div class="description">
     Valhalla was a prototype to replace an existing
     legacy allocation and scheduling system for back-end servers.
     It used a novel dual-mode SOA/monolithic architecture
-    based on <a href="http://github.com/onlive/olaf">Olaf</a>
-    (also written by our team.)
+    based on <a href="http://github.com/onlive/olaf">Olaf</a>,
+    also written by our team.
   </div>
   <div class="tools"> Ruby, Sinatra, Cassandra, DataMapper, Git </div>
   <div class="role"> Lead Rubyist; Cassandra and ORM Expert </div>
@@ -343,7 +338,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby c">
   <div class="title">Hastur, a Cassandra-Backed Monitoring System</div>
   <div class="dates"> 2011-2013 </div>
   <div class="description">
@@ -370,7 +365,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">Analytics for Ooyala</div>
   <div class="dates"> 2011-2012 </div>
   <div class="description">
@@ -491,7 +486,7 @@ $(function() {
 </div>
 
 <div data-tags="speaking ruby">
-  <div class="title">The Littlest ORM <a href="http://gogaruco.com">(GoGaRuCo)</a>, TorontoRB</div>
+  <div class="title">The Littlest ORM (<a href="https://github.com/gogaruco">GoGaRuCo 2013</a>, TorontoRB)</div>
   <div class="dates"> 2013 </div>
   <div class="description"> At 2013's Golden Gate Ruby Conference, I was honored to deliver
     a talk on building a simple ORM in Ruby called "The Littlest ORM." The ORM code was small
@@ -544,17 +539,12 @@ $(function() {
 </div>
 
 <div data-tags="speaking ruby">
-  <div class="title">Rack in Every Framework</div>
+  <div class="title">Rack in Every Framework (<a href="http://elance.com">eLance</a>, others)</div>
   <div class="dates"> 2013 </div>
-  <div class="organization"> Given at <a href="http://elance.com">eLance</a>
-    and later several other places.
-    </div>
   <div class="description"> Rack in Every Framework - writing
     Rack endpoints and middleware, and integrating them in various
     ways with various frameworks.
   </div>
-  <div class="tools"> Ruby, Rack, Rails </div>
-  <div class="role"> Author/Speaker </div>
   <div class="pictures">
     <a class="fancybox" href="ss/middleware_any_framework_1.png">
       <img src="thumbs/middleware_any_framework_1.png" alt="Picture of a slide" /> </a>
@@ -597,23 +587,6 @@ $(function() {
 </div>
 
 <div data-tags="speaking ruby">
-  <div class="title">Ruby Gotchas</div>
-  <div class="dates"> 2012 </div>
-  <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
-    </div>
-  <div class="description"> Ruby Gotchas - surprises when
-    coming to Ruby from other languages.
-    Given as a lecture with slides.
-  </div>
-  <div class="tools"> Ruby </div>
-  <div class="role"> Author/Speaker </div>
-  <div class="pictures">
-    <a class="fancybox" href="ss/gotchas-1.png">
-      <img src="thumbs/gotchas-1.png" alt="Ruby Gotchas" /> </a>
-  </div>
-</div>
-
-<div data-tags="speaking ruby">
   <div class="title">The Ruby Hangout &mdash; Various Rack Talks</div>
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://www.therubyhangout.com">The Ruby Hangout</a>
@@ -631,7 +604,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="speaking ruby">
+<div data-tags="speaking ruby writing">
   <div class="title">Building Ruby Castles in the Clouds</div>
   <div class="dates"> 2013 </div>
   <div class="organization"> <a href="http://sebastianmarshall.com">Sebastian Marshall</a>'s <a href="http://givegetwin.com">GiveGetWin</a>
@@ -650,31 +623,11 @@ $(function() {
 </div>
 
 <div data-tags="speaking ruby">
-  <div class="title">Ruby Self and Instance Variables</div>
-  <div class="dates"> 2011 </div>
-  <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
-    </div>
-  <div class="description"> Ruby Self and Instance Variables.
-    Given as a lecture with slides.
-  </div>
-  <div class="tools"> Ruby, RVM, Bundler </div>
-  <div class="role"> Author/Speaker </div>
-  <div class="pictures">
-    <a class="fancybox" href="ss/instance-var-slide.png">
-      <img src="thumbs/instance-var-slide.png" alt="Self and Instance Vars" /> </a>
-  </div>
-</div>
-
-<div data-tags="speaking ruby">
   <div class="title">The Five-Minute Ruby Web Framework</div>
   <div class="dates"> 2012 </div>
-  <div class="organization"> <a href="http://hackerdojo.com">Hacker Dojo</a>
-    Lightning Talks</div>
   <div class="description"> The Five-Minute Ruby Web Framework.
-    Given as a lightning talk with slides.
+    Given as a <a href="http://hackerdojo.com">Hacker Dojo</a> lightning talk with slides.
   </div>
-  <div class="tools"> Ruby, Bundler </div>
-  <div class="role"> Author/Speaker </div>
   <div class="pictures">
     <a class="fancybox" href="ss/five-min-1.png">
       <img src="thumbs/five-min-1.png" /> </a>
@@ -686,10 +639,10 @@ $(function() {
 <div data-tags="speaking ruby">
   <div class="title">Skillshares at Ooyala</div>
   <div class="dates"> 2011-2012 </div>
-  <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
-    </div>
-  <div class="description"> Various skillshares and presentations at Ooyala:
+  <div class="description"> Various skillshares and presentations at <a href="http://ooyala.com">Ooyala</a>:
     <ul>
+      <li> Ruby Self and Instance Variables </li>
+      <li> Ruby Gotchas </li>
       <li> Ooyala Development Process and Tools (new hire training, recurring) </li>
       <li> RVM and Bundler at Ooyala </li>
       <li> Ruby Performance and Profiling </li>
@@ -702,9 +655,11 @@ $(function() {
       <li> Design Reviews: Hastur, Chef for App Deploy </li>
     </ul>
   </div>
-  <div class="tools"> Ruby, RVM, Bundler, SlideRocket, Cassandra, ZeroMQ </div>
-  <div class="role"> Author/Speaker </div>
   <div class="pictures">
+    <a class="fancybox" href="ss/instance-var-slide.png">
+      <img src="thumbs/instance-var-slide.png" alt="Self and Instance Vars" /> </a>
+    <a class="fancybox" href="ss/gotchas-1.png">
+      <img src="thumbs/gotchas-1.png" alt="Ruby Gotchas" /> </a>
     <a class="fancybox" href="ss/glowworm-3.png">
       <img src="thumbs/glowworm-3.png" /> </a>
     <a class="fancybox" href="ss/glowworm-4.png">
@@ -712,15 +667,13 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title"> Consulting for Serpikko </div>
   <div class="dates"> 2012 </div>
   <div class="organization"> Serpikko (then called ScamArmour) </div>
   <div class="description"> Part-time freelance work on ScamArmour's
-    prototype web site.  Pre-funding company, rescue job.
+    prototype web site and Mechanize-based scraper. Pre-funding company, rescue job.
   </div>
-  <div class="tools"> Rails, Mechanize </div>
-  <div class="role"> Lead programmer, briefly </div>
   <div class="pictures">
     <a class="fancybox" href="ss/scamarmour-1.png">
       <img src="thumbs/scamarmour-1.png" alt="ScamArmour 1" /> </a>
@@ -731,24 +684,21 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
-  <div class="title">Ruby on Rails Instructor, CMU Silicon Valley</div>
+<div data-tags="fulltime ruby">
+  <div class="title">Ruby on Rails Associate Adjunct Professor, CMU West (Silicon Valley campus)</div>
   <div class="dates"> 2011-2012 </div>
-  <div class="organization"> <a
-  href="http://sv.cmu.edu">Carnegie Mellon University West</a>
+  <div class="organization"> Carnegie Mellon University West
     </div>
-  <div class="description"> Tutoring in Ruby on Rails
+  <div class="description">Office hours and tutoring in Ruby on Rails
     for masters students in the Master of Software Engineering
-    program at CMU's Silicon Valley campus, 2011 and 2012.  Part-time. </div>
-  <div class="tools"> Rails, RSpec, RubyMine, various </div>
-  <div class="role"> Tutor and debugger </div>
+    program at <a href="http://sv.cmu.edu">CMU's Silicon Valley campus</a>. Part-time. </div>
   <div class="pictures">
     <a href="ss/cmu-west.jpg" class="fancybox"><img src="thumbs/cmu-west.png" /></a>
   </div>
 </div>
 
-<div data-tags="professional ruby">
-  <div class="title">Ooyala Open-Source and Tools</div>
+<div data-tags="fulltime ruby">
+  <div class="title">Ooyala Open-Source and Tooling</div>
   <div class="dates"> 2011-2013 </div>
   <div class="organization"> <a href="http://ooyala.com">Ooyala</a>
     </div>
@@ -797,16 +747,13 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional ruby">
+<div data-tags="fulltime ruby">
   <div class="title">On-Site.com</div>
   <div class="dates"> 2009 - 2011 </div>
-  <div class="organization"> <a href="http://on-site.com">On-Site Manager, Inc</a>
-    </div>
-  <div class="description"> On-Site.com, a web site for the multifamily
-    unit rental industry </div>
-  <div class="tools"> Ruby on Rails, JRuby, Java, JSP, Linux, RSpec,
-    Shoulda, jQuery, git </div>
-  <div class="role"> Engineer, site team </div>
+  <div class="description"> I worked as an engineer at <a href="http://on-site.com">On-Site.com</a>,
+    a SaaS web app for the multifamily
+    unit rental industry. On-Site had a Java app of long standing that we were converting to use
+    JRuby and Ruby on Rails. </div>
   <div class="pictures">
     <a class="fancybox" href="ss/OnSite-scr1.png">
       <img src="thumbs/OnSite-scr1.png" alt="On-Site front page" /> </a>
@@ -815,23 +762,21 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">Emblaze Mobile Operating System</div>
   <div class="dates"> 2008 - 2009 </div>
-  <div class="organization"> <a href="http://access-company.com">ACCESS
+  <div class="organization">
     Systems Americas, purchaser of PalmSource</a> </div>
   <div class="description">
+    At <a href="http://access-company.com">ACCESS</a>, I co-architected a
     <a href="http://www.popgadget.net/2008/10/emblaze_mobile.php">
-    Mobile phone project,</a>
-    <a href="http://www.engadget.com/2009/11/24/emblazes-first-else-unveiled-in-london-promises-to-be-a-game-c/">later called</a>
-    <a href="http://www.firstelse.com">Emblaze First Else</a>,
-    later repackaged software-only as the
-    <a href="http://alp.access-company.com/ELSE/index.html">Else
-      Intuition</a> platform.  This was powered by ALP, but
-    involved a complete UI and graphics rewrite.
+    mobile phone OS/UX project</a>
+    <a href="http://www.engadget.com/2009/11/24/emblazes-first-else-unveiled-in-london-promises-to-be-a-game-c/">called</a>
+    <a href="https://www.engadget.com/2013/03/05/emblaze-mobile-ceo-amir-kupervas-mwc-2013/">Emblaze First Else</a>.
+      This was powered by <a href="https://en.wikipedia.org/wiki/Access_Linux_Platform">ALP</a>, but
+      involved a complete UI and graphics rewrite. We primarily used GObject (the basis of GTK+),
+      Clutter and OpenGL.
   </div>
-  <div class="tools"> GObject, Clutter, OpenGL, C, Linux, Perforce </div>
-  <div class="role"> Co-architect with Justin Morey </div>
   <div class="pictures">
     <a class="fancybox" href="ss/emblaze-else-1.jpg">
       <img src="thumbs/emblaze-else-1.png" alt="Emblaze Else" /> </a>
@@ -845,15 +790,15 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">ACCESS Linux Platform, a Successor to PalmOS</div>
   <div class="dates"> 2007 - 2008 </div>
-  <div class="organization"> <a href="http://access-company.com">ACCESS
-    Systems Americas, purchaser of PalmSource</a> </div>
-  <div class="description"> ACCESS Linux Platform, including
-    Tasks, Memos, Photos and Attention Manager </div>
-  <div class="tools"> GTK, C, Linux, Coverity, Perforce </div>
-  <div class="role"> Senior OS Engineer </div>
+  <div class="description"> I worked with the former PalmSource/PalmOS team
+    on the <a href="http://access-company.com">ACCESS</a> Linux Platform, including
+    Tasks, Memos, Photos and Attention Manager. We worked in GTK+ and C on
+    Linux. An expanded multinational engineering team was managed from
+    California. Code quality was kept up using Coverity, which helped
+    immensely. </div>
   <div class="pictures">
     <a href="ss/ALP1.png" class="fancybox">
       <img alt="ALP Screenshot" src="thumbs/ALP1.png" /> </a>
@@ -864,24 +809,20 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c">
+<div data-tags="fulltime c">
   <div class="title">PeakStream, Inc.</div>
   <div class="dates"> 2006 - 2007 </div>
-  <div class="organization"> <a href="http://arstechnica.com/business/news/2007/06/google-buys-peakstream-inc.ars">PeakStream</a>,
-       now <a href="http://www.theregister.co.uk/2007/06/05/google_buys_peakstream">part of Google</a></div>
-  <div class="description"> CodeBaby, a Python template system for C and C++ source-code generation (and a few other projects) </div>
-  <div class="tools"> C, C++, Python, Linux, SVN </div>
-  <div class="role"> Primary author and maintainer </div>
+  <div class="description"> At <a href="http://arstechnica.com/business/news/2007/06/google-buys-peakstream-inc.ars">PeakStream</a>,
+       now <a href="http://www.theregister.co.uk/2007/06/05/google_buys_peakstream">part of Google</a>, I wrote CodeBaby, a Python template system for C and C++ source-code generation (and a few other projects) </div>
   <div class="pictures">
-    <a href="peakstream.png" class="fancybox"><img src="thumbs/peakstream.png" /></a>
+    <a href="ss/peakstream.png" class="fancybox"><img src="thumbs/peakstream.png" /></a>
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">Ultra-Fast Zoomable Graphics for SugarSync Mobile</div>
   <div class="dates"> 2005 - 2006 </div>
-  <div class="organization"> SharpCast, now <a href="http://www.sugarsync.com">SugarSync</a> </div>
-  <div class="description"> A Photos product, now called SugarSync.
+  <div class="description"> For our Photos product, now called <a href="http://www.sugarsync.com">SugarSync</a>,
       I integrated
       <a href="http://www.kakadusoftware.com/">Kakadu's implementation</a>
       of JPEG2000 and prototyped the same with
@@ -891,90 +832,72 @@ $(function() {
       which I wrote custom very fast fixed-point image libraries.
       My implementation was shown off within Palm to demonstrate,
       &quot;hey, these new Windows phones have a lot of horsepower!  Look
-      how fast the graphics can be!&quot;
+      how fast the graphics can be!&quot; Code ran on WinCE and Windows2000.
+      Our client apps team was two people - I focused on graphics and
+      custom image decoding.
   </div>
-  <div class="tools"> C++, libjpeg, Visual Studio, Win32, Windows Mobile,
-    Windows CE, JPEG2000 </div>
-  <div class="role"> Co-author (2-man team), focused on graphics </div>
   <div class="pictures">
-       Win32: <a href="sharpcast1.jpg" class="fancybox">
+       Win32: <a href="ss/sharpcast1.jpg" class="fancybox">
            <img src="thumbs/sharpcast1.png" /></a>
-        <a href="sharpcast2.jpg" class="fancybox">
+        <a href="ss/sharpcast2.jpg" class="fancybox">
            <img src="thumbs/sharpcast2.png" /></a> <br/>
-      Windows Mobile: <a href="scmobile1.png" class="fancybox">
+      Windows Mobile: <a href="ss/scmobile1.png" class="fancybox">
            <img src="thumbs/scmobile1.png" /></a>
-        <a href="scmobile2.png" class="fancybox">
+        <a href="ss/scmobile2.png" class="fancybox">
            <img src="thumbs/scmobile2.png" /></a>
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">TapWave Graphics Hardware Acceleration</div>
   <div class="dates"> 2004 - 2005 </div>
-  <div class="organization">
-    <a href="http://www.giantbomb.com/tapwave-inc/65-763/">TapWave</a> </div>
   <div class="description"> Hardware acceleration support for the
       <a href="ss/Tapwave_Zodiac2_640.jpeg">TapWave
-      Zodiac</a>. </div>
-  <div class="tools"> C, PalmOS, Linux </div>
-  <div class="role"> Sole programmer, PalmOS hardware acceleration
-    project </div>
+      Zodiac</a>, created by <a href="http://www.giantbomb.com/tapwave-inc/65-763/">TapWave</a> using PalmOS. </div>
   <div class="pictures">
-    <a href="ss/Tapwave_Zodiac2_640.jpeg"
-      class="fancybox" >
+    <a href="ss/Tapwave_Zodiac2_640.jpeg" class="fancybox" >
       <img src="thumbs/Tapwave_Zodiac2_640.png" alt="Tapwave Zodiac" /> </a> </div>
 </div>
 
-<div data-tags="professional c">
+<div data-tags="fulltime c">
   <div class="title">BroadCom Set-Top Boxes</div>
   <div class="dates"> 2002 - 2003 </div>
-  <div class="organization"> <a href="http://www.broadcom.com">BroadCom</a> </div>
   <div class="description"> Captioning APIs (CC, CGMS, WSS, TeleText) for
     various BroadCom cable set-top boxes (including
     <a href="http://www.broadcom.com/products/BCM97115">97115</a>, 7110)
   </div>
-  <div class="tools"> C, custom hardware, Linux, ClearCase </div>
-  <div class="role"> Software engineer, individual contributor </div>
   <div class="pictures">
-    <a href="broadcom-97115.png" class="fancybox"><img src="thumbs/broadcom-97115.png" /></a>
+    <a href="ss/broadcom-97115.png" class="fancybox"><img src="thumbs/broadcom-97115.png" /></a>
   </div>
 </div>
 
-<div data-tags="professional c">
+<div data-tags="fulltime c">
   <div class="title">NVidia Graphics Drivers</div>
   <div class="dates"> 2003 - 2004 </div>
-  <div class="organization"> <a href="http://nvidia.com">NVidia</a> </div>
-  <div class="description"> Linux graphics drivers for iTanium and Intel
+  <div class="description"> Engineer on Linux NVidia graphics drivers for iTanium and Intel.
   </div>
-  <div class="tools"> C, Linux, Perforce </div>
-  <div class="role"> Software engineer, individual contributor </div>
   <div class="pictures">
-    <a href="nvidia_driver_1.png" class="fancybox">
+    <a href="ss/nvidia_driver_1.png" class="fancybox">
       <img src="thumbs/nvidia_driver_1.png" /> </a>
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">PalmOS SD Card Support</div>
   <div class="dates"> 2000 - 2002 </div>
-  <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
   <div class="description"> File system and launcher integration of apps
-    on SD cards for PalmOS (launched with m500-series) </div>
-  <div class="tools"> C, PalmOS, MacOS 9, MPW, Perforce </div>
-  <div class="role"> Team engineer, later maintainer of launcher </div>
+    on SD cards for PalmOS (launched with m500-series.) I was on the
+    team of 4 engineers building this. </div>
   <div class="pictures">
-    <a href="m505.jpg" class="fancybox"> <img src="thumbs/m505.png" /> </a>
+    <a href="ss/m505.jpg" class="fancybox"> <img src="thumbs/m505.png" /> </a>
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">PalmOS HostFS</div>
   <div class="dates"> 2000 - 2001 </div>
-  <div class="organization"> <a href="http://www.palm.com">Palm</a> </div>
   <div class="description"> HostFS, a file-system emulator for the PalmOS
-    Emulator</div>
-  <div class="tools"> C, PalmOS, MacOS 9, MPW, Perforce </div>
-  <div class="role"> Original author, primary maintainer </div>
+    Emulator</div>.
   <div class="pictures">
       <a href="ss/pose_1.png" class="fancybox">
         <img alt="A newer emulator.  The old one was blockier."
@@ -982,7 +905,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="professional c mobile">
+<div data-tags="fulltime c mobile">
   <div class="title">Automated Source-Code Analysis and Generation</div>
   <div class="dates"> 1999 - 2000 </div>
   <div class="organization"> <a href="http://nowsol.com/">NOW Solutions</a> </div>
@@ -990,19 +913,16 @@ $(function() {
       RIPC, a system to generate CORBA-like pairs of proxies and stubs.
       It used a Perl script to generate the code from C++ headers, including
       inheritance information and additional keywords for timing and
-      data handling. </div>
-  <div class="tools"> C++, Perl, WinCE 2.1 </div>
-  <div class="role"> Original author, sole maintainer </div>
+      data handling. This was used by NOW Solutions for embedded WinCE in-vehicle
+      tracking. </div>
   <div class="pictures">
-      <a href="nowsol_3.png" class="fancybox"><img src="thumbs/nowsol_3.png" /></a>
-      <a href="nowsol_1.png" class="fancybox"><img src="thumbs/nowsol_1.png" /></a>
-      <a href="nowsol_2.png" class="fancybox"><img src="thumbs/nowsol_2.png" /></a>
-      <br/> These are from the container-tracking system for which I
-      wrote RIPC
+      <a href="ss/nowsol_3.png" class="fancybox"><img src="thumbs/nowsol_3.png" /></a>
+      <a href="ss/nowsol_1.png" class="fancybox"><img src="thumbs/nowsol_1.png" /></a>
+      <a href="ss/nowsol_2.png" class="fancybox"><img src="thumbs/nowsol_2.png" /></a>
   </div>
 </div>
 
-<div data-tags="professional">
+<div data-tags="fulltime">
   <div class="title">Callout Tools from a Highly Dynamic Language</div>
   <div class="dates"> 1995 - 1997 </div>
   <div class="organization"> The <a href="http://www.cs.cmu.edu/~gwydion/">
@@ -1015,12 +935,12 @@ $(function() {
   <div class="tools"> C, Dylan, MINDY, d2c, HPUX, AIX </div>
   <div class="role"> Student programmer </div>
   <div class="pictures">
-      <a href="gwydion-1.png" class="fancybox"><img src="thumbs/gwydion-1.png" /></a>
-      <a href="gwydion-2.png" class="fancybox"><img src="thumbs/gwydion-2.png" /></a>
+      <a href="ss/gwydion-1.png" class="fancybox"><img src="thumbs/gwydion-1.png" /></a>
+      <a href="ss/gwydion-2.png" class="fancybox"><img src="thumbs/gwydion-2.png" /></a>
   </div>
 </div>
 
-<div data-tags="product ruby">
+<div data-tags="product ruby speaking">
   <div class="title">No More Lost Data</div>
   <div class="dates"> 2016 </div>
   <div class="description">
@@ -1044,7 +964,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="product ruby">
+<div data-tags="product ruby writing">
   <div class="title">Rails Deploy in an Hour</div>
   <div class="dates"> 2014-2015 </div>
   <div class="description">
@@ -1097,9 +1017,9 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="product ruby">
+<div data-tags="product ruby writing">
   <div class="title">Octopress Bootstrap Sites</div>
-  <div class="dates"> 2014 and later </div>
+  <div class="dates"> 2014 to present </div>
   <div class="description">
     I redesigned <a href="http://codefol.io">Codefol.io</a> and
     <a href="http://rebuilding-rails.com">several</a> <a href="http://rails-deploy-in-an-hour.com">product</a>
@@ -1110,14 +1030,15 @@ $(function() {
   <div class="tools"> Octopress, Jekyll, Rack, Liquid Markup, Disqus </div>
   <div class="role"> Author </div>
   <div class="pictures">
-    <a href="codefolio-1.png" class="fancybox">
+    <a href="ss/codefolio-1.png" class="fancybox">
       <img src="thumbs/codefolio-1.png" /></a>
   </div>
 </div>
 
 <div data-tags="product ruby">
   <div class="title">Rebuilding Rails</div>
-  <div class="dates"> 2012 and later </div>
+  <div class="dates"> 2012 to present </div>
+  <div class="sort_dates"> 2012, 2019 </div>
   <div class="description"> <a
   href="http://rebuilding-rails.com">Rebuilding Rails</a>, an ebook on
     starting your new Rails-like framework from scratch.  &quot;Understand
@@ -1126,18 +1047,18 @@ $(function() {
     I wrote the book.  I wrote the sales site and
     payment code.  I write all the marketing and analytics tracking.<br/>
     Rebuilding Rails was also taught as an in-person class to interested
-    OnLive Rubyists for professional development.
+    OnLive Rubyists for fulltime development.
   </div>
   <div class="tools"> Ruby on Rails, Apple Pages, Stripe.com, Sinatra, Google Analytics </div>
   <div class="role"> Everything </div>
   <div class="pictures">
-    <a href="aa/rr_cover.png" class="fancybox">
+    <a href="ss/rr_cover.png" class="fancybox">
       <img src="thumbs/rr_cover.png" /></a>
-    <a href="rr_site.png" class="fancybox">
+    <a href="ss/rr_site.png" class="fancybox">
       <img src="thumbs/rr_site.png" /></a>
-    <a href="aa/rr_old_site.png" class="fancybox">
+    <a href="ss/rr_old_site.png" class="fancybox">
       <img src="thumbs/rr_old_site.png" /></a>
-    <a href="aa/rr_old_buy.png" class="fancybox">
+    <a href="ss/rr_old_buy.png" class="fancybox">
       <img src="thumbs/rr_old_buy.png" /></a>
   </div>
 </div>
@@ -1193,7 +1114,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal frontend">
+<div data-tags="personal writing">
   <div class="title">This Portfolio</div>
   <div class="dates"> 2010-present </div>
   <div class="sort_dates"> 2010-2015 </div> <!-- Intentionally reduced visual importance -->
@@ -1296,7 +1217,7 @@ $(function() {
 </div>
 
 <div data-tags="personal ruby devops">
-  <div class="title">RailsFrame &mdash; Early Work on Server Automation</div>
+  <div class="title">RailsFrame, for Server Automation and Configuration Management</div>
   <div class="dates"> 2011 </div>
   <div class="description">
       <a href="http://github.com/noahgibbs/RailsFrame">RailsFrame</a>,
@@ -1318,7 +1239,7 @@ $(function() {
       <a href="https://github.com/noahgibbs/wantmyjob.com">WantMyJob</a>, a web app for
       trading suggestions about finding good employers. Ruby on Rails.
       My first significant Rails app, rewritten multiple times as I
-      improved.
+      improved. It was useless in practice, but invaluable exercise.
   </div>
   <div class="role"> Sole author </div>
   <div class="pictures">
@@ -1352,15 +1273,15 @@ $(function() {
   <div class="title">My Blog, the Early Years</div>
   <div class="dates"> 2009 - 2010 </div>
   <div class="description">
-      <a href="http://codefol.io">It's now called Codefol.io</a>
-      (<a href="http://github.com/noahgibbs/blog/tree/master">old implementation</a>),
-      a simple Rails-based blog, from scratch.
+      <a href="http://codefol.io">Once called Blog.angelbob.com,</a>
+      (<a href="http://github.com/noahgibbs/blog/tree/master">ancient implementation</a>),
+      it was a simple Rails-based blog, from scratch.
       Includes route mappings to translate
-      from old WordPress entries,
+      from ancient WordPress entries,
       Disqus comments, tags, and other
-      normal blog features.  Mostly mentioned for content, not codebase.
+      normal blog features. I mention it for content, not codebase.
       This was some of the first content I carried forward with me, treating
-      it as something important to preserve.
+      it as something important to transition and to preserve.
   </div>
   <div class="pictures">
       <a href="blog_2009_1.png" class="fancybox">
@@ -1375,7 +1296,7 @@ $(function() {
 </div>
 
 <div data-tags="personal ruby">
-  <div class="title">DiffEQ, My First Real RubyGem</div>
+  <div class="title">DiffEQ, My First RubyGem</div>
   <div class="dates"> 2006-2007, 2010 </div>
   <div class="description">
       <a href="http://diffeq.rubyforge.org">DiffEQ</a>
@@ -1465,7 +1386,7 @@ $(function() {
   </div>
 </div>
 
-<div data-tags="personal silly javascript">
+<div data-tags="personal silly">
   <div class="title">Facelets</div>
   <div class="dates"> 2007, 2010, 2012 </div>
   <div class="description">
