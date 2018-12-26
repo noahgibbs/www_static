@@ -18,6 +18,12 @@ div#tagbox a {
   text-decoration: none;
 }
 
+div.card[data-tags] {
+  width: 80%;
+  padding: 5%;
+  margin: 5%;
+}
+
 div.curved {
   border-radius:8px;
 }
