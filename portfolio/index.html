@@ -18,6 +18,13 @@
 <body>
 
 <script type="text/javascript">
+
+// This isn't guaranteed to match the calendar year. A "blah to present" entry may
+// sort differently since that doesn't guarantee it's been touched recently.
+// There's not really a perfect answer here... When in doubt, explicit sort dates
+// fix the problem.
+var PRESENT_DATE_YEAR=2018;
+
 function get_all_tags() {
   var tags_hash = {};
 
@@ -29,6 +36,54 @@ function get_all_tags() {
   });
 
   return tags_hash;
+}
+
+// Find the mentioned dates for an entry. If there are override
+// dates for different sorting or the word "present", treat
+// those appropriately.
+function find_dates(a) {
+  var sort_date_string = $(a).find("div.sort_dates").html();
+  var real_date_string = $(a).find("div.dates").html();
+  var date_string = sort_date_string ? sort_date_string : real_date_string;
+
+  var all_matches = date_string.match(/\d{4}/g);
+  var present_match = date_string.match(/present/);
+
+  var first_date = parseInt(Math.min.apply(null, all_matches));
+  var last_date = present_match ? PRESENT_DATE_YEAR : parseInt(Math.max.apply(null, all_matches));
+
+  return [first_date, last_date];
+}
+
+function sort_child_nodes(selector) {
+  var children = $(selector);
+  var parent = children.parent();
+
+  var child_array = [];
+  children.each(function() {
+    child_array.push(this);
+    $(this).remove();
+  });
+
+  // Sort on the most recent year found.
+  // With equal most recent years, sort on the least recent.
+  child_array.sort(function(a, b) {
+    var a_dates = find_dates(a);
+    var first_a = a_dates[0];
+    var last_a = a_dates[1];
+    var b_dates = find_dates(b);
+    var first_b = b_dates[0];
+    var last_b = b_dates[1];
+
+    if(last_a === last_b)
+      return first_b - first_a;
+
+    return last_b - last_a;
+  });
+
+  for(var i = 0; i < child_array.length; i++) {
+    $(parent).append(child_array[i]);
+  }
 }
 
 var last_selected = "nobody_at_all";
@@ -69,7 +124,7 @@ $(function() {
   var data_selector = "div[data-tags]";
   var all_projects = $(data_selector);
 
-  //sort_child_nodes(data_selector);
+  sort_child_nodes(data_selector);
 
   // Replace every project div with a templatized version
   all_projects.each(function() {
@@ -82,11 +137,7 @@ $(function() {
     for(var field in project_fields) {
       var spot = $(this).find("." + field + "_here");
       spot.append(field_objs[field].contents());
-      //field_objs[field].appendTo(spot);
     }
-    //var title_elt = field_objs["title"].length > 0 ?
-    //  field_objs["title"] : field_objs["organization"];
-    //$(this).find(".title_here").html(title_elt.html());
   });
 
   $("img").addClass("shadow");
