@@ -18,6 +18,10 @@ div#tagbox a {
   text-decoration: none;
 }
 
+div#tagbox div {
+  margin: 3px;
+}
+
 div.card[data-tags] {
   width: 85%;
   margin: 5%;
