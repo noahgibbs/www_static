@@ -95,16 +95,20 @@ function select_top_tag(tag) {
   if(tag.substring(1) == last_selected) return;
 
   last_selected = tag.substring(1);
+  var count = 0;
 
   if(last_selected == "all") {
     // Show all hidden divs
     $("div[data-tags]:hidden").animate({height: 'show'});
+    count = $("div[data-tags]").size();
   } else {
     // Hide all visible entries not matching the new tag
     $("div[data-tags]:visible:not(div[data-tags~='" + last_selected + "'])").animate({height: 'hide'});
 
     // Show all hidden divs matching the new tag
     $("div[data-tags~='" + last_selected + "']:hidden").animate({height: 'show'});
+
+    count = $("div[data-tags~='" + last_selected + "']").size();
   }
 
   $("#tagbox div").remove();
@@ -119,6 +123,7 @@ function select_top_tag(tag) {
   }
 
   $("#tagbox").animate({top: "+=10"}, 'fast').animate({top: "-=10"}, 'fast');
+  $("#items_displayed").text(count + " items displayed");
 }
 
 $(function() {
@@ -194,6 +199,7 @@ $(function() {
 </nav>
 
 <div id="tagbox"> </div> <!-- For tag buttons -->
+<div id="items_displayed"></div>
 
 <div id="template" class="card border-primary" style="display:none;">
   <h3 class="card-title card-header"><span class="title_here"></span> <span class="dates_here text-muted float-right font-italic"></span></h3>

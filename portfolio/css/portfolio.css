@@ -9,9 +9,17 @@
 
 div#tagbox {
   width: 90%;
-  margin: 5%;
+  margin-left: 5%;
   position: relative;
   margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+div#items_displayed {
+  margin-left: 5%;
+  position: relative;
+  font-size: 80%;
+  color: #C0C0C0;
 }
 
 div#tagbox a {
