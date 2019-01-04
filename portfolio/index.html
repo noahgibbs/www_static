@@ -141,6 +141,8 @@ $(function() {
       field_objs[field] = $(this).find("." + field).remove();
     }
     $(this).attr("class", $("#template").attr("class"));
+    var new_id = $(this).attr("id") === undefined ? ("entry-" + field_objs["title"].text()) : $(this).attr("id");
+    $(this).attr("id", new_id);
     $(this).html($("#template").html()).hide();
     for(var field in project_fields) {
       var spot = $(this).find("." + field + "_here");
