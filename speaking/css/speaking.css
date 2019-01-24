@@ -1,0 +1,20 @@
+body {
+}
+
+.top-note {
+  padding: 1em;
+}
+
+div.card {
+  width: 85%;
+  margin: 5%;
+}
+
+div.card img {
+  float:right;
+}
+
+.description {
+  font-size: 120%;
+}
+
