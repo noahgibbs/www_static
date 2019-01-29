@@ -12,6 +12,9 @@ div.card {
 
 div.card img {
   float:right;
+  border: 5px solid gray;
+  margin: 1.5rem;
+  box-shadow: 10px 5px 5px black;
 }
 
 .description {
