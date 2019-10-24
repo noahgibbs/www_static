@@ -1,2 +1,2 @@
 git push
-ssh noah@codefol.io "cd checkouts/www_static && git pull"
+ssh noah@173.230.151.8 "cd checkouts/www_static && git pull"
