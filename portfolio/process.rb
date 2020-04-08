@@ -2,6 +2,8 @@
 
 # Create static HTML from the source files for the directory
 
+# May need to: brew install imagemagick
+
 Dir.chdir(__dir__)
 
 Dir["ss/*"].each do |image|
