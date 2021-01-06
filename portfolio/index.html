@@ -155,8 +155,6 @@ $(function() {
     }
   });
 
-  //$("img").addClass("shadow");
-
   // Open links in description in separate tabs
   $("div[data-tags] .description_here a").attr("target", "_blank");
 
@@ -190,7 +188,10 @@ $(function() {
           <a class="nav-link" href="https://codefol.io">Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://rebuilding-rails.com">My Book</a>
+          <a class="nav-link" href="https://rebuilding-rails.com">Rebuilding Rails (video/ebook)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://software-technique.com">Mastering Software Technique</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/noahgibbs">GitHub</a>
@@ -224,9 +225,8 @@ $(function() {
 <div data-tags="freelance dgd devops">
   <div class="title">SkotOS ChatTheatre</div>
   <div class="dates"> 2020 </div>
-  <div class="sort_dates"> 2020 </div>
   <div class="description">
-    For 20 years, <a href="http://www.skotos.net/">Skotos</a> was a commercial MUD (massively multiplayer text-base game) company. I worked on open-sourcing their code as <a href="https://github.com/ChatTheatre">ChatTheatre</a>. I worked extensively on documentation and install/setup to make it reasonable for an external engineer to get everything ready for development.
+    For 20 years, <a href="http://www.skotos.net/">Skotos</a> was a commercial MUD (massively multiplayer text-base game) company. I helped to open-source their code as <a href="https://github.com/ChatTheatre">ChatTheatre</a>. I worked extensively on documentation and install/setup to make it reasonable for an external engineer to get everything ready for development.
   </div>
   <div class="pictures">
     <a href="ss/skotos_1.png" class="fancybox">
@@ -236,10 +236,29 @@ $(function() {
   </div>
 </div>
 
+<div data-tags="product ruby writing">
+  <div class="title">Codefol.io Writing</div>
+  <div class="dates"> 2010-2021 </div>
+  <div class="description">
+    My <a href="https://codefol.io">personal site</a> was the primary focus
+    of my writing efforts from late 2019 to 2021, and has been active
+    much longer than that. I wrote
+    <a href="https://codefol.io/posts/when-should-you-not-use-rails/">Ruby Weekly's most
+    clicked article of 2020</a>, played with social media and generally increased
+    the yearly revenue of Rebuilding Rails in a variety of ways. <br/><br/>
+    It wasn't profitable enough to remain full-time on it, but we all live and learn.
+  </div>
+  <div class="pictures">
+    <a href="ss/rw_most_clicked.png" class="fancybox">
+      <img src="thumbs/rw_most_clicked.png" /></a>
+    <a href="ss/followers_2001.png" class="fancybox">
+      <img src="thumbs/followers_2001.png" /></a>
+  </div>
+</div>
+
 <div data-tags="freelance ruby writing">
   <div class="title">FastRuby Posts</div>
-  <div class="dates"> 2020 </div>
-  <div class="sort_dates"> 2020 </div>
+  <div class="dates"> 2020-2021 </div>
   <div class="description">
     I wrote some <a href="https://www.fastruby.io/blog/rails/performance/ruby/hows-the-performance-of-ruby-3.0.0-preview1.html">Ruby 3</a>
     and <a href="https://www.fastruby.io/blog/rails/performance/ruby/best-ec2-instance-for-rails-apps.html">performance</a>
@@ -256,7 +275,6 @@ $(function() {
 <div data-tags="personal dgd writing">
   <div class="title">Self-Conscious DGD</div>
   <div class="dates"> 2020 </div>
-  <div class="sort_dates"> 2020 </div>
   <div class="description">
     While working for Skotos on open-sourcing <a href="https://github.com/ChatTheatre/SkotOS">SkotOS for ChatTheatre</a>, I found myself needing a lot more DGD documentation.<br/><br/>
     I wound up writing <a href="https://noahgibbs.github.io/self_conscious_dgd/">a short book on DGD code and how to write it called Self-Conscious DGD</a>.
@@ -269,8 +287,7 @@ $(function() {
 
 <div data-tags="product ruby writing coding">
   <div class="title">Ruby Mad Science</div>
-  <div class="dates"> 2020 to present </div>
-  <div class="sort_dates"> 2020 </div>
+  <div class="dates"> 2020 </div>
   <div class="description">
     <a href="https://rubymadscience.com">Ruby Mad Science</a> was a simple
     educational/courseware site that I set up as a replacement for some
@@ -289,11 +306,11 @@ $(function() {
 <div data-tags="product ruby writing">
   <div class="title">Mastering Software Technique (self-published)</div>
   <div class="dates"> 2019 to present </div>
-  <div class="sort_dates"> 2019 </div>
   <div class="description">
     <a href="https://software-technique.com">Mastering Software Technique</a>, an ebook on
     conscious practice to learn the practical, non-academic discipline of writing code.
-    Similar material became a talk at RubyConf in 2019.
+    <a href="https://www.youtube.com/watch?v=33fAzjOTaDE">My talk at RubyConf in 2019</a>
+    is the short version.
   </div>
   <div class="pictures">
     <a href="ss/mst_1.png" class="fancybox">
@@ -303,8 +320,7 @@ $(function() {
 
 <div data-tags="fulltime ruby writing coding">
   <div class="title">Ruby Fellow for AppFolio</div>
-  <div class="dates"> 2016-present </div>
-  <div class="sort_dates">2019</div>
+  <div class="dates"> 2016-2019 </div>
   <div class="description">
     I was AppFolio's <a href="https://appfolio-engineering.squarespace.com/appfolio-engineering/2016/6/3/ruby-fellow-hired">Ruby fellow</a>,
     a sponsored full-time position working on measurement and tooling for the core Ruby language.
@@ -349,6 +365,23 @@ $(function() {
       <img src="thumbs/fellow_4.png" /> </a> -->
   </div>
 </div>
+
+<div data-tags="personal speaking">
+  <div class="title">Computer Science: Just the Useful Bits Podcast</div>
+  <div class="dates"> 2020 </div>
+  <div class="description">
+    I recorded a <a href="https://justtheusefulbits.com">series of interview podcasts</a>
+    with a variety of software developers about
+    how they learned to program and what they thought of it. I asked a lot about
+    specific techniques (e.g. big-O, state machines) and how/whether they were
+    useful, and university versus boot camp versus self-taught.
+  </div>
+  <div class="pictures">
+    <a class="fancybox" href="ss/jtub_1.png">
+      <img src="thumbs/jtub_1.png" /></a>
+  </div>
+</div>
+
 
 <div data-tags="interview ruby">
   <div class="title">Mike Dominick / The Automator Podcast</div>
@@ -1373,17 +1406,17 @@ $(function() {
 <div data-tags="product ruby writing coding">
   <div class="title">Rebuilding Rails (self-published)</div>
   <div class="dates"> 2012 to present </div>
-  <div class="sort_dates"> 2016, 2019 </div>
+  <div class="sort_dates"> 2016, 2020 </div>
   <div class="description">
-    <a href="http://rebuilding-rails.com">Rebuilding Rails</a>, an ebook on
+    <a href="http://rebuilding-rails.com">Rebuilding Rails</a>, a video class and ebook on
     building your new Rails-like framework from scratch &mdash; &quot;Understand
     Rails by building Rails.&quot; It's also one of the best sources
     of documentation on the Rack framework, which can be difficult to approach.
-    In addition to the book, I wrote the sales site and initial Stripe payment
-    integration, plus marketing materials like email.<br/><br/>
-    Rebuilding Rails has sold a few thousand copies and is one of the few books
+    I filmed and edited the videos. I wrote the sales site and all marketing campaigns plus incidental
+    code like payment processing integrations.<br/><br/>
+    Rebuilding Rails has sold single-digit thousands of copies and is one of the few books
     to help intermediate Rubyists become advanced Rubyists.<br/><br/>
-    Rebuilding Rails was also taught as an in-person class at OnLive and AppFolio, and as a workshop at RailsConf 2019.
+    Rebuilding Rails was also taught as an in-person class at OnLive and AppFolio, and as a workshop at RailsConf 2019 that was the foundation for the video workshops, filmed in 2020.
   </div>
   <div class="pictures">
     <a href="ss/rr_site_2.png" class="fancybox">
