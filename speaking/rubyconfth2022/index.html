@@ -7,6 +7,7 @@
     <li>RubyKaigi 2022 talk: <a href="https://rubykaigi.org/2022/presentations/alanwusx.html">Stories from Developing YJIT</a></li>
     <li><a href=""https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md>Latest YJIT README in CRuby</a></li>
     <li><a href="https://github.com/ruby/ruby/blob/master/doc/yjit/yjit_hacking.md">Latest YJIT Hacking Concepts in CRuby</a></li>
+    <li>For deep details about Ruby bytecode, <a href="https://kddnewton.com/2022/11/30/advent-of-yarv-part-0.html">Kevin Newton's Advent of YARV</a> is fantastic</li>
   </ul>
 
   <p>
@@ -20,12 +21,20 @@
   </p>
 
   <pre>
-    # To Ruby bytecode:
+    # To disassemble Ruby bytecode:
     puts RubyVM::InstructionSequence.disassemble(method :whatever_method)
 
     # Ruby bytecode plus YJIT assembly language (only on dev YJIT):
     puts RubyVM::YJIT.disasm(method :whatever_method)
+
+    # If you want to do YJIT disassembly, you'll need to run with YJIT
+    ruby --yjit my_disassembly_test.rb
+
+    # And when you build Ruby, you'll need to turn on dev YJIT:
+    ./configure --yjit-enable=dev
   </pre>
+
+  <p>
 
   <p>
     You can find more BBV and YJIT talks and papers in the
