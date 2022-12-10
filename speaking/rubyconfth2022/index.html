@@ -2,6 +2,21 @@
 <body>
   <!-- TODO: 'how to build and run YJIT' intro -->
 
+  <p>
+    Want to get started with YJIT? See the <a href="https://github.com/ruby/ruby/blob/master/doc/yjit/yjit.md">latest README</a> for details.
+    The short version goes:
+  </p>
+
+  <pre>
+    # If you have a YJIT-capable Ruby installed, run with the --yjit flag
+    ruby --yjit my_file_to_make_faster.rb
+    RUBYOPT="--yjit" rails server
+
+    # Any Ruby 3.1.0 or later has YJIT support
+    rvm install ruby-3.1
+    ruby-build 3.1.0 ~/.rubies/ruby-3.1.0
+  </pre>
+
   <h2>YJIT Resources</h2>
   <ul>
     <li><a href="https://arxiv.org/abs/1411.0352">Lazy Basic Block Versioning whitepaper</a></li>
